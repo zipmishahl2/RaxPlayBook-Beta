@@ -5,7 +5,7 @@ privilege: TrustedInstaller
 actions: 
   - !writeStatus: {status: "registry"}
 features:
-- features\RaxOS\registry\RaxOSHKCR.yml
+#- features\RaxOS\registry\RaxOSHKCR.yml
 - features\RaxOS\registry\RaxOSHKCU.yml
 - features\RaxOS\registry\RaxOSSoftware.yml
 - features\RaxOS\registry\RaxOSSystem.yml
