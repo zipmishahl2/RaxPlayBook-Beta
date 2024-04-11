@@ -8,9 +8,26 @@ actions:
   - !taskKill: {name: "MicrosoftEdgeUpdate", ignoreErrors: true, }
   - !taskKill: {name: "msedge", ignoreErrors: true, }
   - !taskKill: {name: "MicrosoftEdge*", ignoreErrors: true, }
+  - !taskKill: {name: "smartscreen", ignoreErrors: true, }
   - !taskKill: {name: "setup", ignoreErrors: true, pathContains: "\\Edge", }
   - !service: {name: "edgeupdate", operation: delete}
   - !service: {name: "edgeupdatem", operation: delete}
+  - !service: {name: "MsSecCore", operation: delete}
+  - !service: {name: "MsSecFlt", operation: delete}
+  - !service: {name: "MsSecWfp", operation: delete}
+  - !service: {name: "SecurityHealthService", operation: delete}
+  - !service: {name: "Sense", operation: delete}
+  - !service: {name: "WdBoot", operation: delete}
+  - !service: {name: "WdFilter", operation: delete}
+  - !service: {name: "WdNisDrv", operation: delete}
+  - !service: {name: "WdNisSvc", operation: delete}
+  - !service: {name: "wscsvc", operation: delete}
+  - !service: {name: "MDCoreSvc", operation: delete}
+  - !service: {name: "SgrmAgent", operation: delete}
+  - !service: {name: "SgrmBroker", operation: delete}
+  - !service: {name: "webthreatdefsvc", operation: delete}
+  - !service: {name: "webthreatdefusersvc", operation: delete}
+  - !service: {name: "WinDefend", operation: delete}
   - !service: {name: "MicrosoftEdgeElevationService", operation: delete}
   - !file: {path: "%ProgramFiles(x86)%\\Microsoft"}
   - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge', value: 'NoRemove', type: REG_DWORD, data: '0'}
