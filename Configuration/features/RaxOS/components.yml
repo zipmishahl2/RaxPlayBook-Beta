@@ -243,11 +243,11 @@ actions:
   - !registryKey: {path: "HKCU\\SOFTWARE\\Classes\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"}
   - !registryKey: {path: "HKCU\\SOFTWARE\\Classes\\WOW6432Node\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"}
   - !powerShell:
-  command: '%windir%\\System32\\OneDriveSetup.exe /uninstall'
-  runas: currentUserElevated
+    command: '%windir%\\System32\\OneDriveSetup.exe /uninstall'
+    runas: currentUserElevated
   - !powerShell:
-  command: '%windir%\\SysWOW64\\OneDriveSetup.exe /uninstall'
-  runas: currentUserElevated
+    command: '%windir%\\SysWOW64\\OneDriveSetup.exe /uninstall'
+    runas: currentUserElevated
   - !file: {path: "%windir%\\System32\\OneDriveSetup.exe"}
   - !file: {path: "%windir%\\SysWOW64\\OneDriveSetup.exe"}
   - !file: {path: "%windir%\\SysWOW64\\OneDriveSettingSyncProvider.dll"}
@@ -416,6 +416,7 @@ actions:
   - !file: {path: "%windir%\\System32\\embeddedmodesvc.dll"}
   - !file: {path: "%windir%\\System32\\embeddedmodesvcapi.dll"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.SecHealthUI_*"}
+  - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.Windows.ContentDeliveryManager_*"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.Services.Store.Engagement_*"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.WindowsAppRuntime.*"}
   - !file: {path: "%windir%\\servicing\\Packages\\Microsoft-Windows-Client-Features-removable-Package*"}

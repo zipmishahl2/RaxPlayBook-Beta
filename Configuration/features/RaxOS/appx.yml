@@ -5,67 +5,68 @@ privilege: TrustedInstaller
 actions:
   
   - !writeStatus: {status: "Removing Appx"}
-  - !appx: {name: '*Disney*', type: family, weight: 10}
-  - !appx: {name: '*microsoft.microsoftedge.stable*', type: family, ignoreErrors: true, weight: 10}
-  - !appx: {name: '*Microsoft.MicrosoftEdge*', type: family, ignoreErrors: true, weight: 10}
-  - !appx: {name: '*Microsoft.MicrosoftEdgeDevToolsClient*', ignoreErrors: true, type: family, weight: 10}
+  - !appx: {name: '*Disney*', type: family}
+  - !appx: {name: '*microsoft.microsoftedge.stable*', type: family, ignoreErrors: true}
+  - !appx: {name: '*Microsoft.MicrosoftEdge*', type: family, ignoreErrors: true}
+  - !appx: {name: '*Microsoft.MicrosoftEdgeDevToolsClient*', ignoreErrors: true, type: family}
   - !file: {path: "C:\\Windows\\SystemApps\\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe", ignoreErrors: true}
-  - !appx: {name: '*OneDrive*', type: family, ignoreErrors: true, weight: 10}
-  - !appx: {name: '*Spotify*', type: family, weight: 10}=
-  - !appx: {name: '*SecureAssessmentBrowser*', type: family, weight: 10}
-  - !appx: {name: '*PeopleExperienceHost*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Windows.Photos*', type: family,, weight: 10}
-  - !appx: {name: '*Microsoft.WindowsCamera*', type: family, weight: 10}
+  - !appx: {name: '*OneDrive*', type: family, ignoreErrors: true}
+  - !appx: {name: '*Spotify*', type: family}
+  - !appx: {name: '*SecureAssessmentBrowser*', type: family}
+  - !appx: {name: '*PeopleExperienceHost*', type: family}
+  - !appx: {name: '*Microsoft.Windows.Photos*', type: family,}
+  - !appx: {name: '*Microsoft.WindowsCamera*', type: family}
   - !powerShell:
     command: 'Get-AppxPackage MicrosoftWindows.Client.WebExperience | Remove-AppxPackage'
     runas: currentUserElevated
-  - !appx: {name: '*MicrosoftWindows.Client.WebExperience*', ignoreErrors: true, type: family, weight: 10}
-  - !appx: {name: '*Microsoft.WindowsAlarms*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.WindowsMaps*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.MicrosoftStickyNotes*', type: family, weight: 10}
-  - !appx: {name: '*microsoft.windowscommunicationsapps*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.People*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.BingNews*', type: family, weight: 10}
-  - !appx: {name: '*BingSearch*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.BingWeather*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.MicrosoftSolitaireCollection*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.WindowsFeedbackHub*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.GetHelp*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Getstarted*', type: family, weight: 10}
-   - !appx: {name: '*WebExperienceHost*', type: app, unregister: true, weight: 10}
-  - !appx: {name: '*Microsoft.Todos*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.PowerAutomateDesktop*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.549981C3F5F10*', type: family, weight: 10}  
-  - !appx: {name: '*MicrosoftCorporationII.QuickAssist*', type: family, weight: 10}
-  - !appx: {name: '*MicrosoftCorporationII.MicrosoftFamily*', type: family, weight: 10}  
-  - !appx: {name: '*Microsoft.ZuneMusic*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.ZuneVideo*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.WindowsSoundRecorder*', type: family, weight: 10}
-  - !appx: {name: '*Clipchamp.Clipchamp*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Whiteboard*', type: family, weight: 10}
-  - !appx: {name: '*microsoft.microsoftskydrive*', type: family, weight: 10}  
-  - !appx: {name: '*Microsoft.MicrosoftTeamsforSurfaceHub*', type: family, weight: 10}
-  - !appx: {name: '*MicrosoftCorporationII.MailforSurfaceHub*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.MicrosoftPowerBIForWindows*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.SkypeApp*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.MicrosoftOfficeHub*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Office.Excel*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Office.PowerPoint*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Office.Word*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Office.OneNote*', type: family, weight: 10}
-  - !appx: {name: '*OutlookForWindows*', type: family, weight: 10}
-  - !appx: {name: '*OutlookPWA*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Microsoft3DViewer*', type: family, weight: 10}
-  - !appx: {name: 'Microsoft.Advertising*', type: family, weight: 10}
-  - !appx: {name: '*MixedReality.Portal*', type: family, weight: 10}  
-  - !appx: {name: '*Microsoft.MSPaint*', type: family, weight: 10}
+  - !appx: {name: '*MicrosoftWindows.Client.WebExperience*', ignoreErrors: true, type: family}
+  - !appx: {name: '*Microsoft.WindowsAlarms*', type: family}
+  - !appx: {name: '*Microsoft.WindowsMaps*', type: family}
+  - !appx: {name: '*Microsoft.MicrosoftStickyNotes*', type: family}
+  - !appx: {name: '*microsoft.windowscommunicationsapps*', type: family}
+  - !appx: {name: '*Microsoft.People*', type: family}
+  - !appx: {name: '*Microsoft.BingNews*', type: family}
+  - !appx: {name: '*BingSearch*', type: family}
+  - !appx: {name: '*Microsoft.BingWeather*', type: family}
+  - !appx: {name: '*Microsoft.MicrosoftSolitaireCollection*', type: family}
+  - !appx: {name: '*Microsoft.WindowsFeedbackHub*', type: family}
+  - !appx: {name: '*Microsoft.GetHelp*', type: family}
+  - !appx: {name: '*Microsoft.Getstarted*', type: family}
+  - !appx: {name: '*WebExperienceHost*', type: app, unregister: true}
+  - !appx: {name: '*Microsoft.Todos*', type: family}
+  - !appx: {name: '*Microsoft.PowerAutomateDesktop*', type: family}
+  - !appx: {name: '*Microsoft.549981C3F5F10*', type: family}  
+  - !appx: {name: '*MicrosoftCorporationII.QuickAssist*', type: family}
+  - !appx: {name: '*MicrosoftCorporationII.MicrosoftFamily*', type: family}  
+  - !appx: {name: '*Microsoft.ZuneMusic*', type: family}
+  - !appx: {name: '*Microsoft.ZuneVideo*', type: family}
+  - !appx: {name: '*Microsoft.WindowsSoundRecorder*', type: family}
+  - !appx: {name: '*Clipchamp.Clipchamp*', type: family}
+  - !appx: {name: '*Microsoft.Whiteboard*', type: family}
+  - !appx: {name: '*microsoft.microsoftskydrive*', type: family}  
+  - !appx: {name: '*Microsoft.MicrosoftTeamsforSurfaceHub*', type: family}
+  - !appx: {name: '*MicrosoftCorporationII.MailforSurfaceHub*', type: family}
+  - !appx: {name: '*Microsoft.MicrosoftPowerBIForWindows*', type: family}
+  - !appx: {name: '*Microsoft.SkypeApp*', type: family}
+  - !appx: {name: '*Microsoft.MicrosoftOfficeHub*', type: family}
+  - !appx: {name: '*Microsoft.Office.Excel*', type: family}
+  - !appx: {name: '*Microsoft.Office.PowerPoint*', type: family}
+  - !appx: {name: '*Microsoft.Office.Word*', type: family}
+  - !appx: {name: '*Microsoft.Office.OneNote*', type: family}
+  - !appx: {name: '*OutlookForWindows*', type: family}
+  - !appx: {name: '*OutlookPWA*', type: family}
+  - !appx: {name: '*Microsoft.Microsoft3DViewer*', type: family}
+  - !appx: {name: 'Microsoft.Advertising*', type: family}
+  - !appx: {name: '*MixedReality.Portal*', type: family}  
+  - !appx: {name: '*Microsoft.MSPaint*', type: family}
   - !taskKill: {name: "*teams*", ignoreErrors: true}
-  - !appx: {name: '*MicrosoftTeams*', type: family, weight: 10}
-  - !appx: {name: '*DevHome*', type: family, weight: 10}  
-  - !appx: {name: '*WindowsBackup*', type: app, unregister: true, weight: 10}
-  - !appx: {name: '*Flipgrid*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Xbox*', type: family, weight: 10}
+  - !appx: {name: '*MicrosoftTeams*', type: family}
+  - !appx: {name: '*DevHome*', type: family}  
+  - !appx: {name: '*WindowsBackup*', type: app, unregister: true}
+  - !appx: {name: '*Flipgrid*', type: family}
+  - !appx: {name: '*Microsoft.Xbox*', type: family}
   - !appx: {name: '*Microsoft.GamingApp*', type: family}
   - !appx: {name: '*Microsoft.XboxApp*', type: family}   
-  - !appx: {name: '*Microsoft.YourPhone*', type: family, weight: 10}
-  - !appx: {name: '*MicrosoftWindows.CrossDevice*', type: family, weight: 10}
+  - !appx: {name: '*Microsoft.YourPhone*', type: family}
+  - !appx: {name: '*MicrosoftWindows.CrossDevice*', type: family}
+  - !appx: {name: '*Microsoft.SecHealthUI*', type: family}
