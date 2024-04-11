@@ -4,7 +4,6 @@ description: HKEY_LOCAL_MACHINE_SOFTWARE
 privilege: TrustedInstaller
 actions:
 
-- !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce', value: '"POST INSTALL"', type: REG_SZ, data: '"\"C:\\Windows\\Modules\\Script.bat\""'}
 - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: '"ConsentPromptBehaviorAdmin"', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: '"EnableLUA"', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: '"PromptOnSecureDesktop"', type: REG_DWORD, data: '0'}
