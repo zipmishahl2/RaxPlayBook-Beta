@@ -5,3 +5,4 @@ privilege: Admin
 actions: []
 features:
 - features\RaxOS\registry.yml
+- features\RaxOS\components.yml
