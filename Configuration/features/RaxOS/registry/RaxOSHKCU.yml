@@ -60,7 +60,6 @@ actions:
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', value: '"ContentDeliveryAllowed"', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', value: '"SubscribedContentEnabled"', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', value: '"SubscribedContent-310093Enabled"', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', value: '"SoftLandingEnabled'"', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', value: '"PreInstalledAppsEnabled"', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', value: '"PreInstalledAppsEverEnabled"', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', value: '"OemPreInstalledAppsEnabled"', type: REG_DWORD, data: '0'}
