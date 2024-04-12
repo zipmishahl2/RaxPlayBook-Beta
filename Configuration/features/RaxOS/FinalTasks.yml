@@ -34,6 +34,12 @@ actions:
   exe: "EDGE.CMD"
 - !run: 
   exeDir: true
+  exe: "WALLPAPER.CMD"
+- !run: 
+  exeDir: true
+  exe: "TimerRes.CMD"  
+- !run: 
+  exeDir: true
   exe: "FINALIZE.CMD"
   weight: 150
 - !appx: {operation: clearCache, name: '*Client.CBS*'}

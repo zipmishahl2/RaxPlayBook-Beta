@@ -293,13 +293,7 @@ for %%z in (
 ) do (
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\%%z" /v "Start" /t REG_DWORD /d "4" /f
 )
-ver | findstr /i "10\.0\.[0-1][0-9][0-9][0-9][0-9]*" > nul
-if %errorlevel% equ 0 (
-    Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" /v "GlobalUserDisabled" /t Reg_DWORD /d "1" /f 
-    Reg add "HKLM\Software\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsRunInBackground" /t Reg_DWORD /d "2" /f 
-    Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v "BackgroundAppGlobalToggle" /t Reg_DWORD /d "0" /f 
-    Reg.exe delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Windows\SetTimerResolution.exe --resolution 5067 --no-console" 
-    del /q "C:\Windows\SetTimerResolution.exe" 
+
  
 set BACKUP="C:\Windows\srvbackup\RaxOS-Default-services.reg"
 echo Windows Registry Editor Version 5.00 >>%BACKUP%
