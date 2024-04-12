@@ -3,6 +3,7 @@ title: Scheduled Tasks
 description: Disabling/Deleting Scheduled Tasks
 privilege: TrustedInstaller
 actions:
+
 - !writeStatus {status: "Disabling Scheduled Tasks"}
 - !scheduledTask: {path: '\Microsoft\Windows\Diagnosis\Scheduled', operation: disable}
 - !scheduledTask: {path: '\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector', operation: disable}
@@ -56,5 +57,3 @@ actions:
 - !scheduledTask: {path: '\Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task', operation: delete}
 - !scheduledTask: {path: '\Microsoft\Windows\UpdateOrchestrator\Schedule Wake To Work', operation: delete}
 - !scheduledTask: {path: '\Microsoft\Windows\UpdateOrchestrator\Start Oobe Expedite Work', operation: delete}
-- path: '\Microsoft\Windows\Windows Defender'
-  operation: deleteFolder
