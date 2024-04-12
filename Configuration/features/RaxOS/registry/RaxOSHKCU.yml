@@ -37,7 +37,7 @@ actions:
   - !registryValue: { path: 'HKEY_CURRENT_USER\Control Panel\Keyboard', value: '"PrintScreenKeyForSnippingEnabled"', type: REG_DWORD, data: '1' }
   - !registryValue: { path: 'HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell', value: '"FolderType"', type: REG_SZ, data: '"NotSpecified"' }
   - !registryValue: { path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack', value: '"ShowedToastAtLevel"', type: REG_DWORD, data: '1' }
-  - !registryValue: { path: 'HKLM\Software\Policies\Microsoft\Windows\EdgeUI', value: '"DisableMFUTracking"', type: REG_DWORD, data: '1' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\EdgeUI', value: '"DisableMFUTracking"', type: REG_DWORD, data: '1' }
   - !registryValue: { path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\EdgeUI', value: '"DisableMFUTracking"', type: REG_DWORD, data: '1' }
   - !registryValue: { path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: '"NoNetConnectDisconnect"', type: REG_DWORD, data: '1' }
   - !registryValue: { path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\QuietHours', value: '"Enable"', type: REG_DWORD, data: '1' }
@@ -265,3 +265,22 @@ actions:
   - !registryValue: { path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo', value: '"Enabled"', type: REG_DWORD, data: '0' }
   - !registryValue: { path: 'HKEY_CURRENT_USER\Software\Classes\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo', value: '"Enabled"', type: REG_DWORD, data: '0' }
   - !registryValue: { path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AppHost', value: '"EnableWebContentEvaluation"', type: REG_DWORD, data: '0' }
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'UserPreferencesMask', type: REG_BINARY, data: '9012038010000000'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewShadow', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewAlphaSelect', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects', value: 'VisualFXSetting', type: REG_DWORD, data: '3'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAnimations', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM', value: 'Blur', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM', value: 'Animations', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_SZ, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'IconsOnly', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM', value: 'EnableAeroPeek', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'DragFullWindows', type: REG_SZ, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_SZ, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM', value: 'AlwaysHibernateThumbnails', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'SystemUsesLightTheme', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'AppsUseLightTheme', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Hidden', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', operation: delete}
+
