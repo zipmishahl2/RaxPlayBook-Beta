@@ -1,3 +1,9 @@
+---
+title: HKEY_LOCAL_MACHINE_SYSTEM
+description: HKEY_LOCAL_MACHINE_SYSTEM
+privilege: TrustedInstaller
+actions:
+
   - !registryValue: { path: 'HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener', value: '"Start"', type: REG_DWORD, data: '0' }
   - !registryValue: { path: 'HKLM\SYSTEM\Maps', value: '"UpdateOnlyOnWifi"', type: REG_DWORD, data: '1' }
   - !registryValue: { path: 'HKLM\SYSTEM\Maps', value: '"AutoUpdateEnabled"', type: REG_DWORD, data: '0' }
