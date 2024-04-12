@@ -29,15 +29,17 @@ actions:
 - !run: 
   exeDir: true
   exe: "DEVMANVIEW.CMD"      
-- !run: 
-  exeDir: true
-  exe: "FINALIZE.CMD"
-  weight: 150  
 - !run:
   exeDir: true
   exe: "PowerShell"
   args: '-NoP -ExecutionPolicy Bypass -File DISM.ps1'
-  weight:
+- !run: 
+  exeDir: true
+  exe: "EDGE.CMD"
+- !run: 
+  exeDir: true
+  exe: "FINALIZE.CMD"
+  weight: 150
 - !appx: {operation: clearCache, name: '*Client.CBS*'}
 - !appx: {operation: clearCache, name: '*StartMenuExperienceHost*'}
 - !appx: {operation: clearCache, name: '*Windows.Search*'}
