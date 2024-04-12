@@ -7,18 +7,23 @@ actions:
 - !run: 
   exeDir: true
   exe: "Setup.CMD"
+  weight: 150
 - !run: 
   exeDir: true
   exe: "POW.CMD"
+  weight: 30
 - !run: 
   exeDir: true
   exe: "install.CMD"
+  weight: 100
 - !run: 
   exeDir: true
   exe: "disable-process-mitigations.CMD"  
+  weight: 40
 - !run: 
   exeDir: true
   exe: "DEVMANVIEW.CMD"    
+  weight: 35
 - !appx: {operation: clearCache, name: '*Client.CBS*'}
 - !appx: {operation: clearCache, name: '*StartMenuExperienceHost*'}
 - !appx: {operation: clearCache, name: '*Windows.Search*'}

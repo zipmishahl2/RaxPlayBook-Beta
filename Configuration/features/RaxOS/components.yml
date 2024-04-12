@@ -416,7 +416,7 @@ actions:
   - !file: {path: "%windir%\\System32\\embeddedmodesvcapi.dll"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.SecHealthUI_*"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.Services.Store.Engagement_*"}
-  - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.WindowsAppRuntime.*"}
+  #- !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.WindowsAppRuntime.*"}
   - !file: {path: "%windir%\\servicing\\Packages\\Microsoft-Windows-Client-Features-removable-Package*"}
   - !file: {path: "%windir%\\servicing\\Packages\\Microsoft-Windows-HVSI-Components-Package*"}
   - !file: {path: "%windir%\\servicing\\Packages\\Microsoft-Windows-HVSI-Components-WOW64-Package*"}
