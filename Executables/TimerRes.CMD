@@ -8,3 +8,4 @@ if %errorlevel% equ 0 (
     Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v "BackgroundAppGlobalToggle" /t Reg_DWORD /d "0" /f 
     Reg.exe delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /f
     del /q "C:\Windows\SetTimerResolution.exe" 
+exit

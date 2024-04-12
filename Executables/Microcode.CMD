@@ -6,3 +6,4 @@ ren mcupdate_AuthenticAMD.dll mcupdate_AuthenticAMD.old
 takeown /f "mcupdate_GenuineIntel.dll"
 icacls "C:\Windows\System32\mcupdate_GenuineIntel.dll" /grant Administrators:F
 ren mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.old
+exit
