@@ -263,7 +263,6 @@ actions:
   - !file: {path: "%windir%\\assembly\\NativeImages_v4.0.30319_32"}
   - !file: {path: "%windir%\\assembly\\NativeImages_v4.0.30319_64"}
   - !file: {path: "%windir%\\InboxApps"}
-  - !file: {path: "%windir%\\System32\\Recovery\\winre.wim"}
   - !file: {path: "%windir%\\System32\\BingMaps.dll"}
   - !file: {path: "%windir%\\System32\\BingOnlineServices.dll"}
   - !file: {path: "%windir%\\HelpPane.exe"}
@@ -416,7 +415,6 @@ actions:
   - !file: {path: "%windir%\\System32\\embeddedmodesvc.dll"}
   - !file: {path: "%windir%\\System32\\embeddedmodesvcapi.dll"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.SecHealthUI_*"}
-  - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.Windows.ContentDeliveryManager_*"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.Services.Store.Engagement_*"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.WindowsAppRuntime.*"}
   - !file: {path: "%windir%\\servicing\\Packages\\Microsoft-Windows-Client-Features-removable-Package*"}
