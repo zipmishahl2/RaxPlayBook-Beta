@@ -1,9 +1,5 @@
 @Echo off
 setlocal EnableDelayedExpansion
-
-:: Execution Policy To Unrestricted
-powershell set-executionpolicy unrestricted -force 
-
 :: Disabling Write Cache Buffer
 	for /f "tokens=*" %%i in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum\SCSI"^| findstr "HKEY"') do (
 		for /f "tokens=*" %%a in ('reg query "%%i"^| findstr "HKEY"') do reg.exe add "%%a\Device Parameters\Disk" /v "CacheIsPowerProtected" /t REG_DWORD /d "1" /f > NUL 2>&1

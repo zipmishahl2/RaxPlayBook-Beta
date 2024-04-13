@@ -31,9 +31,6 @@ actions:
   args: '-NoP -ExecutionPolicy Bypass -File DISM.ps1'
 - !run: 
   exeDir: true
-  exe: "EDGE.CMD"
-- !run: 
-  exeDir: true
   exe: "WALLPAPER.CMD"
 - !run: 
   exeDir: true

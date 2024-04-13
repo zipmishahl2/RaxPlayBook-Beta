@@ -1,0 +1,12 @@
+---
+title: configure-keyboard-and-mouse
+description: configure keyboard and mouse
+privilege: TrustedInstaller
+actions:
+
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Keyboard', value: '"InitialKeyboardIndicators"', type: REG_SZ, data: '"0"'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Keyboard', value: '"KeyboardDelay"', type: REG_SZ, data: '"0"'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Keyboard', value: '"KeyboardSpeed"', type: REG_SZ, data: '"31"'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: '"MouseSpeed"', type: REG_SZ, data: '"0"'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: '"MouseThreshold1"', type: REG_SZ, data: '"0"'}
+  - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: '"MouseThreshold2"', type: REG_SZ, data: '"0"'}

@@ -1,0 +1,8 @@
+---
+title: disable-disk-quota
+description: disable disk quota
+privilege: TrustedInstaller
+actions:
+
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DiskQuota', value: '"Enable"', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DiskQuota', value: '"Enforce"', type: REG_DWORD, data: '0'}

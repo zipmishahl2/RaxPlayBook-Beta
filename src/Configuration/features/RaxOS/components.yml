@@ -5,13 +5,7 @@ privilege: TrustedInstaller
 actions:
 
   - !writeStatus: {status: "Removing Useless Components and Files"}
-  - !taskKill: {name: "MicrosoftEdgeUpdate", ignoreErrors: true, }
-  - !taskKill: {name: "msedge", ignoreErrors: true, }
-  - !taskKill: {name: "MicrosoftEdge*", ignoreErrors: true, }
   - !taskKill: {name: "smartscreen", ignoreErrors: true, }
-  - !taskKill: {name: "setup", ignoreErrors: true, pathContains: "\\Edge", }
-  - !service: {name: "edgeupdate", operation: delete}
-  - !service: {name: "edgeupdatem", operation: delete}
   - !service: {name: "MsSecCore", operation: delete, option: "remove-defender"}
   - !service: {name: "MsSecFlt", operation: delete, option: "remove-defender"}
   - !service: {name: "MsSecWfp", operation: delete, option: "remove-defender"}
@@ -28,11 +22,6 @@ actions:
   - !service: {name: "webthreatdefsvc", operation: delete, option: "remove-defender"}
   - !service: {name: "webthreatdefusersvc", operation: delete, option: "remove-defender"}
   - !service: {name: "WinDefend", operation: delete, option: "remove-defender"}
-  - !service: {name: "MicrosoftEdgeElevationService", operation: delete}
-  - !file: {path: "%ProgramFiles(x86)%\\Microsoft"}
-  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge', value: 'NoRemove', type: REG_DWORD, data: '0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update', value: 'NoRemove', type: REG_DWORD, data: '0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView', value: 'NoRemove', type: REG_DWORD, data: '0'}
   - !taskKill: {name: "OneDriveStandaloneUpdater", ignoreErrors: true, option: "remove-onedrive"}
   - !taskKill: {name: "OneDriveSetup", ignoreErrors: true, option: "remove-onedrive"}
   - !taskKill: {name: "OneDrive*", ignoreErrors: true, option: "remove-onedrive"}
@@ -262,13 +251,8 @@ actions:
   - !file: {path: "%windir%\\SysWOW64\\help.exe"}
   - !file: {path: "%windir%\\System32\\help.exe"}
   - !file: {path: "%windir%\\WinSxS\\Backup"}
-  - !file: {path: "%windir%\\PolicyDefinitions\\MicrosoftEdge.admx"}
-  - !file: {path: "%windir%\\System32\\edgeangle.dll"}
-  - !file: {path: "%windir%\\System32\\EdgeContent.dll"}
-  - !file: {path: "%windir%\\System32\\EdgeResetPlugin.dll"}
-  - !file: {path: "%windir%\\System32\\MicrosoftEdge*"}
   - !file: {path: "%ProgramFiles%\\Windows Defender", option: "remove-defender"}
-  - !file: {path: "%ProgramFiles%\\Windows Defender Advanced Threat Protection, option: "remove-defender""}
+  - !file: {path: "%ProgramFiles%\\Windows Defender Advanced Threat Protection", option: "remove-defender"}
   - !file: {path: "%ProgramFiles(x86)%\\Windows Defender", option: "remove-defender"}
   - !file: {path: "%ProgramData%\\Microsoft\\Windows Defender", option: "remove-defender"}
   - !file: {path: "%ProgramData%\\Microsoft\\Windows Defender Advanced Threat Protection", option: "remove-defender"}
@@ -391,7 +375,7 @@ actions:
   - !file: {path: "%windir%\\SysWOW64\\wscui.cpl"}
   - !file: {path: "%windir%\\SysWOW64\\wbem\\wscenter.mof"}
   - !file: {path: "%windir%\\SysWOW64\\wbem\\en-US\\wscenter.mfl"}
-  - !file: {path: "%windir%\\System32\\SecurityAndMaintenance_Alert.png, option: "remove-defender""}
+  - !file: {path: "%windir%\\System32\\SecurityAndMaintenance_Alert.png", option: "remove-defender"}
   - !file: {path: "%windir%\\System32\\SecurityAndMaintenance_Error.png", option: "remove-defender"}
   - !file: {path: "%windir%\\System32\\en-US\\SettingsHandlers_OneDriveBackup.dll.mui", option: "remove-onedrive"}
   - !file: {path: "%windir%\\System32\\OneDrive.ico", option: "remove-onedrive"}
@@ -539,7 +523,6 @@ actions:
   - !file: {path: "%windir%\\System32\\WinMsoIrmProtector.dll"}
   - !file: {path: "%windir%\\System32\\WinOpcIrmProtector.dll"}
   - !file: {path: "%windir%\\System32\\en-US\\NaturalAuth.dll.mui"}
-  - !file: {path: "%windir%\\System32\\Microsoft-Edge-Webview"}
   - !file: {path: "%windir%\\System32\\en-US\\regsvc.dll.mui"}
   - !file: {path: "%windir%\\System32\\en-US\\RMActivate.exe.mui"}
   - !file: {path: "%windir%\\System32\\en-US\\RMActivate_isv.exe.mui"}
@@ -586,5 +569,15 @@ actions:
   - !file: {path: "%ProgramData%\\Microsoft\\Windows\\Start Menu\\Programs\\Accessibility"}
   - !file: {path: "%ProgramData%\\Microsoft\\Windows\\Start Menu\\Programs\\Accessories"}
   - !file: {path: "%ProgramData%\\Microsoft\\Windows\\Start Menu\\Programs\\Maintenance"}
+  - !powerShell:
+    command: "set-executionpolicy unrestricted -force"
+    runas: currentUserElevated  
+  - !powerShell:
+    command: '& """.\RemoveEdge.ps1""" -UninstallEdge -RemoveEdgeData -NonInteractive'
+    runas: currentUserElevated
+    option: 'remove-edge'
+    wait: true
+    exeDir: true
+  - !file: {path: "%windir%\\System32\\Microsoft-Edge-Webview", option: "remove-webview"}
   
   # - !run: {exe: "explorer.exe", wait: false}

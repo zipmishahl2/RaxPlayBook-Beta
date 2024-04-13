@@ -69,4 +69,4 @@ actions:
   - !appx: {name: '*Microsoft.XboxApp*', type: family}   
   - !appx: {name: '*Microsoft.YourPhone*', type: family}
   - !appx: {name: '*MicrosoftWindows.CrossDevice*', type: family}
-  - !appx: {name: '*Microsoft.SecHealthUI*', type: family}
+  - !appx: {name: '*Microsoft.SecHealthUI*', type: family, option: "remove-defender"}
