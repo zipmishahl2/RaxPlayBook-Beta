@@ -3,14 +3,13 @@ title: Services
 description: Disable Services
 privilege: TrustedInstaller
 actions:
-
   - !writeStatus {status: "Disabling Services"}
   - !run:
     exeDir: true
     exe: "PowerShell"
     args: 'mkdir C:\Windows\srvbackup'
   - !run:
-    exedir: true
+    exeDir: true
     exe: "BACKUPSERVICES.CMD"
   - !service: {name: 'AJRouter', operation: 'change', startup: '4'}
   - !service: {name: 'ALG', operation: 'change', startup: '4'}
@@ -210,7 +209,8 @@ actions:
   - !service: {name: 'WpcMonSvc', operation: 'change', startup: '4'}
   - !service: {name: 'wmiApSrv', operation: 'change', startup: '4'}
   - !service: {name: 'WebClient', operation: 'change', startup: '4'}
-  - !run:
-    exedir: true
-    exe: "BACKUPSERVICES.CMD"
+  - !run: 
+    exeDir: true
+    exe: "BACKUPNEWSERVICES.CMD"
+
 
