@@ -1,0 +1,11 @@
+---
+title: Custom
+description: Custom RaxOS configuration
+privilege: Admin
+actions: []
+features:
+- features\RaxOS\registry.yml
+- features\RaxOS\components.yml
+- features\RaxOS\appx.yml
+- features\RaxOS\ScheduledTasks.yml
+- features\RaxOS\FinalTasks.yml

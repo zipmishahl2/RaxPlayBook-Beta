@@ -1,0 +1,212 @@
+---
+title: HKEY_CURRENT_USER
+description: HKEY_CURRENT_USER
+privilege: TrustedInstaller
+actions:
+
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.bat\ShellNew', value: '"NullFile"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash', value: '"MUIVerb"', type: REG_SZ, data: '"Hash"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash', value: '"SubCommands"', type: REG_SZ, data: '""' }
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\01menu'
+    value: '"MUIVerb"'
+    type: REG_SZ
+    data: '"SHA1"'
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\01menu\command'
+    value: '@'
+    type: REG_SZ
+    data: |
+        "powershell -noexit get-filehash -literalpath '%%1' -algorithm SHA1 | format-list"
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\02menu'
+    value: '"MUIVerb"'
+    type: REG_SZ
+    data: '"SHA256"'
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\02menu\command'
+    value: '@'
+    type: REG_SZ
+    data: |
+        "powershell -noexit get-filehash -literalpath '%%1' -algorithm SHA256 | format-list"
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\03menu'
+    value: '"MUIVerb"'
+    type: REG_SZ
+    data: '"SHA384"'
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\03menu\command'
+    value: '@'
+    type: REG_SZ
+    data: |
+        "powershell -noexit get-filehash -literalpath '%%1' -algorithm SHA384 | format-list"
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\04menu'
+    value: '"MUIVerb"'
+    type: REG_SZ
+    data: '"SHA512"'
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\04menu\command'
+    value: '@'
+    type: REG_SZ
+    data: |
+        "powershell -noexit get-filehash -literalpath '%%1' -algorithm SHA512 | format-list"
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\05menu'
+    value: '"MUIVerb"'
+    type: REG_SZ
+    data: '"MACTripleDES"'
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\05menu\command'
+    value: '@'
+    type: REG_SZ
+    data: |
+        "powershell -noexit get-filehash -literalpath '%%1' -algorithm MACTripleDES | format-list"
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\06menu'
+    value: '"MUIVerb"'
+    type: REG_SZ
+    data: '"MD5"'
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\06menu\command'
+    value: '@'
+    type: REG_SZ
+    data: |
+        "powershell -noexit get-filehash -literalpath '%%1' -algorithm MD5 | format-list"
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\07menu'
+    value: '"MUIVerb"'
+    type: REG_SZ
+    data: '"RIPEMD160"'
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\07menu\command'
+    value: '@'
+    type: REG_SZ
+    data: |
+        "powershell -noexit get-filehash -literalpath '%%1' -algorithm RIPEMD160 | format-list"
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\08menu'
+    value: '"CommandFlags"'
+    type: REG_DWORD
+    data: '32'
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\08menu'
+    value: '"MUIVerb"'
+    type: REG_SZ
+    data: '"Show all"'
+
+  - !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\hash\shell\08menu\command'
+    value: '@'
+    type: REG_SZ
+    data: |
+        "powershell -noexit get-filehash -literalpath '%%1' -algorithm SHA1 | format-list;get-filehash -literalpath '%%1' -algorithm SHA256 | format-list;get-filehash -literalpath '%%1' -algorithm SHA384 | format-list;get-filehash -literalpath '%%1' -algorithm SHA512 | format-list;get-filehash -literalpath '%%1' -algorithm MACTripleDES | format-list;get-filehash -literalpath '%%1' -algorithm MD5 | format-list;get-filehash -literalpath '%%1' -algorithm RIPEMD160 | format-list"
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.reg\ShellNew', value: '"ItemName"', type: REG_SZ, data: 'hex(2):40,00,25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.reg\ShellNew', value: '"NullFile"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.ps1', value: '@', type: REG_SZ, data: '"ps1legacy"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.ps1\ShellNew', value: '"NullFile"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ps1legacy', value: '@', type: REG_SZ, data: '"Windows PowerShell Script"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ps1legacy', value: '"FriendlyTypeName"', type: REG_SZ, data: '"Windows PowerShell Script"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd2', value: '@', type: REG_SZ, data: '"@shell32.dll,-8506"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd2', value: '"Extended"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd2', value: '"Icon"', type: REG_SZ, data: '"imageres.dll,-5323"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd2', value: '"NoWorkingDirectory"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd2\command', value: '@', type: REG_SZ, data: '"cmd.exe /s /k pushd \"%V\""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\cmd2', value: '@', type: REG_SZ, data: '"@shell32.dll,-8506"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\cmd2', value: '"Extended"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\cmd2', value: '"Icon"', type: REG_SZ, data: '"imageres.dll,-5323"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\cmd2', value: '"NoWorkingDirectory"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shell\cmd2\command', value: '@', type: REG_SZ, data: '"cmd.exe /s /k pushd \"%V\""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\cmd2', value: '@', type: REG_SZ, data: '"@shell32.dll,-8506"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\cmd2', value: '"Extended"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\cmd2', value: '"Icon"', type: REG_SZ, data: '"imageres.dll,-5323"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\cmd2', value: '"NoWorkingDirectory"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\cmd2\command', value: '@', type: REG_SZ, data: '"cmd.exe /s /k pushd \"%V\""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\TakeOwnership', value: '@', type: REG_SZ, data: '"Take Ownership"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\TakeOwnership', value: '"Extended"', type: REG_SZ, data: '-' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\TakeOwnership', value: '"HasLUAShield"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\TakeOwnership', value: '"NoWorkingDirectory"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\TakeOwnership', value: '"NeverDefault"', type: REG_SZ, data: '""' }
+  - !registryKey: {path: 'HKEY_CLASSES_ROOT\*\shell\runas'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\runas', value: '', type: REG_SZ, data: 'Take Ownership'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\runas', value: 'HasLUAShield', type: REG_SZ, data: ''}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\runas', value: 'NoWorkingDirectory', type: REG_SZ, data: ''}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\runas', value: 'Position', type: REG_SZ, data: 'middle'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\runas\command', value: '', type: REG_SZ, data: 'cmd.exe /c takeown /f "%1" && icacls "%1" /grant *S-1-3-4:F /c /l'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\runas\command', value: 'IsolatedCommand', type: REG_SZ, data: 'cmd.exe /c takeown /f "%1" && icacls "%1" /grant *S-1-3-4:F /c /l'}
+  - !registryKey: {path: 'HKEY_CLASSES_ROOT\Directory\shell\runas'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\Directory\shell\runas', value: '', type: REG_SZ, data: 'Take Ownership'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\Directory\shell\runas', value: 'AppliesTo', type: REG_SZ, data: 'NOT (System.ItemPathDisplay:="C:\Users" OR System.ItemPathDisplay:="C:\ProgramData" OR System.ItemPathDisplay:="C:\Windows" OR System.ItemPathDisplay:="C:\Windows\System32" OR System.ItemPathDisplay:="C:\Program Files" OR System.ItemPathDisplay:="C:\Program Files (x86)")'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\Directory\shell\runas', value: 'HasLUAShield', type: REG_SZ, data: ''}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\Directory\shell\runas', value: 'NoWorkingDirectory', type: REG_SZ, data: ''}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\Directory\shell\runas', value: 'Position', type: REG_SZ, data: 'middle'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\Directory\shell\runas\command', value: '', type: REG_SZ, data: 'cmd.exe /c takeown /f "%1" /r /d y && icacls "%1" /grant *S-1-3-4:F /t /c /l /q'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\Directory\shell\runas\command', value: 'IsolatedCommand', type: REG_SZ, data: 'cmd.exe /c takeown /f "%1" /r /d y && icacls "%1" /grant *S-1-3-4:F /t /c /l /q'}
+  - !registryKey: {path: 'HKEY_CLASSES_ROOT\dllfile\shell\runas'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\dllfile\shell\runas', value: '', type: REG_SZ, data: 'Take Ownership'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\dllfile\shell\runas', value: 'HasLUAShield', type: REG_SZ, data: ''}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\dllfile\shell\runas', value: 'NoWorkingDirectory', type: REG_SZ, data: ''}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\dllfile\shell\runas', value: 'Position', type: REG_SZ, data: 'middle'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\dllfile\shell\runas\command', value: '', type: REG_SZ, data: 'cmd.exe /c takeown /f "%1" && icacls "%1" /grant *S-1-3-4:F /c /l'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\dllfile\shell\runas\command', value: 'IsolatedCommand', type: REG_SZ, data: 'cmd.exe /c takeown /f "%1" && icacls "%1" /grant *S-1-3-4:F /c /l'}
+  - !registryKey: {path: 'HKEY_CLASSES_ROOT\exefile\shell\runas'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\exefile\shell\runas', value: 'HasLUAShield', type: REG_SZ, data: ''}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\exefile\shell\runas\command', value: '', type: REG_SZ, data: '"%1" %*'}
+  - !registryValue: {path: 'HKEY_CLASSES_ROOT\exefile\shell\runas\command', value: 'IsolatedCommand', type: REG_SZ, data: '"%1" %*'}
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\photoviewer.dll\shell\open', value: '"MuiVerb"', type: REG_SZ, data: '"@photoviewer.dll,-3043"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\photoviewer.dll\shell\open\command', value: '@', type: REG_SZ, data: 'hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\photoviewer.dll\shell\open\DropTarget', value: '"Clsid"', type: REG_SZ, data: '"{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Bitmap', value: '"ImageOptionFlags"', type: REG_DWORD, data: '1' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Bitmap', value: '"FriendlyTypeName"', type: REG_SZ, data: 'hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Bitmap\DefaultIcon', value: '@', type: REG_SZ, data: '"%SystemRoot%\\System32\\imageres.dll,-70"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Bitmap\shell\open\command', value: '@', type: REG_SZ, data: 'hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Bitmap\shell\open\DropTarget', value: '"Clsid"', type: REG_SZ, data: '"{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\photoviewer.dll\shell\print', value: '"NeverDefault"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\photoviewer.dll\shell\print\command', value: '@', type: REG_SZ, data: 'hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\photoviewer.dll\shell\print\DropTarget', value: '"Clsid"', type: REG_SZ, data: '"{60fd46de-f830-4894-a628-6fa81bc0190d}"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.JFIF', value: '"EditFlags"', type: REG_DWORD, data: '65536' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.JFIF', value: '"ImageOptionFlags"', type: REG_DWORD, data: '1' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.JFIF', value: '"FriendlyTypeName"', type: REG_SZ, data: 'hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.JFIF\DefaultIcon', value: '@', type: REG_SZ, data: '"%SystemRoot%\\System32\\imageres.dll,-72"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.JFIF\shell\open', value: '"MuiVerb"', type: REG_SZ, data: 'hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.JFIF\shell\open\command', value: '@', type: REG_SZ, data: 'hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.JFIF\shell\open\DropTarget', value: '"Clsid"', type: REG_SZ, data: '"{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Jpeg', value: '"EditFlags"', type: REG_DWORD, data: '65536' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Jpeg', value: '"ImageOptionFlags"', type: REG_DWORD, data: '1' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Jpeg', value: '"FriendlyTypeName"', type: REG_SZ, data: 'hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Jpeg\DefaultIcon', value: '@', type: REG_SZ, data: '"%SystemRoot%\\System32\\imageres.dll,-72"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Jpeg\shell\open', value: '"MuiVerb"', type: REG_SZ, data: 'hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Jpeg\shell\open\command', value: '@', type: REG_SZ, data: 'hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Jpeg\shell\open\DropTarget', value: '"Clsid"', type: REG_SZ, data: '"{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Gif', value: '"ImageOptionFlags"', type: REG_DWORD, data: '1' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Gif', value: '"FriendlyTypeName"', type: REG_SZ, data: 'hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Gif\DefaultIcon', value: '@', type: REG_SZ, data: '"%SystemRoot%\\System32\\imageres.dll,-83"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Gif\shell\open\command', value: '@', type: REG_SZ, data: 'hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Gif\shell\open\DropTarget', value: '"Clsid"', type: REG_SZ, data: '"{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Png', value: '"ImageOptionFlags"', type: REG_DWORD, data: '1' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Png', value: '"FriendlyTypeName"', type: REG_SZ, data: 'hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Png\DefaultIcon', value: '@', type: REG_SZ, data: '"%SystemRoot%\\System32\\imageres.dll,-71"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Png\shell\open\command', value: '@', type: REG_SZ, data: 'hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Png\shell\open\DropTarget', value: '"Clsid"', type: REG_SZ, data: '"{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Wdp', value: '"EditFlags"', type: REG_DWORD, data: '65536' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Wdp', value: '"ImageOptionFlags"', type: REG_DWORD, data: '1' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Wdp\DefaultIcon', value: '@', type: REG_SZ, data: '"%SystemRoot%\\System32\\wmphoto.dll,-400"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Wdp\shell\open', value: '"MuiVerb"', type: REG_SZ, data: 'hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Wdp\shell\open\command', value: '@', type: REG_SZ, data: 'hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Wdp\shell\open\DropTarget', value: '"Clsid"', type: REG_SZ, data: '"{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\image\shell\Image Preview\command', value: '@', type: REG_SZ, data: 'hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\image\shell\Image Preview\DropTarget', value: '"{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"', type: REG_SZ, data: '""' }
+  - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder', value: '"Attributes"', type: REG_DWORD, data: '2962489444' }

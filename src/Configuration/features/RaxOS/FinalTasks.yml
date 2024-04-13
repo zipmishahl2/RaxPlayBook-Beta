@@ -1,0 +1,48 @@
+---
+title: Final Tasks
+description: Finalizing The RaxOS Playbook Installation
+privilege: TrustedInstaller
+actions:
+- !writeStatus {status: "Finalizing Setup"}
+- !run: 
+  exeDir: true
+  exe: "POW.CMD"
+  weight: 30
+- !run: 
+  exeDir: true
+  exe: "install.CMD"
+  weight: 100
+- !run: 
+  exeDir: true
+  exe: "disable-process-mitigations.CMD"  
+  weight: 40
+- !run: 
+  exeDir: true
+  exe: "Microcode.CMD"    
+- !run: 
+  exeDir: true
+  exe: "Laptop.CMD"      
+- !run: 
+  exeDir: true
+  exe: "DEVMANVIEW.CMD"      
+- !run:
+  exeDir: true
+  exe: "PowerShell"
+  args: '-NoP -ExecutionPolicy Bypass -File DISM.ps1'
+- !run: 
+  exeDir: true
+  exe: "EDGE.CMD"
+- !run: 
+  exeDir: true
+  exe: "WALLPAPER.CMD"
+- !run: 
+  exeDir: true
+  exe: "TimerRes.CMD"  
+- !run: 
+  exeDir: true
+  exe: "FINALIZE.CMD"
+  weight: 150
+- !appx: {operation: clearCache, name: '*Client.CBS*'}
+- !appx: {operation: clearCache, name: '*StartMenuExperienceHost*'}
+- !appx: {operation: clearCache, name: '*Windows.Search*'}
+- !appx: {operation: clearCache, name: '*TCUI*'}
