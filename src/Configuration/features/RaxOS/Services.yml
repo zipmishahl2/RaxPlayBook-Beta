@@ -1,8 +1,8 @@
 ---
 title: Services
-descritpion: Disable Services
-privilege: TurstedInstaller
-action:
+description: Disable Services
+privilege: TrustedInstaller
+actions:
 
   - !wrireStatus {status: "Disabling Services"}
   - !run:
