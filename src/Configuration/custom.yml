@@ -8,4 +8,5 @@ features:
 - features\RaxOS\components.yml
 - features\RaxOS\appx.yml
 - features\RaxOS\ScheduledTasks.yml
+- features\RaxOS\Services.yml
 - features\RaxOS\FinalTasks.yml
