@@ -5,32 +5,7 @@ privilege: TrustedInstaller
 actions: 
   - !writeStatus: {status: "registry"}
 features:
-- features\RaxOS\registry\configure-context-menu.yml
-- features\RaxOS\registry\rax-oem-info.yml
-- features\RaxOS\registry\restore-photoviewer.yml
-- features\RaxOS\registry\configure-keyboard-and-mouse.yml
-- features\RaxOS\registry\enable-audio-communications-do-nothing.yml
-- features\RaxOS\registry\diasble-uac.yml
-- features\RaxOS\registry\disable-system-restore.yml
-- features\RaxOS\registry\disable-logging.yml
-- features\RaxOS\registry\disable-teams-from-installing.yml
-- features\RaxOS\registry\disable-ease-of-access-features.yml
-- features\RaxOS\registry\disable-disk-defragmentation.yml
-- features\RaxOS\registry\disable-disk-checking.yml
-- features\RaxOS\registry\disable-automatic-maintenance.yml
-- features\RaxOS\registry\configure-windows-update.yml
-- features\RaxOS\registry\configure-widows-settings.yml
-- features\RaxOS\registry\configure-win32prioritysepartion.yml
-- features\RaxOS\registry\configure-startmenu-and-taskbar.yml
-- features\RaxOS\registry\configure-search.yml
-- features\RaxOS\registry\configure-privacy.yml
-- features\RaxOS\registry\configure-multimedia.yml
-- features\RaxOS\registry\configure-microsoft-store.yml
-- features\RaxOS\registry\configure-ifeo.yml
-- features\RaxOS\registry\configure-explorer.yml
-- features\RaxOS\registry\configure-deprovisioned-apps.yml
-- features\RaxOS\registry\configure-crash-control.yml
-- features\RaxOS\registry\add-take-ownership.yml
-- features\RaxOS\registry\disable-notifications.yml
-- features\RaxOS\registry\disable-disk-quota.yml
-- features\RaxOS\registry\configure-security.yml
+- features\RaxOS\registry\HKCR.yml
+- features\RaxOS\registry\HKCU.yml
+- features\RaxOS\registry\HKLMSOFT.yml
+- features\RaxOS\registry\HKLMSYS.yml

@@ -1,9 +1,0 @@
----
-title: rax-oem-info
-description: rax oem info
-privilege: TrustedInstaller
-actions:
-
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', value: '"Manufacturer"', type: REG_SZ, data: '"Rax | 77"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', value: '"Model"', type: REG_SZ, data: '"RaxOS"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', value: '"SupportURL"', type: REG_SZ, data: '"https://discord.gg/5pXdNUq8bg"'}
