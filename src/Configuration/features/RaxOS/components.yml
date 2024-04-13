@@ -242,20 +242,16 @@ actions:
   - !registryKey: {path: 'HKCU\SOFTWARE\SyncEngines\Providers\OneDrive'}
   - !registryKey: {path: "HKCU\\SOFTWARE\\Classes\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"}
   - !registryKey: {path: "HKCU\\SOFTWARE\\Classes\\WOW6432Node\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"}
-  - !powerShell:
-    command: '%windir%\\System32\\OneDriveSetup.exe /uninstall'
-    runas: currentUserElevated
-  - !powerShell:
-    command: '%windir%\\SysWOW64\\OneDriveSetup.exe /uninstall'
-    runas: currentUserElevated
+  - !run:
+    exedir:     true
+    exe: "Powershell"
+    args: "for %a in ("SysWOW64" "System32") do (if exist "%windir%\%~a\OneDriveSetup.exe" ("%windir%\%~a\OneDriveSetup.exe" /uninstall)) && reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f > nul 2>&1"
   - !file: {path: "%windir%\\System32\\OneDriveSetup.exe"}
   - !file: {path: "%windir%\\SysWOW64\\OneDriveSetup.exe"}
   - !file: {path: "%windir%\\SysWOW64\\OneDriveSettingSyncProvider.dll"}
   - !file: {path: "%SystemDrive%\\OneDriveTemp"}
   - !file: {path: "%ProgramData%\\Microsoft OneDrive"}
   - !file: {path: "%windir%\\Web"}
-  - !file: {path: "%windir%\\System32\\OneDriveSetup.exe"}
-  - !file: {path: "%windir%\\SysWOW64\\OneDriveSetup.exe"}
   - !file: {path: "%ProgramFiles(x86)%\\Windows Mail"}
   - !file: {path: "%ProgramFiles%\\Windows Mail"}
   - !file: {path: "%windir%\\SysWOW64\\MailContactsCalendarSync"}
@@ -546,6 +542,7 @@ actions:
   - !file: {path: "%windir%\\System32\\WinMsoIrmProtector.dll"}
   - !file: {path: "%windir%\\System32\\WinOpcIrmProtector.dll"}
   - !file: {path: "%windir%\\System32\\en-US\\NaturalAuth.dll.mui"}
+  - !file: {path: "%windir%\\System32\\Microsoft-Edge-Webview"}
   - !file: {path: "%windir%\\System32\\en-US\\regsvc.dll.mui"}
   - !file: {path: "%windir%\\System32\\en-US\\RMActivate.exe.mui"}
   - !file: {path: "%windir%\\System32\\en-US\\RMActivate_isv.exe.mui"}
