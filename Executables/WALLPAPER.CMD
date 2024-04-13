@@ -1,8 +1,9 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 robocopy "Web" "%windir%\Web" /E /IM /IT /NP
-robocopy "PostInstall" "C:\" /E /IM /IT /NP
-robocopy "PostInstall.Ink" "%USERPROFILE%\Desktop" /E /IM /IT /NP
+mkdir C:\PostInstall
+robocopy "PostInstall" "C:\PostInstall" /E /IM /IT /NP
+copy "PostInstall.Ink" "%USERPROFILE%\Desktop" /E /IM /IT /NP
 for /d %%x in ("!ProgramData!\Microsoft\Windows\SystemData\*") do (
 	for /d %%y in ("%%x\ReadOnly\LockScreen_*") do (
 		rd /s /q "%%y" 
