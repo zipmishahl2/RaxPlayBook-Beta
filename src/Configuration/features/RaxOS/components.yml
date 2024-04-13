@@ -243,9 +243,14 @@ actions:
   - !registryKey: {path: "HKCU\\SOFTWARE\\Classes\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"}
   - !registryKey: {path: "HKCU\\SOFTWARE\\Classes\\WOW6432Node\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"}
   - !run:
-    exedir:     true
+    exedir: true
     exe: "Powershell"
-    args: 'for %a in ("SysWOW64" "System32") do (if exist "%windir%\%~a\OneDriveSetup.exe" ("%windir%\%~a\OneDriveSetup.exe" /uninstall)) && reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f > nul 2>&1'
+    args: |
+      for %%a in ("SysWOW64" "System32") do (
+        if exist "%windir%\%%~a\OneDriveSetup.exe" (
+          "%windir%\%%~a\OneDriveSetup.exe" /uninstall
+        )
+      ) && reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f > nul 2>&1
   - !file: {path: "%windir%\\System32\\OneDriveSetup.exe"}
   - !file: {path: "%windir%\\SysWOW64\\OneDriveSetup.exe"}
   - !file: {path: "%windir%\\SysWOW64\\OneDriveSettingSyncProvider.dll"}

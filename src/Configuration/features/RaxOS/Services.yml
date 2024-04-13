@@ -4,7 +4,7 @@ description: Disable Services
 privilege: TrustedInstaller
 actions:
 
-  - !wrireStatus {status: "Disabling Services"}
+  - !writeStatus {status: "Disabling Services"}
   - !run:
     exeDir: true
     exe: "PowerShell"
