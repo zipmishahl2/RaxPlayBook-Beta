@@ -83,3 +83,20 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\PhotoViewer.FileAssoc.Wdp\shell\open\DropTarget', value: 'Clsid', type: REG_SZ, data: '{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\image\shell\Image Preview\DropTarget', value: '{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}', type: REG_SZ, data: ''}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder', value: 'Attributes', type: REG_DWORD, data: '2962489444'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shellex\ContextMenuHandlers\EPP', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{09A47860-11B0-4DA5-AFA5-26D86198A780}', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shellex\ContextMenuHandlers\EPP', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shellex\ContextMenuHandlers\EPP', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AllFilesystemObjects\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shellex\ContextMenuHandlers\Sharing', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\Background\shellex\ContextMenuHandlers\Sharing', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shellex\ContextMenuHandlers\Sharing', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shellex\ContextMenuHandlers\Sharing', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\LibraryFolder\background\shellex\ContextMenuHandlers\Sharing', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\UserLibraryFolder\shellex\ContextMenuHandlers\Sharing', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\ShellEx\ContextMenuHandlers\Library Location', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\ShellEx\ContextMenuHandlers\Library Location', operation: delete}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\pintohome', operation: delete}
