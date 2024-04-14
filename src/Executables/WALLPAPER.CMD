@@ -9,6 +9,13 @@ for /d %%x in ("!ProgramData!\Microsoft\Windows\SystemData\*") do (
 		rd /s /q "%%y" 
 	)
 )
-reg add "HKEY_USERS\%~1\Control Panel\Desktop" /v "Wallpaper" /t REG_SZ /d "!windir!\Web\Wallpaper\Windows\img0.jpg" /f
-rmdir /q /s "!appdata!\Microsoft\Windows\Themes"
+for /f "tokens=2 delims==," %%a in ('whoami /user /fo csv ^| findstr /r "[0-9]*-[0-9]*-[0-9]*-[0-9]*-[0-9]*"') do (
+    set "SID=%%a"
+)
+set "SID=!SID:"=!"
+set "SID=!SID: =!"
+reg query "HKEY_USERS\!SID!\Control Panel\Desktop" >nul 2>&1
+reg add "HKEY_USERS\!SID!\Control Panel\Desktop" /v "Wallpaper" /t REG_SZ /d "!windir!\Web\Wallpaper\Windows\img0.jpg" /f
+echo Wallpaper set successfully for user SID !SID!.
+)rmdir /q /s "!appdata!\Microsoft\Windows\Themes"
 exit
