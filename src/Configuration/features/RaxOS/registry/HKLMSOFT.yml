@@ -424,4 +424,13 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace_41040327\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}', operation: delete}
-
+- !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DWM', value: 'DWMA_TRANSITTIONS_FORCEDISABLED', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DWM', value: 'DisallowAnimations', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DWM', value: 'AnimationAttributionEnabled', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'UseOLEDTaskbarTransparency', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', operation: delete}
+- !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings', value: 'ShowHibernateOption', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings', value: 'ShowLockOption', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings', value: 'ShowSleepOption', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked', value: '{e2bf9676-5f8f-435c-97eb-11607a5bedf7}', type: REG_SZ, data: ''}
+- !registryValue: {path: 'HKLM\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked', value: '{e2bf9676-5f8f-435c-97eb-11607a5bedf7}', type: REG_SZ, data: ''}
