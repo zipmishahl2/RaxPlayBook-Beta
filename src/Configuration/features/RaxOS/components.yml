@@ -5,7 +5,7 @@ privilege: TrustedInstaller
 actions:
 
   - !writeStatus: {status: "Removing Useless Components and Files"}
-  - !taskKill: {name: "smartscreen", ignoreErrors: true, }
+  - !taskKill: {name: "smartscreen", ignoreErrors: true, option: "remove-defender" }
   - !service: {name: "MsSecCore", operation: delete, option: "remove-defender"}
   - !service: {name: "MsSecFlt", operation: delete, option: "remove-defender"}
   - !service: {name: "MsSecWfp", operation: delete, option: "remove-defender"}
@@ -25,7 +25,7 @@ actions:
   - !taskKill: {name: "OneDriveStandaloneUpdater", ignoreErrors: true, option: "remove-onedrive"}
   - !taskKill: {name: "OneDriveSetup", ignoreErrors: true, option: "remove-onedrive"}
   - !taskKill: {name: "OneDrive*", ignoreErrors: true, option: "remove-onedrive"}
-  - !service: {name: "OneSyncSvc*",operation: delete}
+  - !service: {name: "OneSyncSvc*",operation: delete, option: "remove-onedrive"}
   - !run: {exeDir: true, exe: "ONED.cmd", option: "remove-onedrive",}
   - !registryKey: {path: 'HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}', option: "remove-onedrive"}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run', value: 'OneDrive', option: "remove-onedrive", operation: delete}
@@ -393,7 +393,6 @@ actions:
   - !file: {path: "%windir%\\System32\\embeddedmodesvcapi.dll"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.SecHealthUI_*", option: "remove-defender"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.Services.Store.Engagement_*"}
-  #- !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.WindowsAppRuntime.*"}
   - !file: {path: "%windir%\\servicing\\Packages\\Microsoft-Windows-Client-Features-removable-Package*"}
   - !file: {path: "%windir%\\servicing\\Packages\\Microsoft-Windows-HVSI-Components-Package*"}
   - !file: {path: "%windir%\\servicing\\Packages\\Microsoft-Windows-HVSI-Components-WOW64-Package*"}
@@ -580,5 +579,10 @@ actions:
     exeDir: true
   - !file: {path: "%windir%\\System32\\Microsoft-Edge-Webview", option: "remove-webview"}
   - !file: {path: "%ProgramFiles(x86)%\\Microsoft", option: "remove-edge"}
+  - !file: {path: "%windir%\\PolicyDefinitions\\MicrosoftEdge.admx", option: "remove-edge"}
+  - !file: {path: "%windir%\\System32\\edgeangle.dll", option: "remove-edge"}
+  - !file: {path: "%windir%\\System32\\EdgeContent.dll", option: "remove-edge"}
+  - !file: {path: "%windir%\\System32\\EdgeResetPlugin.dll", option: "remove-edge"}
+  - !file: {path: "%windir%\\System32\\MicrosoftEdge*", option: "remove-edge"}
   
   # - !run: {exe: "explorer.exe", wait: false}

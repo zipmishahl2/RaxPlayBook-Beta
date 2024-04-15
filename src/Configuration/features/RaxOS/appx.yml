@@ -6,11 +6,11 @@ actions:
   
   - !writeStatus: {status: "Removing Appx"}
   - !appx: {name: '*Disney*', type: family}
-  - !appx: {name: '*microsoft.microsoftedge.stable*', type: family, ignoreErrors: true}
-  - !appx: {name: '*Microsoft.MicrosoftEdge*', type: family, ignoreErrors: true}
-  - !appx: {name: '*Microsoft.MicrosoftEdgeDevToolsClient*', ignoreErrors: true, type: family}
-  - !file: {path: "C:\\Windows\\SystemApps\\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe", ignoreErrors: true}
-  - !appx: {name: '*OneDrive*', type: family, ignoreErrors: true}
+  - !appx: {name: '*microsoft.microsoftedge.stable*', type: family, ignoreErrors: true, option: "remove-edge"}
+  - !appx: {name: '*Microsoft.MicrosoftEdge*', type: family, ignoreErrors: true, option: "remove-edge"}
+  - !appx: {name: '*Microsoft.MicrosoftEdgeDevToolsClient*', ignoreErrors: true, type: family, option: "remove-edge"}
+  - !file: {path: "C:\\Windows\\SystemApps\\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe", ignoreErrors: true, option: "remove-edge"}
+  - !appx: {name: '*OneDrive*', type: family, ignoreErrors: true, option: "remove-onedrive"}
   - !appx: {name: '*Spotify*', type: family}
   - !appx: {name: '*SecureAssessmentBrowser*', type: family}
   - !appx: {name: '*PeopleExperienceHost*', type: family}
@@ -70,4 +70,5 @@ actions:
   - !appx: {name: '*Microsoft.YourPhone*', type: family}
   - !appx: {name: '*MicrosoftWindows.CrossDevice*', type: family}
   - !appx: {name: '*Microsoft.WindowsTerminal*', type: family}
+  - !appx: {name: '*Microsoft.Windows.Ai.Copilot*', type: family}
   - !appx: {name: '*Microsoft.SecHealthUI*', type: family, option: "remove-defender"}
