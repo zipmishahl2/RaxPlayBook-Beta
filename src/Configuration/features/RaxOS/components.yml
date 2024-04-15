@@ -579,5 +579,6 @@ actions:
     wait: true
     exeDir: true
   - !file: {path: "%windir%\\System32\\Microsoft-Edge-Webview", option: "remove-webview"}
+  - !file: {path: "%ProgramFiles(x86)%\\Microsoft", option: "remove-edge"}
   
   # - !run: {exe: "explorer.exe", wait: false}
