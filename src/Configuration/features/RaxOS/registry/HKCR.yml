@@ -101,3 +101,28 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\ShellEx\ContextMenuHandlers\Library Location', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\pintohome', operation: delete}
 - !registryValue: {path: 'HKCR\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder', value: 'Attributes', type: REG_DWORD, data: '2962489444'}
+- !registryKey: {path: 'HKCR\*\shellex\ContextMenuHandlers\ModernSharing'}
+- !registryKey: {path: 'HKCR\AllFilesystemObjects\shellex\ContextMenuHandlers\ModernSharing'}
+- !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked'
+    value: '{7AD84985-87B4-4a16-BE58-8B72A5B390F7}'
+    data: ''
+    type: REG_SZ
+- !registryKey: {path: 'HKCR\*\shellex\ContextMenuHandlers\Sharing'}
+- !registryKey: {path: 'HKCR\Directory\Background\shellex\ContextMenuHandlers\Sharing'}
+- !registryKey: {path: 'HKCR\Directory\shellex\ContextMenuHandlers\Sharing'}
+- !registryKey: {path: 'HKCR\Drive\shellex\ContextMenuHandlers\Sharing'}
+- !registryKey: {path: 'HKCR\LibraryFolder\background\shellex\ContextMenuHandlers\Sharing'}
+- !registryKey: {path: 'HKCR\UserLibraryFolder\shellex\ContextMenuHandlers\Sharing'}
+- !registryKey: {path: 'HKCR\Folder\ShellEx\ContextMenuHandlers\Library Location'}
+- !registryKey: {path: 'HKCR\.bmp\ShellNew'}
+- !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked'
+    value: '{1d27f844-3a1f-4410-85ac-14651078412d}'
+    data: ''
+    type: REG_SZ
+- !registryValue:
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked'
+    value: '{1d27f844-3a1f-4410-85ac-14651078412d}'
+    data: ''
+    type: REG_SZ

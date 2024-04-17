@@ -1,6 +1,7 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
-robocopy "Web" "%windir%\Web" /E /IM /IT /NP
+rmdir /s /q "%windir%\Web"
+robocopy "Web" "%windir%\Web" /E /IM /IT /NP > nul
 mkdir C:\PostInstall
 robocopy "PostInstall" "C:\PostInstall" /E /IM /IT /NP
 copy "PostInstall.Ink" "%USERPROFILE%\Desktop"

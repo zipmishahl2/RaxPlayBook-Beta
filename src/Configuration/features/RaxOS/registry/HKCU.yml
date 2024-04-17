@@ -1,6 +1,6 @@
 ---
-title: HKCU
-description: Configurre HKCU
+title: HKEY_CURRENT_USER
+description: Configurre HKEY_CURRENT_USER
 privilege: TrustedInstaller
 actions:
 
@@ -37,7 +37,6 @@ actions:
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Keyboard', value: 'PrintScreenKeyForSnippingEnabled', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell', value: 'FolderType', type: REG_SZ, data: 'NotSpecified'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack', value: 'ShowedToastAtLevel', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\EdgeUI', value: 'DisableMFUTracking', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\EdgeUI', value: 'DisableMFUTracking', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoNetConnectDisconnect', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\QuietHours', value: 'Enable', type: REG_DWORD, data: '1'}
@@ -249,33 +248,30 @@ actions:
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Classes\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AppHost', value: 'EnableWebContentEvaluation', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Keyboard', value: 'InitialKeyboardIndicators', type: REG_SZ, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Keyboard', value: 'KeyboardDelay', type: REG_SZ, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Keyboard', value: 'KeyboardSpeed', type: REG_SZ, data: '31'}
-- !registryValue: {path: 'HKCU\Control Panel\Mouse', value: 'MouseSpeed', type: REG_SZ, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Mouse', value: 'MouseThreshold1', type: REG_SZ, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Mouse', value: 'MouseThreshold2', type: REG_SZ, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Desktop', value: 'UserPreferencesMask', type: REG_BINARY, data: '9012038010000000'}
-- !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewShadow', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewAlphaSelect', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects', value: 'VisualFXSetting', type: REG_DWORD, data: '3'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAnimations', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM', value: 'Blur', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM', value: 'Animations', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_SZ, data: '0'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'IconsOnly', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM', value: 'EnableAeroPeek', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Desktop', value: 'DragFullWindows', type: REG_SZ, data: '0'}
-- !registryValue: {path: 'HKCU\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_SZ, data: '0'}
-- !registryValue: {path: 'HKCU\Software\Microsoft\Windows\DWM', value: 'AlwaysHibernateThumbnails', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'SystemUsesLightTheme', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'AppsUseLightTheme', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Hidden', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', operation: delete}
-- !registryValue: {path: 'HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32', value: '', type: REG_SZ, data: ''}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Keyboard', value: 'InitialKeyboardIndicators', type: REG_SZ, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Keyboard', value: 'KeyboardDelay', type: REG_SZ, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Keyboard', value: 'KeyboardSpeed', type: REG_SZ, data: '31'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: 'MouseSpeed', type: REG_SZ, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: 'MouseThreshold1', type: REG_SZ, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: 'MouseThreshold2', type: REG_SZ, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'UserPreferencesMask', type: REG_BINARY, data: '9012038010000000'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewShadow', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewAlphaSelect', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects', value: 'VisualFXSetting', type: REG_DWORD, data: '3'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAnimations', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM', value: 'Blur', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM', value: 'Animations', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_SZ, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'IconsOnly', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM', value: 'EnableAeroPeek', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'DragFullWindows', type: REG_SZ, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_SZ, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM', value: 'AlwaysHibernateThumbnails', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'SystemUsesLightTheme', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'AppsUseLightTheme', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Hidden', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', operation: delete}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32', value: '', type: REG_SZ, data: ''}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\International\User Profile', value: 'HttpAcceptLanguageOptOut', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Classes\CLSID\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}', value: 'System.IsPinnedToNameSpaceTree', type: REG_DWORD, data: '0'}
-
-
-
