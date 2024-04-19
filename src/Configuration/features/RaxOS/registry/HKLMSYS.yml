@@ -4,13 +4,26 @@ description: Configure HKEY_LOCAL_MACHINE\SYSTEM
 privilege: TrustedInstaller
 actions:
 
+# - Disable telemetry
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener', value: 'Start', type: REG_DWORD, data: '0'}
+
+# - Disable telemetry
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\Maps', value: 'UpdateOnlyOnWifi', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\Maps', value: 'AutoUpdateEnabled', type: REG_DWORD, data: '0'}
+
+# - Disable LMHOSTS
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NetBT\Parameters', value: 'EnableLMHOSTS', type: REG_DWORD, data: '0'}
+
+# - Allocate processor resources primarily to programs
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl', value: 'Win32PrioritySeparation', type: REG_DWORD, data: '38'}
+
+# - Disable WPBT
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager', value: 'DisableWpbtExecution', type: REG_DWORD, data: '1'}
+
+# - Disable device encryption
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\BitLocker', value: 'PreventDeviceEncryption', type: REG_DWORD, data: '1'}
+
+# - Disable VBS
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSetControl\DeviceGuard', value: 'EnableVirtualizationBasedSecurity', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSetControl\DeviceGuard', value: 'Locked', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSetControl\DeviceGuard', value: 'RequirePlatformSecurityFeatures', type: REG_DWORD, data: '0'}
@@ -18,32 +31,74 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity', value: 'HVCIMATRequired', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity', value: 'Locked', type: REG_DWORD, data: '0'}
+
+# - Configure crash control
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl', value: 'AutoReboot', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl', value: 'CrashDumpEnabled', type: REG_DWORD, data: '3'}
+
+# - Disable Remote assistance
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance', value: 'fAllowFullControl', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance', value: 'fAllowToGetHelp', type: REG_DWORD, data: '0'}
+
+# - Decrease Shutdown Time
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control', value: 'WaitToKillServiceTimeout', type: REG_DWORD, data: '2000'}
+
+# - Disable diagnostic tracing
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Diagnostics\Performance', value: 'DisableDiagnosticTracing', type: REG_DWORD, data: '1'}
+
+# - Disable Meltdown and Inspectre
+# - FeatureSettings has to be set to 1 hexaDecimal to fully Disable these security protections
+# - Disable Paging
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverride', type: REG_DWORD, data: '3'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverrideMask', type: REG_DWORD, data: '3'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettings', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'DisablePagingExecutive', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'DisablePageCombining', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverride', type: REG_DWORD, data: '3'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverrideMask', type: REG_DWORD, data: '3'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'DisablePagingExecutive', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'DisablePageCombining', type: REG_DWORD, data: '1'}
+
+# - Disable Disk Checkup
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager', value: 'BootExecute', type: REG_SZ, data: 'autocheck autochk /k:C*'}
+
+# - Disable prefetcher/superfetch and readyboost
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Memory Management\PrefetchParameters', value: 'EnablePrefetcher', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Memory Management\PrefetchParameters', value: 'EnableSuperfetch', type: REG_DWORD, data: '0'}
+
+# - Disable powershell telemetry
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment', value: 'POWERSHELL_TELEMETRY_OPTOUT', type: REG_DWORD, data: '1'}
+
+# - Disable defender stuff
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Policy', value: 'VerifiedAndReputablePolicyState', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Config', value: 'VulnerableDriverBlocklistEnable', type: REG_DWORD, data: '0'}
+
+# - Block CEIP, Telemetry, and Windows Insider via Firewall
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Defaults\FirewallPolicy\FirewallRules', value: 'Block-Unified-Telemetry-Client', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=DiagTrack|Name=Block-Unified-Telemetry-Client|Desc=Block-Unified-Telemetry-Client|EmbedCtxt=DiagTrack|'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Defaults\FirewallPolicy\FirewallRules', value: 'Block-Windows-Error-Reporting', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=WerSvc|Name=Block-Unified-Error-Reporting|Desc=Block-Windows-Error-Reporting|EmbedCtxt=WerSvc|'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules', value: 'Block-Unified-Telemetry-Client', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=DiagTrack|Name=Block-Unified-Telemetry-Client|Desc=Block-Unified-Telemetry-Client|EmbedCtxt=DiagTrack|'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules', value: 'Block-Windows-Error-Reporting', type: REG_SZ, data: 'v2.31|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\system32\svchost.exe|Svc=WerSvc|Name=Block-Unified-Telemetry-Client|Desc=Block-Windows-Error-Reporting|EmbedCtxt=WerSvc|'}
+
+# - Disable Fast Startup
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power', value: 'HiberbootEnabled', type: REG_DWORD, data: '0'}
+
+# - Disable Hibernate
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power', value: 'HibernateEnabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power', value: 'HibernateEnabledDefault', type: REG_DWORD, data: '0'}
+
+# - Fixing timing precision in Windows after "The Great Rule Change"
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel', value: 'GlobalTimerResolutionRequests', type: REG_DWORD, data: '1'}
+
+# - Delete Stripped Services
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecFlt', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecWfp', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MDCoreSvc', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdate', operation: delete, option: "remove-edge"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdatem', operation: delete, option: "remove-edge"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\embeddedmode', operation: delete, option: "remove-edge"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wisvc', operation: delete}

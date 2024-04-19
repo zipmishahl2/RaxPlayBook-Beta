@@ -11,7 +11,7 @@ setlocal EnableDelayedExpansion
 )
 
 :: Editing Bcdedit
-bcdedit /set {current} nx optin
+bcdedit /set {current} nx AlwaysOff
 bcdedit /set disabledynamictick yes
 bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy
@@ -19,7 +19,6 @@ bcdedit /set hypervisorlaunchtype off
 bcdedit /set isolatedcontext No
 bcdedit /set vsmlaunchtype Off 
 bcdedit /set vm No
-bcdedit /set disableelamdrivers Yes
 bcdedit /set {globalsettings} custom:16000067 true
 bcdedit /set {globalsettings} custom:16000068 true
 bcdedit /set {globalsettings} custom:16000069 true
@@ -93,4 +92,24 @@ Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{71a27cdd
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dhcp" /v "DependOnService" /t REG_MULTI_SZ /d "NSI\0Afd" /f
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache" /v "DependOnService" /t REG_MULTI_SZ /d "nsi" /f
 Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" /v "InactivityShutdownDelay" /t REG_DWORD /d "4294967295" /f
+
+:: Update Health Tools
+msiexec /X{43D501A5-E5E3-46EC-8F33-9E15D2A2CBD5} /qn /norestart >NUL 2>nul
+reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\UpdateHealthTools" /f >NUL 2>nul
+reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\rempl" /f >NUL 2>nul
+reg delete "HKLM\SOFTWARE\Microsoft\CloudManagedUpdate" /f >NUL 2>nul
+rmdir /s /q "%ProgramW6432%\\Microsoft Update Health Tools" >NUL 2>nul
+
+:: PC Health Check
+msiexec /X{804A0628-543B-4984-896C-F58BF6A54832} /qn /norestart >NUL 2>nul
+rmdir /s /q "%ProgramW6432%\\PCHealthCheck" >NUL 2>nul
+
+:: Configuring Windows settings
+net accounts /maxpwage:unlimited
+  
+PowerShell -NonInteractive -NoLogo -NoProfile -Command "Disable-MMAgent -mc"
+PowerShell -NonInteractive -NoLogo -NoProfile -Command "Disable-WindowsErrorReporting"
+
+setx DOTNET_CLI_TELEMETRY_OPTOUT 1
+setx POWERSHELL_TELEMETRY_OPTOUT 1
 exit

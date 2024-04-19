@@ -8,7 +8,7 @@ echo 3. Hyper-V, Remote Desktop
 echo 4. Microsoft Store
 echo 5. Clipboard
 echo 6. Printing
-echo 7. Windows Defender
+echo 7. Windows Defender (Don`t touch if you already removed defender)
 echo 0. Exit
 echo -----------------------------------------
 echo.
@@ -104,7 +104,6 @@ if %bluetooth_option%==1 (
     PowerRun.exe /SW:0 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT" /v "Start" /t REG_DWORD /d "3" /f
     PowerRun.exe /SW:0 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BthMini" /v "Start" /t REG_DWORD /d "3" /f
     PowerRun.exe /SW:0 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HidBth" /v "Start" /t REG_DWORD /d "3" /f
-    devmanview /enable "Microsoft Radio Device Enumeration Bus" > NUL 2>&1
     cls
     echo Bluetooth has been Enabled
     timeout 2 > nul
@@ -125,7 +124,6 @@ if %bluetooth_option%==1 (
     PowerRun.exe /SW:0 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT" /v "Start" /t REG_DWORD /d "4" /f
     PowerRun.exe /SW:0 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BthMini" /v "Start" /t REG_DWORD /d "4" /f
     PowerRun.exe /SW:0 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HidBth" /v "Start" /t REG_DWORD /d "4" /f
-    devmanview /disable "Microsoft Radio Device Enumeration Bus" > NUL 2>&1
     cls
     echo Bluetooth has been Disabled
     timeout 2 > nul

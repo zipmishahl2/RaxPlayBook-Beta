@@ -19,7 +19,7 @@ actions:
   - !powerShell:
     command: 'Get-AppxPackage MicrosoftWindows.Client.WebExperience | Remove-AppxPackage'
     runas: currentUserElevated
-  - !appx: {name: '*MicrosoftWindows.Client.WebExperience*', ignoreErrors: true, type: family}
+  - !appx: {name: '*MicrosoftWindows.Client.WebExperience*', ignoreErrors: true, type: family, weight: 10}
   - !appx: {name: '*Microsoft.WindowsAlarms*', type: family}
   - !appx: {name: '*Microsoft.WindowsMaps*', type: family}
   - !appx: {name: '*Microsoft.MicrosoftStickyNotes*', type: family}
@@ -69,6 +69,9 @@ actions:
   - !appx: {name: '*Microsoft.XboxApp*', type: family}   
   - !appx: {name: '*Microsoft.YourPhone*', type: family}
   - !appx: {name: '*MicrosoftWindows.CrossDevice*', type: family}
-  - !appx: {name: '*Microsoft.WindowsTerminal*', type: family}
+  - !writeStatus: {status: "Removing Windows Backup"}
+  - !appx: {name: '*WindowsBackup*', type: app, unregister: true, option: "remove-appx-wbackup", weight: 10}
+  - !writeStatus: {status: "Removing GetStarted"}
+  - !appx: {name: '*Microsoft.Getstarted*', type: family, weight: 10}
   - !appx: {name: '*Microsoft.Windows.Ai.Copilot*', type: family}
   - !appx: {name: '*Microsoft.SecHealthUI*', type: family, option: "remove-defender"}

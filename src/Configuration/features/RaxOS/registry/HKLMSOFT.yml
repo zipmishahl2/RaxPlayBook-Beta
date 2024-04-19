@@ -4,28 +4,41 @@ description: Configurre HKEY_LOCAL_MACHINE\SOFTWARE
 privilege: TrustedInstaller
 actions:
 
+# - Disable user account control
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'ConsentPromptBehaviorAdmin', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'EnableLUA', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'PromptOnSecureDesktop', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'EnableInstallerDetection', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'EnableSecureUIAPaths', type: REG_DWORD, data: '0'}
+
+# - Defer updates
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'DeferQualityUpdates', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'DeferQualityUpdatesPeriodInDays', type: REG_DWORD, data: '3'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'PauseQualityUpdatesStartTime', type: REG_SZ, data: ''}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'TargetReleaseVersion', type: REG_SZ, data: '23H2'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'ProductVersion', type: REG_SZ, data: 'Windows 11'}
+
+# - Disable feature updates
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'DeferFeatureUpdates', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'DeferFeatureUpdatesPeriodInDays', type: REG_DWORD, data: '365'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'BranchReadinessLevel', type: REG_DWORD, data: '64'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'TargetReleaseVersion', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'PauseFeatureUpdatesStartTime', type: REG_SZ, data: ''}
+
+# - Disable winDows update nagging
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU', value: 'NoAUAsDefaultShutdownOption', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'HideMCTLink', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'RestartNotificationsAllowed2', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'SetAutoRestartNotificationDisable', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'SetUpdateNotificationLevel', type: REG_DWORD, data: '2'}
+
+# - Disable all notification, including restart warnings
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'UpdateNotificationLevel', type: REG_DWORD, data: '2'}
+
+# - Disable delivery optimization
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization', value: 'DODownloadMode', type: REG_DWORD, data: '0'}
+
+# - Disable automatic driver updates
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Update', value: 'ExcludeWUDriversInQualityUpdate', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Update', value: 'ExcludeWUDriversInQualityUpdate', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings', value: 'ExcludeWUDriversInQualityUpdate', type: REG_DWORD, data: '1'}
@@ -35,31 +48,67 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching', value: 'SearchOrderConfig', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching', value: 'DontSearchWindowsUpdate', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching', value: 'DriverUpdateWizardWuSearchEnabled', type: REG_DWORD, data: '0'}
+
+# - Turn off automatic Download and install of updates
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore', value: 'AutoDownload', type: REG_DWORD, data: '4'}
+
+# - Disable safeguards for Feature Updates
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'DisableWUfBSafeguards', type: REG_DWORD, data: '4'}
+
+# - Disable winDows insider
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'ManagePreviewBuilds', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'ManagePreviewBuildsPolicyValue', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PreviewBuild', value: 'AllowBuildPrevie', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PreviewBuild', value: 'EnableConfigFlighting', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PreviewBuild', value: 'EnableExperimentation', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\UI\Visibilit', value: 'HideInsiderPage', type: REG_DWORD, data: '1'}
+
+# - Configure Automatic Updates
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU', value: 'NoAutoUpdate', type: REG_DWORD, data: '2'}
+
+# - Turn off the offer to update to the latest version of windows
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore', value: 'DisableOSUpgrade', type: REG_DWORD, data: '1'}
+
+# - Turn-off automatic Download and update of map-data
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Maps', value: 'AutoDownloadAndUpdateMapData', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Maps', value: 'AutoDownloadAndUpdateMapData', type: REG_DWORD, data: '0'}
+
+# - Prevent Software like razer synapse etc from installing
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Installer', value: 'DisableCoInstallers', type: REG_DWORD, data: '0'}
+
+# - Allow microsoft account to be optional
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'MSAOptional', type: REG_DWORD, data: '1'}
+
+# - Hide unused winDows security pages
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Family options', value: 'UILockdown', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Device performance and health', value: 'UILockdown', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Account protection', value: 'UILockdown', type: REG_DWORD, data: '1'}
+
+# - Disable watson events
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting', value: 'DisableGenericRePorts', type: REG_DWORD, data: '1'}
+
+# - Disable notifications to Disable security intelligence based reports to microsoft maps
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Update', value: 'SignatureDisableNotification', type: REG_DWORD, data: '0'}
+
+# - Disable real-time security intelligence updates based on reports to microsoft maps
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Updates', value: 'RealtimeSignatureDelivery', type: REG_DWORD, data: '0'}
+
+# - Disable security intelligence updates from Microsoft Update
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Updates', value: 'ForceUpdateFromMU', type: REG_DWORD, data: '0'}
+
+# - Disable security intelligence updates when running on battery power
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Update', value: 'DisableScheduledSignatureUpdateOnBattery', type: REG_DWORD, data: '1'}
+
+# - Disable check for the latest virus and spyware security intelligence on startup
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Update', value: 'UpdateOnStartUp', type: REG_DWORD, data: '0'}
+
+# - Disable initiate security intelligence update on startup
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Update', value: 'DisableUpdateOnStartupWithoutEngine', type: REG_DWORD, data: '1'}
+
+# - Disable Turn on scan after security intelligence update
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Update', value: 'DisableScanOnUpdate', type: REG_DWORD, data: '1'}
+
+# - Disable defender stuff
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen', value: 'ConfigureAppInstallControlEnabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen', value: 'ConfigureAppInstallControl', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen', value: 'EnableSmartScreen', type: REG_DWORD, data: '0'}
@@ -68,14 +117,30 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer', value: 'SmartScreenEnabled', type: REG_SZ, data: 'Off'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost', value: 'EnableWebContentEvaluation', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender', value: 'PUAProtection', type: REG_DWORD, data: '0'}
+
+# - Hide winDows security systray
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Systray', value: 'HideSystray', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run', value: 'SecurityHealth', type: REG_SZ, data: ''}
+
+# - Disable Non Critical Notifications
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Notifications', value: 'DisableEnhancedNotifications', type: REG_DWORD, data: '1'}
+
+# - Disable background disk defragmentation
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Dfrg\BootOptimizeFunction', value: 'Enable', type: REG_SZ, data: 'N'}
+
+# - Disable display highly detailed status Messages
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'VerboseStatus', type: REG_DWORD, data: '0'}
+
+# - Disable message service cloud sync
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Messaging', value: 'AllowMessageSync', type: REG_DWORD, data: '0'}
+
+# - Disable background auto-layout
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout', value: 'EnableAutoLayout', type: REG_DWORD, data: '0'}
+
+# - Disable performance track
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WDI\{9c5a40da-b965-4fc3-8781-88dd50a6299d}', value: 'ScenarioExecutionEnabled', type: REG_DWORD, data: '0'}
+
+# - Restore winDows photo viewer
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities', value: 'ApplicationDescription', type: REG_SZ, data: '@%ProgramFiles%\\Windows Photo Viewer\\photoviewer.dll,-3069'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities', value: 'ApplicationName', type: REG_SZ, data: '@%ProgramFiles%\\Windows Photo Viewer\\photoviewer.dll,-3009'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations', value: '.cr2', type: REG_SZ, data: 'PhotoViewer.FileAssoc.Tiff'}
@@ -91,15 +156,39 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations', value: '.gif', type: REG_SZ, data: 'PhotoViewer.FileAssoc.Gif'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations', value: '.tif', type: REG_SZ, data: 'PhotoViewer.FileAssoc.Tiff'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations', value: '.tiff', type: REG_SZ, data: 'PhotoViewer.FileAssoc.Tiff'}
+
+# - Disable disk quota
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\DiskQuota', value: 'Enable', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\DiskQuota', value: 'Enforce', type: REG_DWORD, data: '0'}
+
+# - Hide useless settings
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'SettingsPageVisibility', type: REG_SZ, data: 'hide:recovery;autoplay;usb;maps;maps-downloadmaps;findmydevice;privacy;privacy-speechtyping;privacy-speech;privacy-feedback;privacy-activityhistory;search-permissions;privacy-location;privacy-general;sync;printers;cortana-windowssearch;mobile-devices;mobile-devices-addphone;family-group;deviceusage;home;windowsupdate;windowsdefender;project;deviceencryption;network-airplanemode;delivery-optimization;backup;troubleshoot;windowsinsider'}
+
+# - Disable news and interests on the taskbar
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\NewsAndInterests\AllowNewsAndInterests', value: 'value', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh', value: 'AllowNewsAndInterests', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds', value: 'EnableFeeds', type: REG_DWORD, data: '0'}
+
+# - Disable show recently added apps on startmenu
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'HideRecentlyAddedApps', type: REG_DWORD, data: '1'}
+
+# - Disable windows ink workspace
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace', value: 'AllowSuggestedAppsInWindowsInkWorkspace', type: REG_DWORD, data: '1'}
+
+# - Disable meet now
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'HideSCAMeetNow', type: REG_DWORD, data: '1'}
+
+# - Disable comercial data pipeline
+# - Disable device name to be sent in winDows diagnostic data
+# - Disable authenticated proxy usage for the connected user experience and telemetry service
+# - Disable sending internet history
+# - Disable telemetry change notifications
+# - Disable telemetry opt-in settings
+# - Do not show feedback notifications
+# - Disable winDows analytics
+# - Disable user control over insider builds
+# - Limit diagnostic log collection
+# - Limit dump collection
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection', value: 'AllowCommercialDataPipeline', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection', value: 'AllowDeviceNameInTelemetry', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection', value: 'DisableEnterpriseAuthProxy', type: REG_DWORD, data: '1'}
@@ -111,6 +200,8 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection', value: 'AllowBuildPreview', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection', value: 'LimitDiagnosticLogCollection', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection', value: 'LimitDumpCollection', type: REG_DWORD, data: '1'}
+
+# - Disable telemetry
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection', value: 'AllowTelemetry', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection', value: 'AllowTelemetry', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection', value: 'AllowTelemetry', type: REG_DWORD, data: '0'}
@@ -118,8 +209,15 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\DevicePolicy\AllowTelemetry', value: 'DefaultValue', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Store\AllowTelemetry', value: 'Value', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\DevicePolicy\TailoredExperiencesWithDiagnosticDataEnabled', value: 'DefaultValue', type: REG_DWORD, data: '0'}
+
+# - Disable pre-release features or settings
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds', value: 'EnableConfigFlighting', type: REG_DWORD, data: '0'}
+
+# - Disable help tips
+
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI', value: 'DisableHelpSticker', type: REG_DWORD, data: '1'}
+
+# - Disable vbs
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'EnableVirtualizationBasedSecurity', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'RequirePlatformSecurityFeatures', type: REG_SZ, data: '-'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'HypervisorEnforcedCodeIntegrity', type: REG_SZ, data: '-'}
@@ -131,20 +229,36 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'HVCIMATRequired', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'LsaCfgFlags', type: REG_SZ, data: '-'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'ConfigureSystemGuardLaunch', type: REG_SZ, data: '-'}
+
+# - Disable device health attestation monitoring and reporting
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\DeviceHealthAttestationService', value: 'EnableDeviceHealthAttestationService', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\DeviceHealthAttestationService', value: 'EnableDeviceHealthAttestationService', type: REG_DWORD, data: '0'}
+
+# - disallow remote access to the plug and play interface
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'AllowRemoteRPC', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'AllowRemoteRPC', type: REG_DWORD, data: '0'}
+
+# - Don`t send a windows error report when a generic driver is installed on a device
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendGenericDriverNotFoundToWER', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendGenericDriverNotFoundToWER', type: REG_DWORD, data: '1'}
+
+# - Prevent creation of a system Restore point during device activity that would normally prompt creation of a Restore point
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSystemRestore', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSystemRestore', type: REG_DWORD, data: '1'}
+
+# - Prevent device metadata retrieval from the internet
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Device Metadata', value: 'PreventDeviceMetadataFromNetwork', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Device Metadata', value: 'PreventDeviceMetadataFromNetwork', type: REG_DWORD, data: '1'}
+
+# - Prevent windows from sending an error report when a device driver requests additional software during installation
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendRequestAdditionalSoftwareToWER', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendRequestAdditionalSoftwareToWER', type: REG_DWORD, data: '1'}
+
+# - Turn off winDows update device driver search prompt
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DriverSearching', value: 'DontPromptForWindowsUpdate', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching', value: 'DontPromptForWindowsUpdate', type: REG_DWORD, data: '1'}
+
+# - Don`t sync
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync', value: 'DisableApplicationSettingSync', type: REG_DWORD, data: '2'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync', value: 'DisableApplicationSettingSyncUserOverride', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync', value: 'DisableApplicationSettingSync', type: REG_DWORD, data: '2'}
@@ -165,10 +279,6 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync', value: 'DisableWindowsSettingSyncUserOverride', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync', value: 'DisableWindowsSettingSync', type: REG_DWORD, data: '2'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync', value: 'DisableWindowsSettingSyncUserOverride', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync', value: 'DisableWindowsSettingSync', type: REG_DWORD, data: '2'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync', value: 'DisableWindowsSettingSyncUserOverride', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync', value: 'DisableWindowsSettingSync', type: REG_DWORD, data: '2'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync', value: 'DisableWindowsSettingSyncUserOverride', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync', value: 'DisablePersonalizationSettingSync', type: REG_DWORD, data: '2'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync', value: 'DisablePersonalizationSettingSyncUserOverride', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync', value: 'DisablePersonalizationSettingSync', type: REG_DWORD, data: '2'}
@@ -181,12 +291,21 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync', value: 'DisableSettingSyncUserOverride', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync', value: 'DisableSettingSync', type: REG_DWORD, data: '2'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync', value: 'DisableSettingSyncUserOverride', type: REG_DWORD, data: '0'}
+
+# - Turn off application compatbility engine
+# - Turn off application telemetry 
+# - Turn off problem step recoreder
+# - Turn off program compatibility assistant
+# - Turn off program inventory
+# - Turn off switchback compatibility engine
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat', value: 'DisableEngine', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat', value: 'AITEnable', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat', value: 'DisableUAR', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat', value: 'DisablePCA', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat', value: 'DisableInventory', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat', value: 'SbEnable', type: REG_DWORD, data: '1'}
+
+# - Restrict internet communications
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InternetManagement', value: 'RestrictCommunication', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoPublishingWizard', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoWebServices', type: REG_DWORD, data: '1'}
@@ -200,60 +319,117 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting', value: 'Disabled', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Internet Connection Wizard', value: 'ExitOnMSICW', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EventViewer', value: 'MicrosoftEventVwrDisableLinks', type: REG_DWORD, data: '1'}
+
+# - Disable app launch tracking
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI', value: 'DisableMFUTracking', type: REG_DWORD, data: '1'}
+
+# - Disable ceip
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AppV\CEIP', value: 'CEIPEnable', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\AppV\CEIP', value: 'CEIPEnable', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows', value: 'CEIPEnable', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Messenger\Client', value: 'CEIP', type: REG_DWORD, data: '2'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\SQMClient\Windows', value: 'CEIPEnable', type: REG_DWORD, data: '0'}
+
+# - Turn off handwariting recongnition error reporting
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\HandwritingErrorReports', value: 'PreventHandwritingErrorReports', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports', value: 'PreventHandwritingErrorReports', type: REG_DWORD, data: '1'}
+
+# - Turn off handwariting personalization data sharing
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\TabletPC', value: 'PreventHandwritingDataSharing', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\TabletPC', value: 'PreventHandwritingDataSharing', type: REG_DWORD, data: '1'}
+
+# - disallow use of biometrics
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Biometrics', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Biometrics', value: 'Enabled', type: REG_DWORD, data: '0'}
+
+# - Turn off smart card plug and play service
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\ScPnP', value: 'EnableScPnP', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\ScPnP', value: 'EnableScPnP', type: REG_DWORD, data: '0'}
+
+# - Disable uev
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\UEV\Agent', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\UEV\Agent', value: 'RegisterInboxTemplates', type: REG_SZ, data: '-'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\UEV\Agent', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\UEV\Agent', value: 'RegisterInboxTemplates', type: REG_SZ, data: '-'}
+
+# - Don`t sync settings over metered connections even when roaming
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\UEV\Agent\Configuration', value: 'SyncOverMeteredNetworkWhenRoaming', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\UEV\Agent\Configuration', value: 'SyncOverMeteredNetworkWhenRoaming', type: REG_DWORD, data: '0'}
+
+# - Don`t sync saettings over metered connections
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\UEV\Agent\Configuration', value: 'SyncOverMeteredNetwork', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\UEV\Agent\Configuration', value: 'SyncOverMeteredNetwork', type: REG_DWORD, data: '0'}
+
+# - Don`t use uev
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\UEV\Agent\Configuration', value: 'SyncEnabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\UEV\Agent\Configuration', value: 'SyncEnabled', type: REG_DWORD, data: '0'}
+
+# - reserve 10% of CPU resources for low-priority tasks instead of the default 20%
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile', value: 'SystemResponsiveness', type: REG_DWORD, data: '10'}
+
+# - Remove map network drive and disconnect network drive from context menu
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoNetConnectDisconnect', type: REG_DWORD, data: '1'}
+
+# - Disable sign-in and lock last interactive user after a restart
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'DisableAutomaticRestartSignOn', type: REG_DWORD, data: '1'}
+
+# - Disable gamebarpresencewriter
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter', value: 'ActivationType', type: REG_DWORD, data: '0'}
+
+# - Disable windows track app launches to improve Start and search results
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Start_TrackProgs', type: REG_DWORD, data: '0'}
+
+# - Disable text prediction
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\TabletTip\1.7', value: 'DisablePrediction', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\TabletTip\1.7', value: 'DisablePrediction', type: REG_DWORD, data: '1'}
+
+# - Disable onlinetips
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'AllowOnlineTips', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'AllowOnlineTips', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowOnlineTips', value: 'value', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableSoftLanding', type: REG_DWORD, data: '1'}
+
+# - Turn off branchecahe
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PeerDist\Service', value: 'Enable', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\PeerDist\Service', value: 'Enable', type: REG_DWORD, data: '0'}
+
+# - Disable appv client
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AppV\Client', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AppV\Client', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\AppV\Client', value: 'Enabled', type: REG_DWORD, data: '0'}
+
+# - Disable dynamic virtualization
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\AppV\Client\Virtualization', value: 'EnableDynamicVirtualization', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AppV\Client\Virtualization', value: 'EnableDynamicVirtualization', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AppV\Client\Virtualization', value: 'EnableDynamicVirtualization', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo', value: 'DisabledByGroupPolicy', type: REG_DWORD, data: '1'}
+
+# - Turn off ad-id
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\AdvertisingInfo', value: 'DisabledByGroupPolicy', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo', value: 'Enabled', type: REG_DWORD, data: '0'}
+
+# - Disable ballon notifications
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'EnableLegacyBalloonNotifications', type: REG_DWORD, data: '0'}
+
+# - Disable cloud search
+# - Disable cortana
+# - Do not allow search and cortana to use location
+# - Disable search the web or display web results in Search
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search', value: 'AllowCloudSearch', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search', value: 'AllowCortana', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search', value: 'AllowSearchToUseLocation', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search', value: 'ConnectedSearchUseWeb', type: REG_DWORD, data: '0'}
+
+# - Disable show files from office.com
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'DisableGraphRecentItems', type: REG_DWORD, data: '1'}
+
+# - Disable teams from installting
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Communications', value: 'ConfigureChatAutoInstall', type: REG_DWORD, data: '0'}
+
+# - Disable continue experiences on this device
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System', value: 'EnableCdp', type: REG_DWORD, data: '0'}
+
+# - Configure ifeo
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe', value: 'debugger', type: REG_SZ, data: 'noop.exe'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeviceCensus.exe', value: 'debugger', type: REG_SZ, data: 'noop.exe'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\AggregatorHost.exe', value: 'debugger', type: REG_SZ, data: 'noop.exe'}
@@ -270,48 +446,80 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sihost.exe\PerfOptions', value: 'IoPriority', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sppsvc.exe\PerfOptions', value: 'CpuPriorityClass', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sppsvc.exe\PerfOptions', value: 'IoPriority', type: REG_DWORD, data: '0'}
+
+# - Fix for VS not being allowed to install WebView2
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EdgeUpdate', value: 'InstallDefault', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EdgeUpdate', value: 'Install{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EdgeUpdate', value: 'Install{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EdgeUpdate', value: 'DoNotUpdateToEdgeWithChromium', type: REG_DWORD, data: '1'}
+
+# - Disable auto maintenance
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance', value: 'MaintenanceDisabled', type: REG_DWORD, data: '1'}
+
+# - Configure scheduled maintenance behavior
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\ScheduledDiagnostics', value: 'EnabledExecution', type: REG_DWORD, data: '0'}
+
+# - Disable RSoP Logging
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System', value: 'RSoPLogging', type: REG_DWORD, data: '0'}
+
+# - Disable autorun/autoplay 
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoAutorun', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'NoAutoplayfornonVolume', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoDriveTypeAutoRun', type: REG_DWORD, data: '255'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoDriveTypeAutoRun', type: REG_DWORD, data: '255'}
+
+# - Turn off microsoft consumer experiences
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableWindowsConsumerFeatures', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\CloudContent', value: 'DisableWindowsConsumerFeatures', type: REG_DWORD, data: '1'}
+
+# - Disable logging
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Windows Error Reporting', value: 'LoggingDisabled', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting', value: 'LoggingDisabled', type: REG_DWORD, data: '1'}
+
+# - Don`t send additional date
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Windows Error Reporting', value: 'DontSendAdditionalData', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting', value: 'DontSendAdditionalData', type: REG_DWORD, data: '1'}
+
+# - Disable windows error reporting
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\PCHealth\ErrorReporting', value: 'DoReport', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Windows Error Reporting', value: 'Disabled', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PCHealth\ErrorReporting', value: 'DoReport', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PCHealth\ErrorReporting', value: 'ShowUI', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\PCHealth\ErrorReporting', value: 'DoReport', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\PCHealth\ErrorReporting', value: 'ShowUI', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendGenericDriverNotFoundToWER', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendRequestAdditionalSoftwareToWER', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Report', value: 'AutoApproveOSDumps', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent', value: 'value', type: REG_DWORD, data: '0'}
+
+# - Prevent media sharing
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\WindowsMediaPlayer', value: 'PreventLibrarySharing', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer', value: 'PreventLibrarySharing', type: REG_DWORD, data: '1'}
+
+# - Disable enumeration policy for external devices incompatible with Kernel DMA Protection
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Kernel DMA Protection', value: 'DeviceEnumerationPolicy', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Kernel DMA Protection', value: 'DeviceEnumerationPolicy', type: REG_DWORD, data: '0'}
+
+# - Turn off winDows startup sound
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'DisableStartupSound', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System', value: 'DisableStartupSound', type: REG_DWORD, data: '1'}
+
+# - Disable system Restore
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows NT\SystemRestore', value: 'DisableConfig', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore', value: 'DisableConfig', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore', value: 'DisableSR', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows NT\SystemRestore', value: 'DisableSR', type: REG_DWORD, data: '1'}
+
+# - Turn off file history 
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\FileHistory', value: 'Disabled', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\FileHistory', value: 'Disabled', type: REG_DWORD, data: '1'}
+
+# - Turn off sensors
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LocationAndSensors', value: 'DisableSensors', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors', value: 'DisableSensors', type: REG_DWORD, data: '1'}
+
+# - Disable automatic update speech data
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Speech', value: 'AllowSpeechModelUpdate', type: REG_DWORD, data: '0'}
+
+# - Turn off lltdio driver
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LLTD', value: 'EnableLLTDIO', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LLTD', value: 'AllowLLTDIOOnDomain', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LLTD', value: 'AllowLLTDIOOnPublicNet', type: REG_DWORD, data: '0'}
@@ -320,6 +528,8 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LLTD', value: 'AllowLLTDIOOnDomain', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LLTD', value: 'AllowLLTDIOOnPublicNet', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LLTD', value: 'ProhibitLLTDIOOnPrivateNet', type: REG_DWORD, data: '0'}
+
+# - Turn off responder driver
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LLTD', value: 'EnableRspndr', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LLTD', value: 'AllowRspndrOnDomain', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LLTD', value: 'AllowRspndrOnPublicNet', type: REG_DWORD, data: '0'}
@@ -328,68 +538,141 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LLTD', value: 'AllowRspndrOnDomain', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LLTD', value: 'AllowRspndrOnPublicNet', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LLTD', value: 'ProhibitRspndrOnPrivateNet', type: REG_DWORD, data: '0'}
+
+# - Turn off module logging
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ModuleLogging', value: 'EnableModuleLogging', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ModuleLogging', value: 'EnableModuleLogging', type: REG_DWORD, data: '0'}
+
+# - Turn off powershell script Block logging
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging', value: 'EnableScriptBlockLogging', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging', value: 'EnableScriptBlockInvocationLogging', type: REG_SZ, data: '-'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging', value: 'EnableScriptBlockLogging', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging', value: 'EnableScriptBlockInvocationLogging', type: REG_SZ, data: '-'}
+
+# - Disable superfetch`s eventlog connection
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Superfetch/Main', value: 'Enable', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Superfetch/PfApLog', value: 'Enable', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Superfetch/StoreLog', value: 'Enable', type: REG_DWORD, data: '0'}
+
+# - Disable readyboost
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\EMDMgmt', value: 'GroupPolicyDisallowCaches', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\EMDMgmt', value: 'AllowNewCachesByDefault', type: REG_DWORD, data: '0'}
+
+# - Disable automatic setup of network devices
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\NcdAutoSetup\Private', value: 'AutoSetup', type: REG_DWORD, data: '0'}
+
+# - Disable fault tolerant heap
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\FTH', value: 'Enabled', type: REG_DWORD, data: '0'}
+
+# - Disable archiving infrequently used apps
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx', value: 'AllowAutomaticAppArchiving', type: REG_DWORD, data: '0'}
+
+# - Disable recommended troubleshooting
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsMitigation', value: 'UserPreference', type: REG_DWORD, data: '1'}
+
+# - Disable hotspot authentication
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\HotspotAuthentication', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\HotspotAuthentication', value: 'Enabled', type: REG_DWORD, data: '0'}
+
+# - Disable notifications network usage
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications', value: 'NoCloudApplicationNotification', type: REG_DWORD, data: '1'}
+
+# - Disable reserved storage
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager', value: 'MiscPolicyInfo', type: REG_DWORD, data: '2'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager', value: 'PassedPolicy', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager', value: 'ShippedWithReserves', type: REG_DWORD, data: '0'}
+
+# - Disable apps access - Appointments
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appointments', value: 'Value', type: REG_SZ, data: '"Deny"    '}
+
+# - Disable apps access - Call History
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Contacts
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Diagnostic Information
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Documents Library
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\documentsLibrary', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Email
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\email', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - File System
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\broadFileSystemAccess', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Messages (Text or MMS)
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\chat', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Notifications
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userNotificationListener', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Phone Calls
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCall', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Pictures Library
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\picturesLibrary', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Radios
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\radios', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Tasks
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userDataTasks', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - User account info
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable apps access - Videos Library
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\videosLibrary', value: 'Value', type: REG_SZ, data: 'Deny'}
+
+# - Disable Experimentation
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\System', value: 'AllowExperimentation', type: REG_DWORD, data: '0'}
+
+# - Disable Location services
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\System', value: 'AllowLocation', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors', value: 'DisableWindowsLocationProvider', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors', value: 'DisableLocationScripting', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors', value: 'DisableLocation', type: REG_DWORD, data: '1'}
+
+# - Disable Cloud optimized content (Programmable Taskbar)
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableCloudOptimizedContent', type: REG_DWORD, data: '1'}
+
+# - Turn off automatic learning
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization', value: 'RestrictImplicitTextCollection', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization', value: 'RestrictImplicitInkCollection', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\InputPersonalization', value: 'RestrictImplicitTextCollection', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\InputPersonalization', value: 'RestrictImplicitInkCollection', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\InputPersonalization', value: 'RestrictImplicitTextCollection', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\InputPersonalization', value: 'RestrictImplicitInkCollection', type: REG_DWORD, data: '1'}
+
+# - Disable Let apps on user's other devices use Bluetooth to open apps and continue experiences on this device
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SmartGlass', value: 'UserAuthPolicy', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SmartGlass', value: 'BluetoothPolicy', type: REG_DWORD, data: '0'}
+
+# - Disable bluetooth advertising
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'AllowAdvertising', type: REG_DWORD, data: '0'}
+
+# - Disable Microsoft provide more tailored experiences with relevant tips and recommendations by using your diagnostic data
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableTailoredExperiencesWithDiagnosticData', type: REG_DWORD, data: '1'}
+
+# - Disable windows collect my activities from this PC ("Timeline")
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System', value: 'EnableActivityFeed', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System', value: 'PublishUserActivities', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System', value: 'UploadUserActivities', type: REG_DWORD, data: '0'}
+
+# - Disable Online speech recognition services
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization', value: 'AllowInputPersonalization', type: REG_DWORD, data: '0'}
+
+# - Disable Personalize your speech, typing and inking input by sending your input data to Microsoft
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput', value: 'AllowLinguisticDataCollection', type: REG_DWORD, data: '0'}
+
+# - Disable windows Spotlight (Tips and suggestions)
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableThirdPartySuggestions', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableSoftLanding', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', value: 'Manufacturer', type: REG_SZ, data: 'Rax | 77'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', value: 'Model', type: REG_SZ, data: 'RaxOS'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', value: 'SupportURL', type: REG_SZ, data: 'https://discord.gg/5pXdNUq8bg'}
+
+
+# - Block outlook & dev home from installing
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\DevHomeUpdate', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\OutlookUpdate', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\CrossDeviceUpdate', operation: delete}
@@ -398,72 +681,37 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Orchestrator\UScheduler\OutlookUpdate', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Orchestrator\UScheduler\CrossDeviceUpdate', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Orchestrator\UScheduler\EdgeUpdate', operation: delete}
+
+# - Remove 3D objects from explorer pane
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}', operation: delete}
+
+# - Visual
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM', value: 'DWMA_TRANSITTIONS_FORCEDISABLED', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM', value: 'DisallowAnimations', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM', value: 'AnimationAttributionEnabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'UseOLEDTaskbarTransparency', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', operation: delete}
+
+# - Power Setting
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings', value: 'ShowHibernateOption', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings', value: 'ShowLockOption', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings', value: 'ShowSleepOption', type: REG_DWORD, data: '0'}
+
+# - Remove Share from context menu
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked', value: '{e2bf9676-5f8f-435c-97eb-11607a5bedf7}', type: REG_SZ, data: ''}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked', value: '{e2bf9676-5f8f-435c-97eb-11607a5bedf7}', type: REG_SZ, data: ''}
+
+# - Disable Recent Items in Start, Jump Lists, File Explorer
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoRecentDocsHistory', type: REG_DWORD, data: '1'}
+
+# - Disable Most Used Apps on Start Menu
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoStartMenuMFUprogramsList', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen', value: 'ConfigureAppInstallControlEnabled', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen', value: 'ConfigureAppInstallControl', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen', value: 'EnableSmartScreen', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer', value: 'SmartScreenEnabled', type: REG_SZ, data: 'Off'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost', value: 'EnableWebContentEvaluation', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender', value: 'PUAProtection', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'SettingsPageVisibility', type: REG_SZ, data: 'hide:recovery;autoplay;usb;maps;maps-downloadmaps;findmydevice;privacy;privacy-speechtyping;privacy-speech;privacy-feedback;privacy-activityhistory;search-permissions;privacy-location;privacy-general;sync;printers;cortana-windowssearch;mobile-devices;mobile-devices-addphone;family-group;deviceusage;home;windowsupdate;windowsdefender;project;deviceencryption;network-airplanemode;delivery-optimization;backup;troubleshoot;windowsinsider'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'EnableVirtualizationBasedSecurity', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'RequirePlatformSecurityFeatures', type: REG_NONE, data: '-'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'HypervisorEnforcedCodeIntegrity', type: REG_NONE, data: '-'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'HVCIMATRequired', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'LsaCfgFlags', type: REG_NONE, data: '-'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'EnableVirtualizationBasedSecurity', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'RequirePlatformSecurityFeatures', type: REG_NONE, data: '-'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'HypervisorEnforcedCodeIntegrity', type: REG_NONE, data: '-'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'HVCIMATRequired', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'LsaCfgFlags', type: REG_NONE, data: '-'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'ConfigureSystemGuardLaunch', type: REG_NONE, data: '-'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\DeviceHealthAttestationService', value: 'EnableDeviceHealthAttestationService', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\DeviceHealthAttestationService', value: 'EnableDeviceHealthAttestationService', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'AllowRemoteRPC', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'AllowRemoteRPC', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendGenericDriverNotFoundToWER', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendGenericDriverNotFoundToWER', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSystemRestore', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSystemRestore', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Device Metadata', value: 'PreventDeviceMetadataFromNetwork', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Device Metadata', value: 'PreventDeviceMetadataFromNetwork', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendRequestAdditionalSoftwareToWER', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendRequestAdditionalSoftwareToWER', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DriverSearching', value: 'DontPromptForWindowsUpdate', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching', value: 'DontPromptForWindowsUpdate', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\SQMClient\Windows', value: 'CEIPEnable', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableWindowsConsumerFeatures', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\CloudContent', value: 'DisableWindowsConsumerFeatures', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\PCHealth\ErrorReporting', value: 'DoReport', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Policy', value: 'VerifiedAndReputablePolicyState', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Config', value: 'VulnerableDriverBlocklistEnable', type: REG_DWORD, data: '0'}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecFlt', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecWfp', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MDCoreSvc', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdate', operation: delete, option: "remove-edge"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdatem', operation: delete, option: "remove-edge"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\embeddedmode', operation: delete, option: "remove-edge"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wisvc', operation: delete}
+
+# - Remove Bloat from Start Menu
 - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start', value: 'ConfigureStartPins', type: REG_SZ, data: '{"pinnedList":[{"packagedAppId":"Microsoft.WindowsStore_8wekyb3d8bbwe!App"},{"packagedAppId":"windows.immersivecontrolpanel_cw5n1h2txyewy!microsoft.windows.immersivecontrolpanel"},{"packagedAppId":"Microsoft.WindowsNotepad_8wekyb3d8bbwe!App"},{"packagedAppId":"Microsoft.Paint_8wekyb3d8bbwe!App"},{"desktopAppLink":"%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\File Explorer.lnk"},{"packagedAppId":"Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"}]}'}
+
+# - OEMInformation
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', value: 'Manufacturer', type: REG_SZ, data: 'Rax | 77'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', value: 'Model', type: REG_SZ, data: 'RaxOS'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', value: 'SupportURL', type: REG_SZ, data: 'https://discord.gg/5pXdNUq8bg'}
