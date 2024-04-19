@@ -412,3 +412,58 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked', value: '{e2bf9676-5f8f-435c-97eb-11607a5bedf7}', type: REG_SZ, data: ''}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoRecentDocsHistory', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoStartMenuMFUprogramsList', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen', value: 'ConfigureAppInstallControlEnabled', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen', value: 'ConfigureAppInstallControl', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen', value: 'EnableSmartScreen', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer', value: 'SmartScreenEnabled', type: REG_SZ, data: 'Off'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost', value: 'EnableWebContentEvaluation', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender', value: 'PUAProtection', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'SettingsPageVisibility', type: REG_SZ, data: 'hide:recovery;autoplay;usb;maps;maps-downloadmaps;findmydevice;privacy;privacy-speechtyping;privacy-speech;privacy-feedback;privacy-activityhistory;search-permissions;privacy-location;privacy-general;sync;printers;cortana-windowssearch;mobile-devices;mobile-devices-addphone;family-group;deviceusage;home;windowsupdate;windowsdefender;project;deviceencryption;network-airplanemode;delivery-optimization;backup;troubleshoot;windowsinsider'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'EnableVirtualizationBasedSecurity', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'RequirePlatformSecurityFeatures', type: REG_NONE, data: '-'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'HypervisorEnforcedCodeIntegrity', type: REG_NONE, data: '-'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'HVCIMATRequired', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard', value: 'LsaCfgFlags', type: REG_NONE, data: '-'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'EnableVirtualizationBasedSecurity', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'RequirePlatformSecurityFeatures', type: REG_NONE, data: '-'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'HypervisorEnforcedCodeIntegrity', type: REG_NONE, data: '-'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'HVCIMATRequired', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'LsaCfgFlags', type: REG_NONE, data: '-'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceGuard', value: 'ConfigureSystemGuardLaunch', type: REG_NONE, data: '-'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\DeviceHealthAttestationService', value: 'EnableDeviceHealthAttestationService', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\DeviceHealthAttestationService', value: 'EnableDeviceHealthAttestationService', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'AllowRemoteRPC', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'AllowRemoteRPC', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendGenericDriverNotFoundToWER', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendGenericDriverNotFoundToWER', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSystemRestore', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSystemRestore', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Device Metadata', value: 'PreventDeviceMetadataFromNetwork', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Device Metadata', value: 'PreventDeviceMetadataFromNetwork', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendRequestAdditionalSoftwareToWER', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings', value: 'DisableSendRequestAdditionalSoftwareToWER', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DriverSearching', value: 'DontPromptForWindowsUpdate', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching', value: 'DontPromptForWindowsUpdate', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\SQMClient\Windows', value: 'CEIPEnable', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableWindowsConsumerFeatures', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\CloudContent', value: 'DisableWindowsConsumerFeatures', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\PCHealth\ErrorReporting', value: 'DoReport', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Policy', value: 'VerifiedAndReputablePolicyState', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Config', value: 'VulnerableDriverBlocklistEnable', type: REG_DWORD, data: '0'}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecFlt', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecWfp', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MDCoreSvc', operation: delete, option: "remove-defender"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdate', operation: delete, option: "remove-edge"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdatem', operation: delete, option: "remove-edge"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\embeddedmode', operation: delete, option: "remove-edge"}
+- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wisvc', operation: delete}
+- !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start', value: 'ConfigureStartPins', type: REG_SZ, data: '{"pinnedList":[{"packagedAppId":"Microsoft.WindowsStore_8wekyb3d8bbwe!App"},{"packagedAppId":"windows.immersivecontrolpanel_cw5n1h2txyewy!microsoft.windows.immersivecontrolpanel"},{"packagedAppId":"Microsoft.WindowsNotepad_8wekyb3d8bbwe!App"},{"packagedAppId":"Microsoft.Paint_8wekyb3d8bbwe!App"},{"desktopAppLink":"%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\File Explorer.lnk"},{"packagedAppId":"Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"}]}'}
