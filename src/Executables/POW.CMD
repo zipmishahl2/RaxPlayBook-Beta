@@ -6,10 +6,10 @@ powercfg /setacvalueindex scheme_current 54533251-82be-4824-96c1-47b60b740d00 0c
 powercfg /setacvalueindex scheme_current 54533251-82be-4824-96c1-47b60b740d00 0cc5b647-c1df-4637-891a-dec35c318584 100
 powercfg /setacvalueindex scheme_current 54533251-82be-4824-96c1-47b60b740d00 4d2b0152-7d5c-498b-88e2-34345392a2c5 5000
 powercfg /setacvalueindex 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c SUB_VIDEO VIDEOIDLE 0
+powercfg -changename 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c "RaxOS PowerPlan" "Made for RaxOS, Credits to AMITXV."
 powercfg /setactive scheme_current
 powercfg -h off
 wevtutil set-log "Microsoft-Windows-SleepStudy/Diagnostic" /e:false >nul 2>&1
 wevtutil set-log "Microsoft-Windows-Kernel-Processor-Power/Diagnostic" /e:false >nul 2>&1
 wevtutil set-log "Microsoft-Windows-UserModePowerService/Diagnostic" /e:false >nul 2>&1
 exit
-powercfg /setacvalueindex 00000000-0000-0000-0000-000000000000 SUB_VIDEO VIDEOIDLE 0
