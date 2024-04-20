@@ -5,7 +5,18 @@ privilege: TrustedInstaller
 actions: 
   - !writeStatus: {status: "registry"}
 features:
-- features\RaxOS\registry\HKCR.yml
-- features\RaxOS\registry\HKCU.yml
-- features\RaxOS\registry\HKLMSOFT.yml
-- features\RaxOS\registry\HKLMSYS.yml
+- features\RaxOS\registry\add-take-ownership.yml
+- features\RaxOS\registry\configure-context-menu.yml
+- features\RaxOS\registry\configure-explorer.yml
+- features\RaxOS\registry\configure-keyboard-and-mouse.yml
+- features\RaxOS\registry\configure-privacy.yml
+- features\RaxOS\registry\configure-search-and-cortana.yml
+- features\RaxOS\registry\configure-security.yml
+- features\RaxOS\registry\configure-start-menu-and-taskbar.yml
+- features\RaxOS\registry\configure-windows-update.yml
+- features\RaxOS\registry\disable-ease-of-access-features.yml
+- features\RaxOS\registry\disable-uac.yml
+- features\RaxOS\registry\oem-information.yml
+- features\RaxOS\registry\restore-old-context-menu.yml
+- features\RaxOS\registry\restore-photo-viewer.yml
+- features\RaxOS\registry\windows-settings.yml
