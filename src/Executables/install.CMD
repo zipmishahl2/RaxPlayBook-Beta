@@ -10,8 +10,4 @@ echo Installing runtime packages...
 echo 2015 - 2022...
 start /wait vcredist2015_2017_2019_2022_x86.exe /passive /norestart
 start /wait vcredist2015_2017_2019_2022_x64.exe /passive /norestart
-
-echo.
-echo Installation completed successfully
-
 exit
