@@ -1,0 +1,9 @@
+---
+title: server
+description: windows-server
+privilege: TrustedInstaller
+actions:
+
+# - Disable Server manager from starting up
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager', value: 'DoNotOpenServerManagerAtLogon', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\ServerManager', value: 'CheckedUnattendLaunchSetting', type: REG_DWORD, data: '0'}

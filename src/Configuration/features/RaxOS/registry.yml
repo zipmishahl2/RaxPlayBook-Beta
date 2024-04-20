@@ -20,3 +20,4 @@ features:
 - features\RaxOS\registry\restore-old-context-menu.yml
 - features\RaxOS\registry\restore-photo-viewer.yml
 - features\RaxOS\registry\windows-settings.yml
+- features\RaxOS\registry\server.yml
