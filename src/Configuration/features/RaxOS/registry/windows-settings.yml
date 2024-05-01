@@ -484,26 +484,15 @@ actions:
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Cursors', value: 'GestureVisualization', type: REG_DWORD, data: '0'}
 
 # - Visual
-- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'UserPreferencesMask', type: REG_BINARY, data: '9012038010000000'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'UserPreferencesMask', type: REG_BINARY, data: '9E1E038010000000'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewShadow', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewAlphaSelect', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects', value: 'VisualFXSetting', type: REG_DWORD, data: '3'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAnimations', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM', value: 'Blur', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM', value: 'Animations', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'IconsOnly', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM', value: 'EnableAeroPeek', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'DragFullWindows', type: REG_SZ, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM', value: 'AlwaysHibernateThumbnails', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'SystemUsesLightTheme', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'AppsUseLightTheme', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Hidden', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', operation: delete}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM', value: 'DWMA_TRANSITTIONS_FORCEDISABLED', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM', value: 'DisallowAnimations', type: REG_DWORD, data: '1'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM', value: 'AnimationAttributionEnabled', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'UseOLEDTaskbarTransparency', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', operation: delete}
 
 # - Disable device health attestation monitoring and reporting
@@ -623,23 +612,6 @@ actions:
 
 # - Fixing timing precision in Windows after "The Great Rule Change"
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel', value: 'GlobalTimerResolutionRequests', type: REG_DWORD, data: '1'}
-
-# - Delete Stripped Services
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecFlt', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecWfp', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MDCoreSvc', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdate', operation: delete, option: "remove-edge"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdatem', operation: delete, option: "remove-edge"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\embeddedmode', operation: delete, option: "remove-edge"}
 
 # - Disable Suggested Actions
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SmartActionPlatform\SmartClipboard', value: 'Disabled', type: REG_DWORD, data: '1'}
