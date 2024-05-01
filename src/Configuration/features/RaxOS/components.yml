@@ -577,8 +577,6 @@ actions:
     option: 'remove-edge'
     wait: true
     exeDir: true
-  - !file: {path: "%windir%\\System32\\Microsoft-Edge-Webview", option: "remove-webview"}
-  - !file: {path: "%ProgramFiles(x86)%\\Microsoft", option: "remove-edge"}
   - !file: {path: "%windir%\\PolicyDefinitions\\MicrosoftEdge.admx", option: "remove-edge"}
   - !file: {path: "%windir%\\System32\\edgeangle.dll", option: "remove-edge"}
   - !file: {path: "%windir%\\System32\\EdgeContent.dll", option: "remove-edge"}
