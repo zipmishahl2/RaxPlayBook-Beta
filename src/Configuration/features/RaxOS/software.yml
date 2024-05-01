@@ -44,7 +44,20 @@ actions:
     weight: 150
     runas: currentUserElevated
     option: "browser-firefox"
-  
+
+  # LibreWolf
+   - !writeStatus: {status: 'Installing Librewolf', option: "browser-librewolf"}
+ - !cmd:
+    command: 'Invoke-WebRequest -Uri "https://librewolf-community.gitlab.io/installer/win64/latest/LibrewolfSetup.exe" -OutFile "LibrewolfInstaller.exe"'
+    weight: 150
+    runas: currentUserElevated
+    option: "browser-librewolf"
+ - !cmd:
+    command: 'Start-Process -FilePath "LibrewolfInstaller.exe" -ArgumentList "/S" -Wait'
+    weight: 150
+    runas: currentUserElevated
+    option: "browser-librewolf"
+
   # OnlyOffice
  - !writeStatus: {status: 'Installing OnlyOffice', option: "office-onlyoffice"}
  - !cmd:
@@ -74,7 +87,23 @@ actions:
     runas: currentUserElevated
     option: "email-mailspring"
 
- # Steam
+  # MPV
+  - !writeStatus: {status: 'Installing MPV', option: "media-mpv"}
+ - !cmd:
+    command: 'winget install mpv.mpv --scope machine --silent --accept-source-agreements --accept-package-agreements'
+    weight: 150
+    runas: currentUserElevated
+    option: "media-mpv"
+    
+  # VSCode
+  - !writeStatus: {status: 'Installing Visual Studio Code', option: "ide-vscode"}
+ - !cmd:
+    command: 'winget install Microsoft.VisualStudioCode --scope machine --silent --accept-source-agreements --accept-package-agreements'
+    weight: 150
+    runas: currentUserElevated
+    option: "ide-vscode"
+
+  # Steam
  - !writeStatus: {status: 'Installing Steam', option: "gaming-steam"}
  - !cmd:
     command: 'winget install Valve.Steam --scope machine --silent --accept-source-agreements --accept-package-agreements'
@@ -82,7 +111,7 @@ actions:
     runas: currentUserElevated
     option: "gaming-steam"
 
- # EpicGames
+  # EpicGames
  - !writeStatus: {status: 'Installing Epic Games Launcher', option: "gaming-epicgames"}
  - !cmd:
     command: 'winget install EpicGames.EpicGamesLauncher --scope machine --silent --accept-source-agreements --accept-package-agreements'
@@ -90,7 +119,28 @@ actions:
     runas: currentUserElevated
     option: "gaming-epicgames"
 
- # Kaspersky
+  # Battlenet
+- !writeStatus: {status: 'Installing Battle.net', option: "gaming-battlenet"}
+ - !cmd:
+    command: 'winget install Blizzard.BattleNet --scope machine --silent --accept-source-agreements --accept-package-agreements'
+    weight: 150
+    runas: currentUserElevated
+    option: "gaming-battlenet"
+
+  # Legendary
+- !writeStatus: {status: 'Installing Legendary Game Launcher', option: "gaming-legendary"}
+ - !cmd:
+    command: 'Invoke-WebRequest -Uri "https://legendary.theappninja.com/downloads/Legendary-Games-Launcher-Setup.exe" -OutFile "LegendaryInstaller.exe"'
+    weight: 150
+    runas: currentUserElevated
+    option: "gaming-legendary"
+ - !cmd:
+    command: 'Start-Process -FilePath "LegendaryInstaller.exe" -ArgumentList "/S" -Wait'
+    weight: 150
+    runas: currentUserElevated
+    option: "gaming-legendary"
+
+  # Kaspersky
  - !writeStatus: {status: 'Installing Kaspersky Virus Removal Tool', option: "security-kaspersky"}
  - !cmd:
     command: 'winget install KasperskyLab.KasperskyVirusRemovalTool --scope machine --silent --accept-source-agreements --accept-package-agreements'
