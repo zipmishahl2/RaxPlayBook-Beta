@@ -48,7 +48,6 @@ actions:
 # - Disable safeguards for Feature Updates
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate', value: 'DisableWUfBSafeguards', type: REG_DWORD, data: '4'}
 
-
 # - Turn off the offer to update to the latest version of windows
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\WindowsStore', value: 'DisableOSUpgrade', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore', value: 'DisableOSUpgrade', type: REG_DWORD, data: '1'}

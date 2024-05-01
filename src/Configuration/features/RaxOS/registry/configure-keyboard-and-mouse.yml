@@ -15,3 +15,7 @@ actions:
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: 'MouseSpeed', type: REG_SZ, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: 'MouseThreshold1', type: REG_SZ, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: 'MouseThreshold2', type: REG_SZ, data: '0'}
+
+# - Removes Ease of Access -> MouseKeys features tied to alteration of Sensitivity, so that it'll never change even when using MouseKeys
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Accessibility\MouseKeys', value: 'MaximumSpeed', type: REG_SZ, data: '-'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Accessibility\MouseKeys', value: 'TimeToMaximumSpeed', type: REG_SZ, data: '-'}

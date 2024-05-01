@@ -12,7 +12,7 @@ features:
 - features\RaxOS\registry\configure-privacy.yml
 - features\RaxOS\registry\configure-search-and-cortana.yml
 - features\RaxOS\registry\configure-security.yml
-- features\RaxOS\registry\configure-start-menu-and-taskbar.yml
+- features\RaxOS\registry\configure-start-menu-and-taskbar-notifications.yml
 - features\RaxOS\registry\configure-windows-update.yml
 - features\RaxOS\registry\disable-ease-of-access-features.yml
 - features\RaxOS\registry\disable-uac.yml
@@ -20,3 +20,8 @@ features:
 - features\RaxOS\registry\restore-old-context-menu.yml
 - features\RaxOS\registry\restore-photo-viewer.yml
 - features\RaxOS\registry\windows-settings.yml
+- features\RaxOS\registry\configure-deprovisioned-apps.yml
+- features\RaxOS\registry\configure-crash-control.yml
+- features\RaxOS\registry\fixes.yml
+- features\RaxOS\registry\configure-power-control.yml
+- features\RaxOS\registry\configure-ifeo.yml

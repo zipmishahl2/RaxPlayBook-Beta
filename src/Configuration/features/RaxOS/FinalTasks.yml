@@ -37,10 +37,12 @@ actions:
   exeDir: true
   exe: "DEVMANVIEW.CMD"
 
+- !writeStatus: {status: "Configuring features"}
 - !run:
   exeDir: true
   exe: "PowerShell"
-  args: '-NoP -ExecutionPolicy Bypass -File DISM.ps1'
+  args: '-NoP -ExecutionPolicy Bypass -File DISM-FEATURES.ps1'
+  weight: 270
 
 - !run: 
   exeDir: true
