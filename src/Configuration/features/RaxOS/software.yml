@@ -89,3 +89,11 @@ actions:
     weight: 150
     runas: currentUserElevated
     option: "gaming-epicgames"
+
+ # Kaspersky
+ - !writeStatus: {status: 'Installing Kaspersky Virus Removal Tool', option: "security-kaspersky"}
+ - !cmd:
+    command: 'winget install KasperskyLab.KasperskyVirusRemovalTool --scope machine --silent --accept-source-agreements --accept-package-agreements'
+    weight: 150
+    runas: currentUserElevated
+    option: "security-kaspersky"
