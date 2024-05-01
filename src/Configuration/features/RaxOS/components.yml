@@ -238,10 +238,6 @@ actions:
   - !file: {path: "%SystemDrive%\\OneDriveTemp", option: "remove-onedrive"}
   - !file: {path: "%ProgramData%\\Microsoft OneDrive", option: "remove-onedrive"}
   - !file: {path: "%windir%\\Web"}
-  - !file: {path: "%ProgramFiles(x86)%\\Windows Mail"}
-  - !file: {path: "%ProgramFiles%\\Windows Mail"}
-  - !file: {path: "%windir%\\SysWOW64\\MailContactsCalendarSync"}
-  - !file: {path: "%windir%\\System32\\MailContactsCalendarSync"}
   - !file: {path: "%windir%\\assembly\\NativeImages_v4.0.30319_32"}
   - !file: {path: "%windir%\\assembly\\NativeImages_v4.0.30319_64"}
   - !file: {path: "%windir%\\InboxApps"}
@@ -582,5 +578,6 @@ actions:
   - !file: {path: "%windir%\\System32\\EdgeContent.dll", option: "remove-edge"}
   - !file: {path: "%windir%\\System32\\EdgeResetPlugin.dll", option: "remove-edge"}
   - !file: {path: "%windir%\\System32\\MicrosoftEdge*", option: "remove-edge"}
+  - !file: {path: "%ProgramFiles(x86)%\\Microsoft\\EdgeUpdate", option: "remove-edge"}
   
   # - !run: {exe: "explorer.exe", wait: false}
