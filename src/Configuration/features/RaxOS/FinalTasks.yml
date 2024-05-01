@@ -24,11 +24,11 @@ actions:
   exeDir: true
   exe: "disable-process-mitigations.CMD"  
   weight: 40
-
+  option: "disable-process-mitigations"
 - !run: 
   exeDir: true
-  exe: "Microcode.CMD"  
-  
+  exe: "Disanle NX.CMD"  
+  option: "disable-nx"
 - !run: 
   exeDir: true
   exe: "Laptop.CMD"  

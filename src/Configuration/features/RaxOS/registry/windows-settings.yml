@@ -484,14 +484,15 @@ actions:
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Cursors', value: 'GestureVisualization', type: REG_DWORD, data: '0'}
 
 # - Visual
-- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'UserPreferencesMask', type: REG_BINARY, data: '9E1E038010000000'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewShadow', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAnimations', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM', value: 'EnableAeroPeek', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM', value: 'AlwaysHibernateThumbnails', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'SystemUsesLightTheme', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'AppsUseLightTheme', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'UserPreferencesMask', type: REG_BINARY, data: '9E1E038010000000', option: "disable-animations"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ListviewShadow', type: REG_DWORD, data: '0', option: "disable-animations"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAnimations', type: REG_DWORD, data: '0', option: "disable-animations"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics', value: 'MinAnimate', type: REG_DWORD, data: '0', option: "disable-animations"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM', value: 'EnableAeroPeek', type: REG_DWORD, data: '0', option: "disable-animations"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM', value: 'AlwaysHibernateThumbnails', type: REG_DWORD, data: '0', option: "disable-animations"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'SystemUsesLightTheme', type: REG_DWORD, data: '0', option: "enable-dark-mode"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize', value: 'AppsUseLightTheme', type: REG_DWORD, data: '0', option: "enable-dark-mode"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Hidden', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', operation: delete}
 
