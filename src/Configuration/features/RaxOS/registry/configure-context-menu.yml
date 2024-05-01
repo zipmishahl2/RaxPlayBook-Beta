@@ -21,9 +21,6 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\LibraryFolder\background\shellex\ContextMenuHandlers\Sharing', operation: delete}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\UserLibraryFolder\shellex\ContextMenuHandlers\Sharing', operation: delete}
 
-# - Remove include in library from context menu
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\ShellEx\ContextMenuHandlers\Library Location', operation: delete}
-
 # - Remove map network drive and disconnect network drive from context menu
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoNetConnectDisconnect', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoNetConnectDisconnect', type: REG_DWORD, data: '1'}
@@ -31,27 +28,3 @@ actions:
 # - Remove Share from context menu
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked', value: '{e2bf9676-5f8f-435c-97eb-11607a5bedf7}', type: REG_SZ, data: ''}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked', value: '{e2bf9676-5f8f-435c-97eb-11607a5bedf7}', type: REG_SZ, data: ''}
-
-# - Add "Windows Batch File"
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\.bat\ShellNew', value: 'NullFile', type: REG_SZ, data: ''}
-
-# - Add hashes to context menu
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash', value: 'MUIVerb', type: REG_SZ, data: 'Hash'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash', value: 'SubCommands', type: REG_SZ, data: ''}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\01menu', value: 'MUIVerb', type: REG_SZ, data: 'SHA1'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\01menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath '%1' -algorithm SHA1 | format-list'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\02menu', value: 'MUIVerb', type: REG_SZ, data: 'SHA256'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\02menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath '%1' -algorithm SHA256 | format-list'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\03menu', value: 'MUIVerb', type: REG_SZ, data: 'SHA384'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\03menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath '%1' -algorithm SHA384 | format-list'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\04menu', value: 'MUIVerb', type: REG_SZ, data: 'SHA512'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\04menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath '%1' -algorithm SHA512 | format-list'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\05menu', value: 'MUIVerb', type: REG_SZ, data: 'MACTripleDES'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\05menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath '%1' -algorithm MACTripleDES | format-list'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\06menu', value: 'MUIVerb', type: REG_SZ, data: 'MD5'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\06menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath '%1' -algorithm MD5 | format-list'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\07menu', value: 'MUIVerb', type: REG_SZ, data: 'RIPEMD160'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\07menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath '%1' -algorithm RIPEMD160 | format-list'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\08menu', value: 'CommandFlags', type: REG_DWORD, data: '32'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\08menu', value: 'MUIVerb', type: REG_SZ, data: 'Show all'}
-- !registryValue: {path: 'HKEY_CLASSES_ROOT\*\shell\hash\shell\08menu\command', value: '', type: REG_SZ, data: 'powershell -noexit get-filehash -literalpath '%1' -algorithm SHA1 | format-list;get-filehash -literalpath '%1' -algorithm SHA256 | format-list;get-filehash -literalpath '%1' -algorithm SHA384 | format-list;get-filehash -literalpath '%1' -algorithm SHA512 | format-list;get-filehash -literalpath '%1' -algorithm MACTripleDES | format-list;get-filehash -literalpath '%1' -algorithm MD5 | format-list;get-filehash -literalpath '%1' -algorithm RIPEMD160 | format-list'}
