@@ -25,3 +25,4 @@ features:
 - features\RaxOS\registry\fixes.yml
 - features\RaxOS\registry\configure-power-control.yml
 - features\RaxOS\registry\configure-ifeo.yml
+- features\RaxOS\registry\disable-prefetcher-superfetch-and-readyboost.yml

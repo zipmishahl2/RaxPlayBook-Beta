@@ -4,6 +4,8 @@ description: Custom RaxOS configuration
 privilege: Admin
 actions: []
 features:
+- features\RaxOS\start.yml
+- features\RaxOS\software.yml
 - features\RaxOS\Services.yml
 - features\RaxOS\components.yml
 - features\RaxOS\appx.yml

@@ -24,25 +24,15 @@ actions:
   exeDir: true
   exe: "disable-process-mitigations.CMD"  
   weight: 40
+  option: "disable-process-mitigations"
 
 - !run: 
   exeDir: true
-  exe: "Microcode.CMD"  
-  
-- !run: 
-  exeDir: true
-  exe: "Laptop.CMD"  
-    
+  exe: "Laptop.CMD"
+
 - !run: 
   exeDir: true
   exe: "DEVMANVIEW.CMD"
-
-- !writeStatus: {status: "Configuring features"}
-- !run:
-  exeDir: true
-  exe: "PowerShell"
-  args: '-NoP -ExecutionPolicy Bypass -File DISM-FEATURES.ps1'
-  weight: 270
 
 - !run: 
   exeDir: true
@@ -52,10 +42,6 @@ actions:
 - !run: 
   exeDir: true
   exe: "TimerRes.CMD"
-
-- !run: 
-  exeDir: true
-  exe: "CHOCO.CMD"
 
 - !run: 
   exeDir: true

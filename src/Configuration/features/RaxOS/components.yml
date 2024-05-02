@@ -238,10 +238,6 @@ actions:
   - !file: {path: "%SystemDrive%\\OneDriveTemp", option: "remove-onedrive"}
   - !file: {path: "%ProgramData%\\Microsoft OneDrive", option: "remove-onedrive"}
   - !file: {path: "%windir%\\Web"}
-  - !file: {path: "%ProgramFiles(x86)%\\Windows Mail"}
-  - !file: {path: "%ProgramFiles%\\Windows Mail"}
-  - !file: {path: "%windir%\\SysWOW64\\MailContactsCalendarSync"}
-  - !file: {path: "%windir%\\System32\\MailContactsCalendarSync"}
   - !file: {path: "%windir%\\assembly\\NativeImages_v4.0.30319_32"}
   - !file: {path: "%windir%\\assembly\\NativeImages_v4.0.30319_64"}
   - !file: {path: "%windir%\\InboxApps"}
@@ -387,10 +383,6 @@ actions:
   - !file: {path: "%windir%\\SysWOW64\\SecurityAndMaintenance_Error.png", option: "remove-defender"}
   - !file: {path: "%windir%\\WinSxS\\amd64_microsoft-windows-onedrive-setup_*", option: "remove-onedrive"}
   - !file: {path: "%windir%\\System32\\ortcengine.dll"}
-  - !file: {path: "%windir%\\SysWOW64\\embeddedmodesvcapi.dll"}
-  - !file: {path: "%windir%\\System32\\en-US\\embeddedmodesvc.dll.mui"}
-  - !file: {path: "%windir%\\System32\\embeddedmodesvc.dll"}
-  - !file: {path: "%windir%\\System32\\embeddedmodesvcapi.dll"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.SecHealthUI_*", option: "remove-defender"}
   - !file: {path: "%ProgramFiles%\\WindowsApps\\Microsoft.Services.Store.Engagement_*"}
   - !file: {path: "%windir%\\servicing\\Packages\\Microsoft-Windows-Client-Features-removable-Package*"}
@@ -577,12 +569,11 @@ actions:
     option: 'remove-edge'
     wait: true
     exeDir: true
-  - !file: {path: "%windir%\\System32\\Microsoft-Edge-Webview", option: "remove-webview"}
-  - !file: {path: "%ProgramFiles(x86)%\\Microsoft", option: "remove-edge"}
   - !file: {path: "%windir%\\PolicyDefinitions\\MicrosoftEdge.admx", option: "remove-edge"}
   - !file: {path: "%windir%\\System32\\edgeangle.dll", option: "remove-edge"}
   - !file: {path: "%windir%\\System32\\EdgeContent.dll", option: "remove-edge"}
   - !file: {path: "%windir%\\System32\\EdgeResetPlugin.dll", option: "remove-edge"}
   - !file: {path: "%windir%\\System32\\MicrosoftEdge*", option: "remove-edge"}
+  - !file: {path: "%ProgramFiles(x86)%\\Microsoft\\EdgeUpdate", option: "remove-edge"}
   
   # - !run: {exe: "explorer.exe", wait: false}

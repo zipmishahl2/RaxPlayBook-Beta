@@ -7,10 +7,6 @@ actions:
 # - Disable Disk Checkup
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager', value: 'BootExecute', type: REG_SZ, data: 'autocheck autochk /k:C*'}
 
-# - Disable prefetcher/superfetch and readyboost
-# - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Memory Management\PrefetchParameters', value: 'EnablePrefetcher', type: REG_DWORD, data: '0'}
-# - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Memory Management\PrefetchParameters', value: 'EnableSuperfetch', type: REG_DWORD, data: '0'}
-
 # - Disable Remote assistance
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance', value: 'fAllowFullControl', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance', value: 'fAllowToGetHelp', type: REG_DWORD, data: '0'}
@@ -358,7 +354,7 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\AppV\Client\Virtualization', value: 'EnableDynamicVirtualization', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AppV\Client\Virtualization', value: 'EnableDynamicVirtualization', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AppV\Client\Virtualization', value: 'EnableDynamicVirtualization', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo', value: 'DisabledByGroupPolicy', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo', value: 'DisabledBylicy', type: REG_DWORD, data: '1'}
 
 # - Turn off ad-id
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\AdvertisingInfo', value: 'DisabledByGroupPolicy', type: REG_DWORD, data: '1'}
@@ -465,16 +461,6 @@ actions:
 
 # - Disable Experimentation
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\System', value: 'AllowExperimentation', type: REG_DWORD, data: '0'}
-
-# - Block outlook & dev home from installing
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\DevHomeUpdate', operation: delete}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\OutlookUpdate', operation: delete}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\CrossDeviceUpdate', operation: delete}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\EdgeUpdate', operation: delete}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Orchestrator\UScheduler\DevHomeUpdate', operation: delete}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Orchestrator\UScheduler\OutlookUpdate', operation: delete}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Orchestrator\UScheduler\CrossDeviceUpdate', operation: delete}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Orchestrator\UScheduler\EdgeUpdate', operation: delete}
 
 # - Disable ForegroundLockTimeout
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Desktop', value: 'ForegroundLockTimeout', type: REG_DWORD, data: '0'}
@@ -623,23 +609,6 @@ actions:
 
 # - Fixing timing precision in Windows after "The Great Rule Change"
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel', value: 'GlobalTimerResolutionRequests', type: REG_DWORD, data: '1'}
-
-# - Delete Stripped Services
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecFlt', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecWfp', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MDCoreSvc', operation: delete, option: "remove-defender"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdate', operation: delete, option: "remove-edge"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdatem', operation: delete, option: "remove-edge"}
-- !registryKey: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\embeddedmode', operation: delete, option: "remove-edge"}
 
 # - Disable Suggested Actions
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SmartActionPlatform\SmartClipboard', value: 'Disabled', type: REG_DWORD, data: '1'}

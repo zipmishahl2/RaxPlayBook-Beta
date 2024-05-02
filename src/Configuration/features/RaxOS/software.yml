@@ -1,0 +1,135 @@
+---
+title: Software
+description: Installs preferred softwares 
+privilege: TrustedInstaller
+actions:
+
+  # WinGet
+- !writeStatus: {status: 'Updating Winget'}
+- !powerShell:
+  weight: 50
+  runas: currentUserElevated
+  command: |
+    $productName = Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ProductName
+    $path = Join-Path ${env:ProgramFiles(x86)} 'Revision Tool'
+
+    if (Test-Path $path) {
+      $file = Join-Path $path 'revitool.exe'
+      $args = if ($productName -like '*LTSC*') {'msstore-apps --id 9NBLGGH4NNS1 --ring RP'} else {'msstore-apps --id 9WZDNCRFJBMP --id 9NBLGGH4NNS1 --ring RP'}
+        
+      Start-Process -FilePath $file -ArgumentList $args -Wait -WindowStyle Hidden
+      }
+      Add-AppPackage 'https://cdn.winget.microsoft.com/cache/source.msix' -ForceApplicationShutdown
+
+# Vivaldi
+- !writeStatus: {status: 'Installing Vivaldi', option: "browser-vivaldi"}
+- !cmd:
+  command: 'winget install Vivaldi.Vivaldi --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  weight: 150
+  runas: currentUserElevated
+  option: "browser-vivaldi"
+
+# GoogleChrome
+- !writeStatus: {status: 'Installing Google Chrome', option: "browser-chrome"}
+- !cmd:
+  command: 'winget install Google.Chrome --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  weight: 150
+  runas: currentUserElevated
+  option: "browser-chrome"
+
+# Firefox
+- !writeStatus: {status: 'Installing Firefox', option: "browser-firefox"}
+- !cmd:
+  command: 'winget install Mozilla.Firefox --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  weight: 150
+  runas: currentUserElevated
+  option: "browser-firefox"
+
+# Brave
+- !writeStatus: {status: 'Insatlling Brave', option: "browser-brave"}
+- !cmd:
+  exeDir: true
+  command: 'winget install -e --id Brave.Brave --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  ignoreErrors: true
+  weight: 20
+  option: "browser-brave"
+
+# Spotify
+- !writeStatus: {status: 'Installing Spotify', option: "spotify"}
+- !cmd:
+  command: 'winget install -e --id Spotify.Spotify'
+  weight: 150
+  runas: currentUserElevated
+  option: "spotify"
+
+# Discord
+- !writeStatus: {status: 'Installing Discord', option: "discord"}
+- !cmd:
+  command: 'winget install -e --id Discord.Discord'
+  weight: 150
+  runas: currentUserElevated
+  option: "discord"
+
+# MPC-HC
+- !writeStatus: {status: 'Installing MPC-HC', option: "mpc-hc"}
+- !cmd:
+  command: 'winget install -e --id clsid2.mpc-hc --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  weight: 150
+  runas: currentUserElevated
+  option: "mpc-hc"
+    
+# OBS
+- !writeStatus: {status: 'Installing NotePad++', option: "np++"}
+- !cmd:
+  command: 'winget install -e --id Notepad++.Notepad++ --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  weight: 150
+  runas: currentUserElevated
+  option: "np++"
+
+# Steam
+- !writeStatus: {status: 'Installing Steam', option: "gaming-steam"}
+- !cmd:
+  command: 'winget install Valve.Steam --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  weight: 150
+  runas: currentUserElevated
+  option: "gaming-steam"
+
+# EpicGames
+- !writeStatus: {status: 'Installing Epic Games Launcher', option: "gaming-epicgames"}
+- !cmd:
+  command: 'winget install EpicGames.EpicGamesLauncher --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  weight: 150
+  runas: currentUserElevated
+  option: "gaming-epicgames"
+
+# Battlenet
+- !writeStatus: {status: 'Installing Rare', option: "rare"}
+- !cmd:
+  command: 'winget install Blizzard.BattleNet'
+  weight: 150
+  runas: currentUserElevated
+  option: "rare"
+
+# 7Zip
+- !writeStatus: {status: 'Installing 7ZIP', option: "7zip"}
+- !cmd:
+  command: 'winget install --id=7zip.7zip  -e --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  weight: 150
+  runas: currentUserElevated
+  option: "7zip"
+
+# NanaZip
+- !writeStatus: {status: 'Installing NanaZip', option: "nanazip"}
+- !cmd:
+  command: 'winget install -e --id M2Team.NanaZip'
+  weight: 150
+  runas: currentUserElevated
+  option: "nanazip"
+
+# WinRAR
+- !writeStatus: {status: 'Installing WinRAR', option: "winrar"}
+- !cmd:
+  command: 'winget install -e --id RARLab.WinRAR --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  weight: 150
+  runas: currentUserElevated
+  option: "winrar"
