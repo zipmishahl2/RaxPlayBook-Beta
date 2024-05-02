@@ -36,6 +36,11 @@ actions:
 
 - !run: 
   exeDir: true
+  exe: "DEVMANVIEW.CMD"
+  option:"disable-nx"
+
+- !run: 
+  exeDir: true
   exe: "WALLPAPER.CMD"
   weight: 90
 
