@@ -4,7 +4,7 @@ description: Finalizing The RaxOS Playbook Installation
 privilege: TrustedInstaller
 actions:
 
-- !writeStatus {status: "Finalizing Setup"}
+- !writeStatus: {status: "Finalizing Setup"}
 - !run: 
   exeDir: true
   exe: "POW.CMD"
@@ -37,7 +37,7 @@ actions:
 - !run: 
   exeDir: true
   exe: "DisableNX.CMD"
-  option:"disable-nx"
+  option: "disable-nx"
 
 - !run: 
   exeDir: true
