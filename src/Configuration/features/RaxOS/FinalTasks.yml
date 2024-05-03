@@ -34,10 +34,10 @@ actions:
   exeDir: true
   exe: "DEVMANVIEW.CMD"
 
-- !run: 
-  exeDir: true
-  exe: "DisableNX.CMD"
-  option: "disable-nx"
+# - !run: 
+#  exeDir: true
+#  exe: "DisableNX.CMD"
+#  option: "disable-nx"
 
 - !run: 
   exeDir: true
