@@ -1,11 +1,5 @@
 ---
 title: Services
-description: Configuration of services
-privilege: TrustedInstaller
-actions:
-
----
-title: Services
 description: Disable Services
 privilege: TrustedInstaller
 actions:
