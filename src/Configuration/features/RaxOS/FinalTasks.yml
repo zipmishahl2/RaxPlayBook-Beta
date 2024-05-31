@@ -34,10 +34,35 @@ actions:
   exeDir: true
   exe: "DEVMANVIEW.CMD"
 
-# - !run: 
-#  exeDir: true
-#  exe: "DisableNX.CMD"
-#  option: "disable-nx"
+- !run: 
+  exeDir: true
+  exe: "DisableNX.CMD"
+  option: "disable-nx"
+
+- !run: 
+  exeDir: true
+  exe: "SpectreANDMeltdown.CMD"
+  option: "disable-spectre-meltdown"
+
+- !run: 
+  exeDir: true
+  exe: "Microcode.CMD"
+  option: "disable-spectre-meltdown"
+
+- !run: 
+  exeDir: true
+  exe: "DiasbleFSOANDGAMEBAR.CMD"
+  option: "disable-fso-gamebar"
+
+- !run: 
+  exeDir: true
+  exe: "ENABLEFSODISABLEGAMEBAR.CMD"
+  option: "enable-fso-disable-gamebar"
+
+- !run: 
+  exeDir: true
+  exe: "ENABLEFSOANDGAMEBAR.CMD"
+  option: "enable-fso-gamebar"
 
 - !run: 
   exeDir: true

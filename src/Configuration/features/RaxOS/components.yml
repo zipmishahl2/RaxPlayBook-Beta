@@ -4,8 +4,8 @@ description: Remove windows components and files
 privilege: TrustedInstaller
 actions:
 
-  - !writeStatus: {status: "Removing Useless Components and Files"}
-  - !taskKill: {name: "smartscreen", ignoreErrors: true, option: "remove-defender" }
+  - !writeStatus: {status: "Configuring Components"}
+  - !taskKill: {name: "smartscreen", ignoreErrors: true, option: "remove-defender"}
   - !service: {name: "MsSecCore", operation: delete, option: "remove-defender"}
   - !service: {name: "MsSecFlt", operation: delete, option: "remove-defender"}
   - !service: {name: "MsSecWfp", operation: delete, option: "remove-defender"}

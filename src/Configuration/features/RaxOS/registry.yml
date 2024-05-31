@@ -3,7 +3,7 @@ title: Registry
 description: RaxOS registry
 privilege: TrustedInstaller
 actions: 
-  - !writeStatus: {status: "registry"}
+  - !writeStatus: {status: "Configuring Registry"}
 features:
 - features\RaxOS\registry\add-take-ownership.yml
 - features\RaxOS\registry\configure-context-menu.yml

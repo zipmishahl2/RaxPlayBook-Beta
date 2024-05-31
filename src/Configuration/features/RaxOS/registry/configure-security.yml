@@ -7,15 +7,25 @@ actions:
 # - Disable Meltdown and Inspectre
 # - FeatureSettings has to be set to 1 hexaDecimal to fully Disable these security protections
 # - Disable Paging
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverride', type: REG_DWORD, data: '3'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverrideMask', type: REG_DWORD, data: '3'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettings', type: REG_DWORD, data: '1'}
+# - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverride', type: REG_DWORD, data: '3'}
+# - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettingsOverrideMask', type: REG_DWORD, data: '3'}
+# - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'FeatureSettings', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'DisablePagingExecutive', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management', value: 'DisablePageCombining', type: REG_DWORD, data: '1'}
 
 # - Enable TSX
 # ------> It was disabled by default due to security reasons; Enabling it makes 4~5 times faster in database transaction and around 40% faster in specific workloads
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Kernel', value: 'DisableTsx', type: REG_DWORD, data: '0'}
+# - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Kernel', value: 'DisableTsx', type: REG_DWORD, data: '0'}
+
+- !powerShell: 
+  command: |
+    $manufacturer = (Get-WmiObject Win32_Processor).Manufacturer
+    $registryPath = 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Kernel'
+    if ($manufacturer -eq 'GenuineIntel') {
+      [microsoft.win32.registry]::SetValue($registryPath, 'DisableTsx', 0, [Microsoft.Win32.RegistryValueKind]::DWord)
+    } else {
+      Remove-ItemProperty -Path $registryPath -Name 'DisableTsx' -ErrorAction SilentlyContinue | Out-Null
+    }
 
 # - Hide unused windows security pages
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Family options', value: 'UILockdown', type: REG_DWORD, data: '1'}

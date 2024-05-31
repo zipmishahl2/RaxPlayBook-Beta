@@ -36,3 +36,11 @@ actions:
 # - Disable WPBT
 # ------> https://github.com/Jamesits/dropWPBT
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager', value: 'DisableWpbtExecution', type: REG_DWORD, data: '1'}
+
+# - Configure Steam 
+- !registryValue: {path: 'HKCU\SOFTWARE\Valve\Steam', value: 'SmoothScrollWebViews', type: REG_DWORD, data: '0', option: "configure-steam"}
+- !registryValue: {path: 'HKCU\SOFTWARE\Valve\Steam', value: 'DWriteEnable', type: REG_DWORD, data: '0', option: "configure-steam"}
+- !registryValue: {path: 'HKCU\SOFTWARE\Valve\Steam', value: 'StartupMode', type: REG_DWORD, data: '0', option: "configure-steam"}
+- !registryValue: {path: 'HKCU\SOFTWARE\Valve\Steam', value: 'H264HWAccel', type: REG_DWORD, data: '0', option: "configure-steam"}
+- !registryValue: {path: 'HKCU\SOFTWARE\Valve\Steam', value: 'DPIScaling', type: REG_DWORD, data: '0', option: "configure-steam"}
+- !registryValue: {path: 'HKCU\SOFTWARE\Valve\Steam', value: 'GPUAccelWebViews', type: REG_DWORD, data: '0', option: "configure-steam"}

@@ -4,26 +4,18 @@ description: Installs preferred softwares
 privilege: TrustedInstaller
 actions:
 
-  # WinGet
-- !writeStatus: {status: 'Updating Winget'}
+  # Choco
+- !writeStatus: {status: 'Installing Choco'}
 - !powerShell:
   weight: 50
   runas: currentUserElevated
   command: |
-    $productName = Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ProductName
-    $path = Join-Path ${env:ProgramFiles(x86)} 'Revision Tool'
-    if (Test-Path $path) {
-      $file = Join-Path $path 'revitool.exe'
-      $args = if ($productName -like '*LTSC*') {'msstore-apps --id 9NBLGGH4NNS1 --ring RP'} else {'msstore-apps --id 9WZDNCRFJBMP --id 9NBLGGH4NNS1 --ring RP'}
-        
-      Start-Process -FilePath $file -ArgumentList $args -Wait -WindowStyle Hidden
-      }
-      Add-AppPackage 'https://cdn.winget.microsoft.com/cache/source.msix' -ForceApplicationShutdown
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # Vivaldi
 - !writeStatus: {status: 'Installing Vivaldi', option: "browser-vivaldi"}
 - !cmd:
-  command: 'winget install Vivaldi.Vivaldi --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  command: 'choco install vivaldi -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "browser-vivaldi"
@@ -31,7 +23,7 @@ actions:
 # GoogleChrome
 - !writeStatus: {status: 'Installing Google Chrome', option: "browser-chrome"}
 - !cmd:
-  command: 'winget install Google.Chrome --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  command: 'choco install googlechrome -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "browser-chrome"
@@ -39,32 +31,23 @@ actions:
 # Firefox
 - !writeStatus: {status: 'Installing Firefox', option: "browser-firefox"}
 - !cmd:
-  command: 'winget install Mozilla.Firefox --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  command: 'choco install firefox -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "browser-firefox"
 
-# Brave
-- !writeStatus: {status: 'Insatlling Brave', option: "browser-brave"}
+# Foobar2000
+- !writeStatus: {status: 'Installing Foobar2000', option: "foobar2000"}
 - !cmd:
-  exeDir: true
-  command: 'winget install -e --id Brave.Brave --scope machine --silent --accept-source-agreements --accept-package-agreements'
-  ignoreErrors: true
-  weight: 20
-  option: "browser-brave"
-
-# Spotify
-- !writeStatus: {status: 'Installing Spotify', option: "spotify"}
-- !cmd:
-  command: 'winget install -e --id Spotify.Spotify'
+  command: 'choco install foobar2000 -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
-  option: "spotify"
+  option: "foobar2000"
 
 # Discord
 - !writeStatus: {status: 'Installing Discord', option: "discord"}
 - !cmd:
-  command: 'winget install -e --id Discord.Discord'
+  command: 'choco install discord -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "discord"
@@ -72,7 +55,7 @@ actions:
 # MPC-HC
 - !writeStatus: {status: 'Installing MPC-HC', option: "mpc-hc"}
 - !cmd:
-  command: 'winget install -e --id clsid2.mpc-hc --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  command: 'choco install mpc-hc -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "mpc-hc"
@@ -80,7 +63,7 @@ actions:
 # OBS
 - !writeStatus: {status: 'Installing NotePad++', option: "np++"}
 - !cmd:
-  command: 'winget install -e --id Notepad++.Notepad++ --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  command: 'choco install notepadplusplus -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "np++"
@@ -88,7 +71,7 @@ actions:
 # Steam
 - !writeStatus: {status: 'Installing Steam', option: "gaming-steam"}
 - !cmd:
-  command: 'winget install Valve.Steam --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  command: 'choco install steam -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "gaming-steam"
@@ -96,7 +79,7 @@ actions:
 # EpicGames
 - !writeStatus: {status: 'Installing Epic Games Launcher', option: "gaming-epicgames"}
 - !cmd:
-  command: 'winget install EpicGames.EpicGamesLauncher --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  command: choco install epicgameslauncher -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "gaming-epicgames"
@@ -104,7 +87,7 @@ actions:
 # Battlenet
 - !writeStatus: {status: 'Installing Rare', option: "rare"}
 - !cmd:
-  command: 'winget install Blizzard.BattleNet'
+  command: 'choco install rare -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "rare"
@@ -112,7 +95,7 @@ actions:
 # 7Zip
 - !writeStatus: {status: 'Installing 7ZIP', option: "7zip"}
 - !cmd:
-  command: 'winget install --id=7zip.7zip  -e --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  command: 'choco install 7zip -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "7zip"
@@ -120,7 +103,7 @@ actions:
 # NanaZip
 - !writeStatus: {status: 'Installing NanaZip', option: "nanazip"}
 - !cmd:
-  command: 'winget install -e --id M2Team.NanaZip'
+  command: 'choco install nanazip -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "nanazip"
@@ -128,7 +111,7 @@ actions:
 # WinRAR
 - !writeStatus: {status: 'Installing WinRAR', option: "winrar"}
 - !cmd:
-  command: 'winget install -e --id RARLab.WinRAR --scope machine --silent --accept-source-agreements --accept-package-agreements'
+  command: 'choco install winrar -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
   option: "winrar"
