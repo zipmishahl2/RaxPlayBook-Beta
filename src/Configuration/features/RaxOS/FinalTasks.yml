@@ -65,24 +65,6 @@ actions:
   exe: "Microcode.CMD"
   option: "disable-spectre-meltdown"
 
-- !writeStatus: {status: "Disabling FSO And GameBAR"}
-- !run: 
-  exeDir: true
-  exe: "DisableFSOANDGAMEBAR.CMD"
-  option: "disable-fso-gamebar"
-
-- !writeStatus: {status: "Enabling FSO And Disabling GameBAR"}
-- !run: 
-  exeDir: true
-  exe: "ENABLEFSODISABLEGAMEBAR.CMD"
-  option: "enable-fso-disable-gamebar"
-
-- !writeStatus: {status: "Enabling FSO And GameBAR"}
-- !run: 
-  exeDir: true
-  exe: "ENABLEFSOANDGAMEBAR.CMD"
-  option: "enable-fso-gamebar"
-
 - !writeStatus: {status: "Applying WallPaper"}
 - !run: 
   exeDir: true
