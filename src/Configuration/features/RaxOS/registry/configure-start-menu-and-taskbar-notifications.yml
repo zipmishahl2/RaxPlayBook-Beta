@@ -23,6 +23,9 @@ actions:
 # - Turn off recommendations in startmenu
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Start_IrisRecommendations', type: REG_DWORD, data: '0'}
 
+# - 'Show account related notifications occasionally in Start' - Disabled
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Start_AccountNotifications', type: REG_DWORD, data: '0'}
+
 # - Show search icon
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search', value: 'SearchboxTaskbarMode', type: REG_DWORD, data: '1'}
 

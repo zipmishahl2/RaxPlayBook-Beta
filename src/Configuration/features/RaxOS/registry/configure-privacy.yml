@@ -37,6 +37,9 @@ actions:
 # - Disable logging - Enabled
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting', value: 'LoggingDisabled', type: REG_DWORD, data: '1'}
 
+# - Turn off cloud optimized content - Enabled
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableCloudOptimizedContent', type: REG_DWORD, data: '1'}
+
 # - Disable Windows Error Reporting
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting', value: 'Disabled', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting', value: 'Disabled', type: REG_DWORD, data: '1'}

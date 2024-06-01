@@ -64,6 +64,7 @@ actions:
   - !appx: {name: '*Microsoft.MSPaint*', type: family}
   - !taskKill: {name: "*teams*", ignoreErrors: true}
   - !appx: {name: '*MicrosoftTeams*', type: family}
+  - !appx: {name: '*MSTeams*', type: family, weight: 10}
   - !appx: {name: '*DevHome*', type: family}  
   - !appx: {name: '*WindowsBackup*', type: app, unregister: true}
   - !appx: {name: '*Flipgrid*', type: family}

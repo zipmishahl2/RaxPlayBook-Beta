@@ -23,6 +23,9 @@ actions:
 # - Set Launching applications and unsafe files to Enable
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3', value: '1806', type: REG_DWORD, data: '0'}
 
+# - Fix ms-gamingoverlay popup when removing xbox apps
+- !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR', value: 'AppCaptureEnabled', type: REG_DWORD, data: '0', option: 'remove-xbox'}
+
 # - Turn off voice activation
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps', value: 'AgentActivationEnabled', type: REG_DWORD, data: '0'}
 
@@ -31,6 +34,10 @@ actions:
 
 # - Disable website access to language list
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\International\User Profile', value: 'HttpAcceptLanguageOptOut', type: REG_DWORD, data: '1'}
+
+# - Disable ValueBanners in Windows 11 Settings (Requires TrustedInstaller permissions)
+# ------> Credits to @he3als for finding more reliable method.
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\ValueBanner.IdealStateFeatureControlProvider', value: 'ActivationType', type: REG_DWORD, data: '0'}
 
 # - Show me notifications in the Settings app - Off
 # ------> Found in 22631.3527
