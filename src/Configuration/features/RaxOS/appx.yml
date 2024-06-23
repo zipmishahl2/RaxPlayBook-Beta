@@ -78,4 +78,3 @@ actions:
   - !writeStatus: {status: "Removing GetStarted"}
   - !appx: {name: '*Microsoft.Getstarted*', type: family, weight: 10}
   - !appx: {name: '*Microsoft.Windows.Ai.Copilot*', type: family}
-  - !appx: {name: '*Microsoft.SecHealthUI*', type: family, option: "remove-defender"}
