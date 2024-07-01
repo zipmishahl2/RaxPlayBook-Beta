@@ -10,4 +10,3 @@ powercfg -changename 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c "RaxOS PowerPlan" "Mad
 powercfg /setactive scheme_current
 powercfg -h off
 for %a in ("SleepStudy" "Kernel-Processor-Power" "UserModePowerService") do (wevtutil sl Microsoft-Windows-%~a/Diagnostic /e:false)
-exit

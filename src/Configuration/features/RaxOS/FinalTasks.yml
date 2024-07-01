@@ -59,12 +59,6 @@ actions:
   exe: "SpectreANDMeltdown.CMD"
   option: "disable-spectre-meltdown"
 
-- !writeStatus: {status: "Renaming Microcode"}
-- !run: 
-  exeDir: true
-  exe: "Microcode.CMD"
-  option: "disable-spectre-meltdown"
-
 - !writeStatus: {status: "Applying WallPaper"}
 - !run: 
   exeDir: true
@@ -78,10 +72,12 @@ actions:
   weight: 40
   option: "disable-defender"
 
-- !writeStatus: {status: "Configure TimerRes"}
-- !run: 
+- !writeStatus: {status: "Configuring features"}
+- !run:
   exeDir: true
-  exe: "TimerRes.CMD"
+  exe: "PowerShell"
+  args: '-NoP -ExecutionPolicy Bypass -File DISM-FEATURES.ps1'
+  weight: 270
 
 - !writeStatus: {status: "FINALIZE"}
 - !run: 

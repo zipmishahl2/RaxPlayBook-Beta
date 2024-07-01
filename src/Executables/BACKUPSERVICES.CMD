@@ -13,4 +13,3 @@ for /f "delims=" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services"') d
         ) 
     ) 
 ) 
-exit

@@ -46,6 +46,11 @@ actions:
 # - Disable Recall snapshots (24H2)
 - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI', value: 'DisableAIDataAnalysis', type: REG_DWORD, data: '1'}
 
+# - Disable Background Apps
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications', value: 'GlobalUserDisabled', type: REG_DWORD, data: '1'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\AppPrivacy', value: 'LetAppsRunInBackground', type: REG_DWORD, data: '2'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search', value: 'BackgroundAppGlobalToggle', type: REG_DWORD, data: '0'}
+
 # - Disable language bar
 - !registryValue: {path: 'HKEY_CURRENT_USER\Keyboard Layout\Toggle', value: 'Layout Hotkey', type: REG_DWORD, data: '3'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Keyboard Layout\Toggle', value: 'Language Hotkey', type: REG_DWORD, data: '3'}

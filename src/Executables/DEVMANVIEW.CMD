@@ -17,4 +17,3 @@ devmanview.exe /disable "Microsoft Print to PDF"
 devmanview.exe /disable "Microsoft XPS Document Writer"
 devmanview.exe /disable "Root Print Queue"
 devmanview.exe /disable "Remote Desktop Device Redirector Bus"
-exit
