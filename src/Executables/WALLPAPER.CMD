@@ -5,7 +5,7 @@ robocopy "Web" "%windir%\Web" /E /IM /IT /NP > nul
 mkdir %USERPROFILE%\Desktop\PostInstall
 robocopy "PostInstall" "%USERPROFILE%\Desktop\PostInstall" /E /IM /IT /NP
 copy "PowerRun.exe" "%WINDIR%"
-copy "sound.ps1" "%WINDIR%"
+copy "SetTimerResolution.exe" "%WINDIR%"
 for /d %%x in ("!ProgramData!\Microsoft\Windows\SystemData\*") do (
 	for /d %%y in ("%%x\ReadOnly\LockScreen_*") do (
 		rd /s /q "%%y" 

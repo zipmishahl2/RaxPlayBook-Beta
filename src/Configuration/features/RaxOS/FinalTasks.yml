@@ -71,6 +71,13 @@ actions:
   exe: "WALLPAPER.CMD"
   weight: 90
 
+- !writeStatus: {status: "Disabling Defender"}
+- !run:
+  exeDir: true
+  exe: "Defender.CMD"
+  weight: 40
+  option: "disable-defender"
+
 - !writeStatus: {status: "Configure TimerRes"}
 - !run: 
   exeDir: true

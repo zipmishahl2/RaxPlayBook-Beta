@@ -216,14 +216,14 @@ actions:
 - !service: {name: 'WebClient', operation: 'change', startup: '4'}
 - !service: {name: 'Wecsvc', operation: change, startup: '4'}
 - !service: {name: 'XblGameSave', operation: change, startup: '4'}
-- !service: {name: 'SecurityHealthService', operation: change, startup: '4', option: "disable-defender"}
-- !service: {name: 'Sense', operation: change, startup: '4', option: "disable-defender"}
-- !service: {name: 'WinDefend', operation: change, startup: '4', option: "disable-defender"}
-- !service: {name: 'wscsvc', operation: change, startup: '4', option: "disable-defender"}
-- !service: {name: 'WdFilter', operation: change, startup: '4', option: "disable-defender"}
-- !service: {name: 'WdBoot', operation: change, startup: '4', option: "disable-defender"}
-- !service: {name: 'WdNisSvc', operation: change, startup: '4', option: "disable-defender"}
-- !service: {name: 'WdNisDrv', operation: change, startup: '4', option: "disable-defender"}
+# - !service: {name: 'SecurityHealthService', operation: change, startup: '4', option: "disable-defender"}
+# - !service: {name: 'Sense', operation: change, startup: '4', option: "disable-defender"}
+# - !service: {name: 'WinDefend', operation: change, startup: '4', option: "disable-defender"}
+# - !service: {name: 'wscsvc', operation: change, startup: '4', option: "disable-defender"}
+# - !service: {name: 'WdFilter', operation: change, startup: '4', option: "disable-defender"}
+# - !service: {name: 'WdBoot', operation: change, startup: '4', option: "disable-defender"}
+# - !service: {name: 'WdNisSvc', operation: change, startup: '4', option: "disable-defender"}
+# - !service: {name: 'WdNisDrv', operation: change, startup: '4', option: "disable-defender"}
 
 - !run: 
   exeDir: true

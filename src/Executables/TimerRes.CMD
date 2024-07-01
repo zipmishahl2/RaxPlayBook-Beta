@@ -1,5 +1,4 @@
 @echo off
-curl -L -o C:\Windows\SetTimerResolution.exe https://github.com/amitxv/TimerResolution/releases/download/SetTimerResolution-v0.1.4/SetTimerResolution.exe
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Windows\SetTimerResolution.exe --resolution 5067 --no-console" 
 ver | findstr /i "10\.0\.[0-1][0-9][0-9][0-9][0-9]*" > nul
 if %errorlevel% equ 0 (
