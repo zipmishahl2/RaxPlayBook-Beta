@@ -7,6 +7,9 @@ actions:
 # - Disable Prefetcher and Superfetch
 - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control\Session Manager\Memory Management\PrefetchParameters', value: 'EnablePrefetcher', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control\Session Manager\Memory Management\PrefetchParameters', value: 'EnableSuperfetch', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control\Session Manager\Memory Management\PrefetchParameters', value: 'SfTracingState', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control\Session Manager\Memory Management\PrefetchParameters', value: 'EnableBootTrace', type: REG_DWORD, data: '0'}
+
 # - Disable Superfetch's Eventlog connection.
 - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Superfetch/Main', value: 'Enabled', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Superfetch/PfApLog', value: 'Enabled', type: REG_DWORD, data: '0'}
