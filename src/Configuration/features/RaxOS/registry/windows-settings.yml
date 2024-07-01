@@ -40,6 +40,12 @@ actions:
 # ------> Found in 22631.3527
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SystemSettings\AccountNotifications', value: 'EnableAccountNotifications', type: REG_DWORD, data: '1', weight: 50}
 
+# - Enable Sudo - On (Inline)
+- !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Sudo', value: 'Enabled', type: REG_DWORD, data: '3'}
+
+# - Disable Recall snapshots (24H2)
+- !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI', value: 'DisableAIDataAnalysis', type: REG_DWORD, data: '1'}
+
 # - Disable language bar
 - !registryValue: {path: 'HKEY_CURRENT_USER\Keyboard Layout\Toggle', value: 'Layout Hotkey', type: REG_DWORD, data: '3'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Keyboard Layout\Toggle', value: 'Language Hotkey', type: REG_DWORD, data: '3'}
@@ -252,7 +258,7 @@ actions:
 # - Hide useless settings
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'SettingsPageVisibility', type: REG_SZ, data: 'hide:recovery;autoplay;usb;maps;maps-downloadmaps;findmydevice;privacy;privacy-speechtyping;privacy-speech;privacy-feedback;privacy-activityhistory;search-permissions;privacy-location;privacy-general;sync;printers;cortana-windowssearch;family-group;deviceusage;home;windowsupdate;project;deviceencryption;network-airplanemode;delivery-optimization;backup;troubleshoot;windowsinsider'}
 
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'SettingsPageVisibility', type: REG_SZ, data: 'hide:recovery;autoplay;usb;maps;maps-downloadmaps;findmydevice;privacy;privacy-speechtyping;privacy-speech;privacy-feedback;privacy-activityhistory;search-permissions;privacy-location;privacy-general;sync;printers;cortana-windowssearch;family-group;deviceusage;home;windowsupdate;windowsdefender;project;deviceencryption;network-airplanemode;delivery-optimization;backup;troubleshoot;windowsinsider', option: "remove-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'SettingsPageVisibility', type: REG_SZ, data: 'hide:recovery;autoplay;usb;maps;maps-downloadmaps;findmydevice;privacy;privacy-speechtyping;privacy-speech;privacy-feedback;privacy-activityhistory;search-permissions;privacy-location;privacy-general;sync;printers;cortana-windowssearch;family-group;deviceusage;home;windowsupdate;windowsdefender;project;deviceencryption;network-airplanemode;delivery-optimization;backup;troubleshoot;windowsinsider', option: "disable-defender"}
 
 # - Disable windows ink workspace
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace', value: 'AllowSuggestedAppsInWindowsInkWorkspace', type: REG_DWORD, data: '1'}

@@ -73,9 +73,9 @@ actions:
   - !appx: {name: '*Microsoft.XboxApp*', type: family, option: "remove-xbox"}   
   - !appx: {name: '*Microsoft.YourPhone*', type: family}
   - !appx: {name: '*MicrosoftWindows.CrossDevice*', type: family}
+  - !appx: {name: '*Microsoft.Windows.Ai.Copilot*', type: family}
+  - !appx: {name: '*MicrosoftWindows.Client.AIX*', type: family, weight: 10}
   - !writeStatus: {status: "Removing Windows Backup"}
   - !appx: {name: '*WindowsBackup*', type: app, unregister: true, weight: 10}
   - !writeStatus: {status: "Removing GetStarted"}
   - !appx: {name: '*Microsoft.Getstarted*', type: family, weight: 10}
-  - !appx: {name: '*Microsoft.Windows.Ai.Copilot*', type: family}
-  - !appx: {name: '*Microsoft.SecHealthUI*', type: family, option: "remove-defender"}

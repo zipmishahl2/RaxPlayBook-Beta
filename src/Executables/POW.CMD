@@ -9,7 +9,5 @@ powercfg /setacvalueindex 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c SUB_VIDEO VIDEOID
 powercfg -changename 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c "RaxOS PowerPlan" "Made for RaxOS, Credits to AMITXV."
 powercfg /setactive scheme_current
 powercfg -h off
-wevtutil set-log "Microsoft-Windows-SleepStudy/Diagnostic" /e:false >nul 2>&1
-wevtutil set-log "Microsoft-Windows-Kernel-Processor-Power/Diagnostic" /e:false >nul 2>&1
-wevtutil set-log "Microsoft-Windows-UserModePowerService/Diagnostic" /e:false >nul 2>&1
+for %a in ("SleepStudy" "Kernel-Processor-Power" "UserModePowerService") do (wevtutil sl Microsoft-Windows-%~a/Diagnostic /e:false)
 exit

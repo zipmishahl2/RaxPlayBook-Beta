@@ -12,7 +12,7 @@ actions:
   exeDir: true
   exe: "BACKUPSERVICES.CMD"
 
-- !service: {name: 'afunix', operation: change, startup: 4}
+- !service: {name: 'afunix', operation: change, startup: '4'}
 - !service: {name: 'AJRouter', operation: 'change', startup: '4'}
 - !service: {name: 'ALG', operation: 'change', startup: '4'}
 - !service: {name: 'AssignedAccessManagerSvc', operation: 'change', startup: '4'}
@@ -50,7 +50,7 @@ actions:
 - !service: {name: 'CscService', operation: 'change', startup: '4'}
 - !service: {name: 'cdrom', operation: 'change', startup: '4'}
 - !service: {name: 'cnghwassist', operation: 'change', startup: '4'}
-- !service: {name: 'CSC', operation: change, startup: 4}
+- !service: {name: 'CSC', operation: change, startup: '4'}
 - !service: {name: 'cloudidsvc', operation: 'change', startup: '4'}
 - !service: {name: 'CldFlt', operation: 'change', startup: '4'}
 - !service: {name: 'cdfs', operation: 'change', startup: '4'}
@@ -115,7 +115,7 @@ actions:
 - !service: {name: 'NPSMSvc', operation: 'change', startup: '4'}
 - !service: {name: 'OneSyncSvc', operation: 'change', startup: '4'}
 - !service: {name: 'UsoSvc', operation: 'change', startup: '4'}
-- !service: {name: 'UCPD', operation: change, startup: 4}
+- !service: {name: 'UCPD', operation: change, startup: '4'}
 - !service: {name: 'PcaSvc', operation: 'change', startup: '4'}
 - !service: {name: 'PimIndexMaintenanceSvc', operation: 'change', startup: '4'}
 - !service: {name: 'printworkflowusersvc', operation: 'change', startup: '4'}
@@ -214,8 +214,16 @@ actions:
 - !service: {name: 'WpcMonSvc', operation: 'change', startup: '4'}
 - !service: {name: 'wmiApSrv', operation: 'change', startup: '4'}
 - !service: {name: 'WebClient', operation: 'change', startup: '4'}
-- !service: {name: 'Wecsvc', operation: change, startup: 4}
-- !service: {name: 'XblGameSave', operation: change, startup: 4}
+- !service: {name: 'Wecsvc', operation: change, startup: '4'}
+- !service: {name: 'XblGameSave', operation: change, startup: '4'}
+- !service: {name: 'SecurityHealthService', operation: change, startup: '4', option: "disable-defender"}
+- !service: {name: 'Sense', operation: change, startup: '4', option: "disable-defender"}
+- !service: {name: 'WinDefend', operation: change, startup: '4', option: "disable-defender"}
+- !service: {name: 'wscsvc', operation: change, startup: '4', option: "disable-defender"}
+- !service: {name: 'WdFilter', operation: change, startup: '4', option: "disable-defender"}
+- !service: {name: 'WdBoot', operation: change, startup: '4', option: "disable-defender"}
+- !service: {name: 'WdNisSvc', operation: change, startup: '4', option: "disable-defender"}
+- !service: {name: 'WdNisDrv', operation: change, startup: '4', option: "disable-defender"}
 
 - !run: 
   exeDir: true

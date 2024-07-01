@@ -1,4 +1,3 @@
-echo Configuring values for spectre and meltdown
 for /f "tokens=2 delims==" %%I in ('wmic cpu get caption /value ^| find "Caption"') do set "processor=%%I"
 
 echo !processor! | find /i "AMD" >nul

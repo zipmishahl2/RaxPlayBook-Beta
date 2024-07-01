@@ -137,3 +137,6 @@ actions:
 
 # - Disable  "Include account-based insights, recent, favorite and recommended" for OneDrive in File Explorer
 - !registryValue: { path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'DisableGraphRecentItems', type: REG_DWORD, data: '1' }
+
+# - Disable the new Spotlight icon on Desktop
+- !registryValue: { path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel', value: '{2cc5ca98-6485-489a-920e-b3e88a6ccce3}', type: REG_DWORD, data: '1' }

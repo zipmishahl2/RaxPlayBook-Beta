@@ -115,3 +115,12 @@ actions:
   weight: 150
   runas: currentUserElevated
   option: "winrar"
+
+  - !taskKill: {name: "explorer", ignoreErrors: true}
+  - !taskKill: {name: "SearchApp", ignoreErrors: true}
+  - !taskKill: {name: "SearchHost", ignoreErrors: true}
+  - !taskKill: {name: "RuntimeBroker", ignoreErrors: true}
+  - !taskKill: {name: "TextInputHost", ignoreErrors: true}
+  - !taskKill: {name: "ShellExperienceHost", ignoreErrors: true}
+  - !taskKill: {name: "backgroundTaskHost", ignoreErrors: true}
+  - !taskKill: {name: "Widgets", ignoreErrors: true}

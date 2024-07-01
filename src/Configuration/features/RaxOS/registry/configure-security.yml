@@ -70,15 +70,22 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\MicrosoftEdge\PhishingFilter', value: 'EnabledV9', type: REG_DWORD, data: '0'}
 
 # - Defender
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer', value: 'SmartScreenEnabled', type: REG_SZ, data: 'Off', option: "remove-defender"}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\SmartScreen', value: 'EnableSmartScreen', type: REG_DWORD, data: '0', option: "remove-defender"}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\MicrosoftEdge\PhishingFilter', value: 'EnabledV9', type: REG_DWORD, data: '0', option: "remove-defender"}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\AppHost', value: 'EnableWebContentEvaluation', type: REG_DWORD, data: '0', option: "remove-defender"}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AppHost', value: 'EnableWebContentEvaluation', type: REG_DWORD, data: '0', option: "remove-defender"}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Policy', value: 'VerifiedAndReputablePolicyState', type: REG_DWORD, data: '0', option: "remove-defender"}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender', value: 'PUAProtection', type: REG_DWORD, data: '0', option: "remove-defender"}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Config', value: 'VulnerableDriverBlocklistEnable', type: REG_DWORD, data: '0', option: "remove-defender"}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity', value: 'Enabled', type: REG_DWORD, data: '0', option: "remove-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer', value: 'SmartScreenEnabled', type: REG_SZ, data: 'Off', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\SmartScreen', value: 'EnableSmartScreen', type: REG_DWORD, data: '0', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\MicrosoftEdge\PhishingFilter', value: 'EnabledV9', type: REG_DWORD, data: '0', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\AppHost', value: 'EnableWebContentEvaluation', type: REG_DWORD, data: '0', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AppHost', value: 'EnableWebContentEvaluation', type: REG_DWORD, data: '0', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Policy', value: 'VerifiedAndReputablePolicyState', type: REG_DWORD, data: '0', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender', value: 'PUAProtection', type: REG_DWORD, data: '0', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Config', value: 'VulnerableDriverBlocklistEnable', type: REG_DWORD, data: '0', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity', value: 'Enabled', type: REG_DWORD, data: '0', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender', value: 'DisableAntiSpyware', type: REG_DWORD, data: '1', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection', value: 'DisableRealtimeMonitoring', type: REG_DWORD, data: '1', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection', value: 'DisableBehaviorMonitoring', type: REG_DWORD, data: '1', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection', value: 'DisableScanOnRealtimeEnable', type: REG_DWORD, data: '1', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection', value: 'DisableOnAccessProtection', type: REG_DWORD, data: '1', option: "disable-defender"}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run', value: 'SecurityHealth', type: REG_SZ, data: '-', option: "disable-defender"}
+
 
 # - Hide windows security systray
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Systray', value: 'HideSystray', type: REG_DWORD, data: '1'}
