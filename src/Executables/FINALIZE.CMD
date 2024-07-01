@@ -34,7 +34,7 @@ for /f "delims=" %%u in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services\NetB
 )
 
 :: Disabling AutoLoggers and Firewall Rules
-powershell.exe Remove-AutologgerConfig -Name "autologger-diagtrack-listener", "cellcore", "cloudexperiencehostoobe", "lwtnetlog", "mellanox-Kernel", "microsoft-windows-assignedaccess-trace", "microsoft-windows-rdp-graphics-rdpidd-trace"
+powershell Remove-AutologgerConfig -Name "autologger-diagtrack-listener", "cellcore", "cloudexperiencehostoobe", "lwtnetlog", "mellanox-Kernel", "microsoft-windows-assignedaccess-trace", "microsoft-windows-rdp-graphics-rdpidd-trace"
 
 :: Disabling DMA Remapping
 for %%a in (DmaRemappingCompatible) do for /f "delims=" %%b in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /s /f "%%a" ^| findstr "HKEY"') do Reg.exe add "%%b" /v "%%a" /t REG_DWORD /d "0" /f 
@@ -51,7 +51,7 @@ fsutil behavior set disablelastaccess 1 > NUL 2>&1
 fsutil behavior set disabledeletenotify 0 > NUL 2>&1
 
 :: Disable Driver PowerSaving
-%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
+powershell -Command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 
 :: Disabling powersaving features
 for %%a in (
