@@ -76,7 +76,7 @@ actions:
 - !service: {name: 'EapHost', operation: 'change', startup: '4'}
 - !service: {name: 'EFS', operation: 'change', startup: '4'}
 - !service: {name: 'EntAppSvc', operation: 'change', startup: '4'}
-- !service: {name: 'edgeupdate', operation: change, startup: 3}
+- !service: {name: 'edgeupdate', operation: change, startup: '3'}
 - !service: {name: 'FontCache', operation: 'change', startup: '4'}
 - !service: {name: 'FontCache3.0.0.0', operation: 'change', startup: '4'}
 - !service: {name: 'fdPHost', operation: 'change', startup: '4'}
