@@ -4,6 +4,9 @@ description: configure-start-menu-and-taskbar
 privilege: TrustedInstaller
 actions:
 
+# - Remove Copilot
+- !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\WindowsCopilot', value: 'TurnOffWindowsCopilot', type: REG_DWORD, data: '1'}
+
 # - Disable show recently added apps on startmenu
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'HideRecentlyAddedApps', type: REG_DWORD, data: '1'}
 

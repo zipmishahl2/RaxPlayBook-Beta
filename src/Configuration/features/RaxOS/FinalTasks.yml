@@ -4,6 +4,27 @@ description: Finalizing The RaxOS Playbook Installation
 privilege: TrustedInstaller
 actions:
 
+- !writeStatus: {status: "Applying WallPaper"}
+- !run: 
+  exeDir: true
+  exe: "WALLPAPER.CMD"
+  weight: 90
+
+- !writeStatus: {status: "Refreshing"}
+- !taskKill: {name: "explorer", ignoreErrors: true}
+- !taskKill: {name: "SearchApp", ignoreErrors: true}
+- !taskKill: {name: "SearchHost", ignoreErrors: true}
+- !taskKill: {name: "RuntimeBroker", ignoreErrors: true}
+- !taskKill: {name: "TextInputHost", ignoreErrors: true}
+- !taskKill: {name: "ShellExperienceHost", ignoreErrors: true}
+- !taskKill: {name: "backgroundTaskHost", ignoreErrors: true}
+- !taskKill: {name: "Widgets", ignoreErrors: true}
+
+- !run:
+  exeDir: true
+  exe: "PowerShell"
+  args: '-NoP -ExecutionPolicy Bypass -File SVCGROUP.ps1'
+  weight: 50
 
 - !writeStatus: {status: "Removing logs"}
 - !run:
@@ -59,12 +80,6 @@ actions:
   exe: "SpectreANDMeltdown.CMD"
   option: "disable-spectre-meltdown"
 
-- !writeStatus: {status: "Applying WallPaper"}
-- !run: 
-  exeDir: true
-  exe: "WALLPAPER.CMD"
-  weight: 90
-
 - !writeStatus: {status: "Disabling Defender"}
 - !run:
   exeDir: true
@@ -72,7 +87,7 @@ actions:
   weight: 40
   option: "disable-defender"
 
-- !writeStatus: {status: "Configuring features"}
+- !writeStatus: {status: "Configuring Optional features"}
 - !run:
   exeDir: true
   exe: "PowerShell"
