@@ -40,6 +40,25 @@ actions:
 # ------> Found in 22631.3527
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SystemSettings\AccountNotifications', value: 'EnableAccountNotifications', type: REG_DWORD, data: '1', weight: 50}
 
+# - Enable FSO and Disable GameBar
+- !registryValue: {path: 'HKEY_CURRENT_USER\System\GameConfigStore', value: 'GameDVR_DSEBehavior', operation: delete}
+- !registryValue: {path: 'HKEY_CURRENT_USER\System\GameConfigStore', value: 'GameDVR_DXGIHonorFSEWindowsCompatible', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\System\GameConfigStore', value: 'GameDVR_EFSEFeatureFlags', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\System\GameConfigStore', value: 'GameDVR_FSEBehavior', operation: delete}
+- !registryValue: {path: 'HKEY_CURRENT_USER\System\GameConfigStore', value: 'GameDVR_FSEBehaviorMode', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\System\GameConfigStore', value: 'GameDVR_HonorUserFSEBehaviorMode', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment', value: '__COMPAT_LAYER', operation: delete}
+- !registryValue: {path: 'HKEY_CURRENT_USER\System\GameConfigStore', value: 'GameDVR_Enabled', type: REG_DWORD, data: '0'}
+
+# - Disable GameBar Tips
+- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\GameBar', value: 'ShowStartupPanel', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\GameBar', value: 'UseNexusForGameBarEnabled', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\GameBar', value: 'GamePanelStartupTipIndex', type: REG_DWORD, data: '3'}
+
+# - Disable Window Game Recording and Broadcasting
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GameDVR', value: 'AllowGameDVR', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\ApplicationManagement\AllowGameDVR', value: 'value', type: REG_DWORD, data: '0'}
+
 # - Enable Sudo - On (Inline)
 - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Sudo', value: 'Enabled', type: REG_DWORD, data: '3'}
 

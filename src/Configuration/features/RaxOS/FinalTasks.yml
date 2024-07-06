@@ -4,11 +4,32 @@ description: Finalizing The RaxOS Playbook Installation
 privilege: TrustedInstaller
 actions:
 
+
+- !writeStatus: {status: "Copying Files"}
+- !run:
+  exeDir: true
+  exe: "Copy.CMD"
+
 - !writeStatus: {status: "Applying WallPaper"}
 - !run: 
   exeDir: true
   exe: "WALLPAPER.CMD"
   weight: 90
+  option: "apply-wallpaper"
+
+- !writeStatus: {status: "Disabling Printer"}
+- !run: 
+  exeDir: true
+  exe: "PRINTER.CMD"
+  weight: 90
+  option: "disable-print"
+
+- !writeStatus: {status: "Disable Bluetooth"}
+- !run: 
+  exeDir: true
+  exe: "BLUETOOTH.CMD"
+  weight: 90
+  option: "disable-bluetooth"
 
 - !writeStatus: {status: "Refreshing"}
 - !taskKill: {name: "explorer", ignoreErrors: true}

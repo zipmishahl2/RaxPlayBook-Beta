@@ -28,6 +28,14 @@ actions:
   weight: 20
   option: "browser-brave"
 
+# Vivaldi
+- !writeStatus: {status: 'Installing Vivaldi', option: "browser-vivaldi"}
+- !cmd:
+  command: 'choco install vivaldi -y --ignore-checksums'
+  weight: 150
+  runas: currentUserElevated
+  option: "browser-vivaldi"
+
 # GoogleChrome
 - !writeStatus: {status: 'Installing Google Chrome', option: "browser-chrome"}
 - !cmd:
