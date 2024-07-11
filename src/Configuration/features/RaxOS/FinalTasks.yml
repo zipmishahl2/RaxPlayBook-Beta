@@ -32,14 +32,14 @@ actions:
   option: "disable-bluetooth"
 
 - !writeStatus: {status: "Refreshing"}
-- !taskKill: {name: "explorer", ignoreErrors: true}
-- !taskKill: {name: "SearchApp", ignoreErrors: true}
-- !taskKill: {name: "SearchHost", ignoreErrors: true}
-- !taskKill: {name: "RuntimeBroker", ignoreErrors: true}
-- !taskKill: {name: "TextInputHost", ignoreErrors: true}
-- !taskKill: {name: "ShellExperienceHost", ignoreErrors: true}
-- !taskKill: {name: "backgroundTaskHost", ignoreErrors: true}
-- !taskKill: {name: "Widgets", ignoreErrors: true}
+- !taskKill: {name: "Explorer.exe", ignoreErrors: true}
+- !taskKill: {name: "SearchApp.exe", ignoreErrors: true}
+- !taskKill: {name: "SearchHost.exe", ignoreErrors: true}
+- !taskKill: {name: "RuntimeBroker.exe", ignoreErrors: true}
+- !taskKill: {name: "TextInputHost.exe", ignoreErrors: true}
+- !taskKill: {name: "ShellExperienceHost.exe", ignoreErrors: true}
+- !taskKill: {name: "backgroundTaskHost.exe", ignoreErrors: true}
+- !taskKill: {name: "Widgets.exe", ignoreErrors: true}
 
 - !run:
   exeDir: true
