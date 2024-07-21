@@ -15,7 +15,7 @@ actions:
   - !appx: {name: '*SecureAssessmentBrowser*', type: family}
   - !appx: {name: '*PeopleExperienceHost*', type: family}
   - !appx: {name: '*Microsoft.Windows.Photos*', type: family, option: "remove-uwp-photos"}
-  - !appx: {name: '*Microsoft.WindoferrorAction: IgnorewsCamera*', type: family}
+  - !appx: {name: '*Microsoft.WindowsCamera*', type: family}
   - !powerShell:
     command: 'Get-AppxPackage MicrosoftWindows.Client.WebExperience | Remove-AppxPackage'
     runas: currentUserElevated
