@@ -17,5 +17,11 @@ reg add "HKU\%~1\Software\Policies\Mozilla\Firefox" /v "DisableFirefoxStudies" /
 reg add "HKU\%~1\Software\Policies\Mozilla\Firefox" /v "ExtensionSettings" /t REG_MULTI_SZ /d "{\0    \"uBlock0@raymondhill.net\": {\0        \"installation_mode\": \"force_installed\",\0        \"install_url\": \"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"\0    }\0}" /f >NUL 2>nul
 reg add "HKU\%~1\Software\Policies\Mozilla\Firefox" /v "DisableDefaultBrowserAgent" /t REG_DWORD /d 1 /f >NUL 2>nul
 reg add "HKU\%~1\Software\Policies\Mozilla\Firefox" /v "Preferences" /t REG_MULTI_SZ /d "{\"network.cookie.sameSite.laxByDefault\":{\"Value\":true,\"Status\":\"user\"},\"network.cookie.sameSite.noneRequiresSecure\":{\"Value\":true,\"Status\":\"user\"},\"network.cookie.sameSite.schemeful\":{\"Value\":true,\"Status\":\"user\"},\"browser.contentblocking.category\":{\"Value\":\"strict\",\"Status\":\"user\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"user\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"user\"}}" /f >NUL 2>nul
+del "C:\Program Files\Mozilla Firefox\crashreporter.exe" /f /q >nul 2>&1
+del "C:\Program Files\Mozilla Firefox\crashreporter.ini" /f /q >nul 2>&1
+del "C:\Program Files\Mozilla Firefox\maintenanceservice.exe" /f /q >nul 2>&1
+del "C:\Program Files\Mozilla Firefox\maintenanceservice_installer.exe" /f /q >nul 2>&1
+del "C:\Program Files\Mozilla Firefox\minidump-analyzer.exe" /f /q >nul 2>&1
+del "C:\Program Files\Mozilla Firefox\pingsender.exe" /f /q >nul 2>&1
 
 "%ProgramFiles(x86)%\Mozilla Maintenance Service\uninstall.exe" /S >NUL 2>nul

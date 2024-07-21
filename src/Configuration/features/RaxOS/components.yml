@@ -5,9 +5,9 @@ privilege: TrustedInstaller
 actions:
 
   - !writeStatus: {status: "Configuring Components"}
-  - !taskKill: {name: "OneDriveStandaloneUpdater", ignoreErrors: true, option: "remove-onedrive"}
-  - !taskKill: {name: "OneDriveSetup", ignoreErrors: true, option: "remove-onedrive"}
-  - !taskKill: {name: "OneDrive*", ignoreErrors: true, option: "remove-onedrive"}
+  - !taskKill: {name: "OneDriveStandaloneUpdater", errorAction: Ignore, option: "remove-onedrive"}
+  - !taskKill: {name: "OneDriveSetup", errorAction: Ignore, option: "remove-onedrive"}
+  - !taskKill: {name: "OneDrive*", errorAction: Ignore, option: "remove-onedrive"}
   - !service: {name: "OneSyncSvc*",operation: delete, option: "remove-onedrive"}
   - !run: {exeDir: true, exe: "ONED.cmd", option: "remove-onedrive",}
   - !registryKey: {path: 'HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}', option: "remove-onedrive"}

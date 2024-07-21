@@ -86,7 +86,6 @@ actions:
 # - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection', value: 'DisableOnAccessProtection', type: REG_DWORD, data: '1', option: "disable-defender"}
 # - !registryValue: {path: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run', value: 'SecurityHealth', type: REG_SZ, data: '-', option: "disable-defender"}
 
-
 # - Hide windows security systray
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Systray', value: 'HideSystray', type: REG_DWORD, data: '1'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run', value: 'SecurityHealth', type: REG_SZ, data: ''}

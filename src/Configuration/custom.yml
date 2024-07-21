@@ -2,13 +2,12 @@
 title: Custom
 description: Custom RaxOS configuration
 privilege: Admin
-actions: []
-features:
-- features\RaxOS\start.yml
-- features\RaxOS\software.yml
-- features\RaxOS\Services.yml
-- features\RaxOS\components.yml
-- features\RaxOS\appx.yml
-- features\RaxOS\registry.yml
-- features\RaxOS\ScheduledTasks.yml
-- features\RaxOS\FinalTasks.yml
+actions: 
+- !task: {path: 'features\RaxOS\start.yml'}
+- !task: {path: 'features\RaxOS\software.yml'}
+- !task: {path: 'features\RaxOS\Services.yml'}
+- !task: {path: 'features\RaxOS\components.yml'}
+- !task: {path: 'features\RaxOS\appx.yml'}
+- !task: {path: 'features\RaxOS\registry.yml'}
+- !task: {path: 'features\RaxOS\ScheduledTasks.yml'}
+- !task: {path: 'features\RaxOS\FinalTasks.yml'}

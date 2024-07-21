@@ -23,8 +23,8 @@ actions:
 # - Enable ASLR mitigation for osu!
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\osu!.exe', value: 'MitigationOptions', type: REG_BINARY, data: '000021000000000000000000000000000000000000000000'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\osu!.exe', value: 'MitigationAuditOptions', type: REG_BINARY, data: '000000000000000000000000000000000000000000000000'}
-
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\osu!.exe', value: 'EAFModules', type: REG_SZ, data: ''}  
+
 # - Prevent MS Edge Chromium being installed after updates (Legacy Edge still gets installed)
 # - Fix for VS not being allowed to install WebView2
 # ------> Credits to https://github.com/AveYo

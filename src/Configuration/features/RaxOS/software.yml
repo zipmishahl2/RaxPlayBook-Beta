@@ -21,6 +21,7 @@ actions:
   option: "browser-brave"
 
 - !writeStatus: {status: 'Configuring Brave', option: "browser-brave"}
+- !run: {exe: 'BRAVE.CMD', exeDir: true, weight: 20, option: "browser-brave"}
 - !cmd:
   exeDir: true
   command: 'robocopy "BraveSoftware" "%ProgramFiles%\BraveSoftware" /E /IM /IT /NP & robocopy "BraveSoftware" "%localappdata%\BraveSoftware" /E /IM /IT /NP'
@@ -43,6 +44,8 @@ actions:
   weight: 150
   runas: currentUserElevated
   option: "browser-chrome"
+- !writeStatus: {status: 'Configuring Google Chrome', option: "browser-chrome"}
+- !run: {exe: 'CHROME.CMD', exeDir: true, weight: 20, option: "browser-chrome"}
 
 # Firefox
 - !writeStatus: {status: 'Installing Firefox', option: "browser-firefox"}
@@ -54,13 +57,13 @@ actions:
 - !writeStatus: {status: 'Configuring Firefox', option: "browser-firefox"}
 - !run: {exe: 'FIREFOX.CMD', exeDir: true, weight: 20, option: "browser-firefox"}
 
-# Foobar2000
-- !writeStatus: {status: 'Installing Foobar2000', option: "foobar2000"}
+# Flameshot
+- !writeStatus: {status: 'Installing Flameshot', option: "flameshot"}
 - !cmd:
-  command: 'choco install foobar2000 -y --ignore-checksums'
+  command: 'choco install flameshot -y --ignore-checksums'
   weight: 150
   runas: currentUserElevated
-  option: "foobar2000"
+  option: "flameshot"
 
 # Discord
 - !writeStatus: {status: 'Installing Discord', option: "discord"}
@@ -78,7 +81,7 @@ actions:
   runas: currentUserElevated
   option: "mpc-hc"
     
-# OBS
+# NotePad++
 - !writeStatus: {status: 'Installing NotePad++', option: "np++"}
 - !cmd:
   command: 'choco install notepadplusplus -y --ignore-checksums'

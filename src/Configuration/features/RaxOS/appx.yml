@@ -6,20 +6,20 @@ actions:
   
   - !writeStatus: {status: "Removing Appx"}
   - !appx: {name: '*Disney*', type: family}
-  - !appx: {name: '*microsoft.microsoftedge.stable*', type: family, ignoreErrors: true, option: "remove-edge"}
-  - !appx: {name: '*Microsoft.MicrosoftEdge*', type: family, ignoreErrors: true, option: "remove-edge"}
-  - !appx: {name: '*Microsoft.MicrosoftEdgeDevToolsClient*', ignoreErrors: true, type: family, option: "remove-edge"}
-  - !file: {path: "C:\\Windows\\SystemApps\\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe", ignoreErrors: true, option: "remove-edge"}
-  - !appx: {name: '*OneDrive*', type: family, ignoreErrors: true, option: "remove-onedrive"}
+  - !appx: {name: '*microsoft.microsoftedge.stable*', type: family, errorAction: Ignore, option: "remove-edge"}
+  - !appx: {name: '*Microsoft.MicrosoftEdge*', type: family, errorAction: Ignore, option: "remove-edge"}
+  - !appx: {name: '*Microsoft.MicrosoftEdgeDevToolsClient*', errorAction: Ignore, type: family, option: "remove-edge"}
+  - !file: {path: "C:\\Windows\\SystemApps\\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe", errorAction: Ignore, option: "remove-edge"}
+  - !appx: {name: '*OneDrive*', type: family, errorAction: Ignore, option: "remove-onedrive"}
   - !appx: {name: '*Spotify*', type: family}
   - !appx: {name: '*SecureAssessmentBrowser*', type: family}
   - !appx: {name: '*PeopleExperienceHost*', type: family}
   - !appx: {name: '*Microsoft.Windows.Photos*', type: family, option: "remove-uwp-photos"}
-  - !appx: {name: '*Microsoft.WindowsCamera*', type: family}
+  - !appx: {name: '*Microsoft.WindoferrorAction: IgnorewsCamera*', type: family}
   - !powerShell:
     command: 'Get-AppxPackage MicrosoftWindows.Client.WebExperience | Remove-AppxPackage'
     runas: currentUserElevated
-  - !appx: {name: '*MicrosoftWindows.Client.WebExperience*', ignoreErrors: true, type: family, weight: 10}
+  - !appx: {name: '*MicrosoftWindows.Client.WebExperience*', errorAction: Ignore, type: family, weight: 10}
   - !appx: {name: '*Microsoft.WindowsAlarms*', type: family}
   - !appx: {name: '*Microsoft.WindowsMaps*', type: family}
   - !appx: {name: '*Microsoft.MicrosoftStickyNotes*', type: family}
@@ -62,7 +62,7 @@ actions:
   - !appx: {name: 'Microsoft.Advertising*', type: family}
   - !appx: {name: '*MixedReality.Portal*', type: family}  
   - !appx: {name: '*Microsoft.MSPaint*', type: family}
-  - !taskKill: {name: "*teams*", ignoreErrors: true}
+  - !taskKill: {name: "*teams*", errorAction: Ignore}
   - !appx: {name: '*MicrosoftTeams*', type: family}
   - !appx: {name: '*MSTeams*', type: family, weight: 10}
   - !appx: {name: '*DevHome*', type: family}  
